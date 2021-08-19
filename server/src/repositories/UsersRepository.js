@@ -2,26 +2,17 @@ const User = require("../models/User");
 const data = require("../data/USERS.json");
 
 class UsersRepository {
-    constructor() {
+  constructor(user) {
+    this.user = user;
+  }
 
-    }
+  getAllUsers() {}
 
-    getAllUsers() {
+  getUserById() {}
 
-    }
+  createUser() {}
 
-    getUserById() {
-
-    }
-
-    createUser() {
-
-    }
-
-    deleteUser() {
-        
-    }
+  deleteUser() {}
 }
-
 
 module.exports = UsersRepository;
