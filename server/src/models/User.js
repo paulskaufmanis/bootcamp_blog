@@ -1,19 +1,26 @@
 class User {
-    #data;
-    constructor(data) {
-        this.#data = Object.assign({}, data, {
-            dateCreated: this._dateCreated(),
-            // initials: this._initialsCreated(data),
-        })
-    }
+  #data;
+  constructor(data) {
+    this.#data = Object.assign({}, data, {
+      initials: this._getInitials(data),
+      // slug: this._getSlug(data),
+      // dateCreated: this._dateCreated(),
+    });
+  }
 
-    _dateCreated() {
-        
-    }
+  getData() {
+    return this.#data;
+  }
 
-    _initialsCreated(data) {
+  _getSlug(data) {}
 
-    }
+  _dateCreated() {
+    return Date.now();
+  }
+
+  _getInitials({ username }) {
+    return `${username.charAt(0)}`;
+  }
 }
 
 module.exports = User;
