@@ -3,14 +3,11 @@
   
     <p>This home page</p>
 
-
-
       <Posts
       v-for="post in posts"
         :title="post.title"
         :img="post.image"
-        :key="post.title"   
-     
+        :key="post.title"        
         />
  <!-- v-for="post in posts" -->
         <!-- :title="post.title" -->

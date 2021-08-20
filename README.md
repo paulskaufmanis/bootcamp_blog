@@ -16,6 +16,6 @@ body-parser???
 
 frontend: 
 
-npm i -g @vue/cli
+npm i -g @vue/cli ===> kad palaidu npm install, man aizgāja arī npm run serve bet @vue/cli instalēšanas
 
 
