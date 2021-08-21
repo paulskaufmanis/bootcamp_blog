@@ -31,6 +31,8 @@ router.post("/", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     let data = await UsersRepository.addUser({
+      name: req.body.name,
+      surname: req.body.surname,
       username: req.body.username,
       password: hashedPassword,
     });
@@ -49,8 +51,10 @@ router.post("/login", async (req, res) => {
   }
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
+      console.log("Fine");
       res.send("Success!");
     } else {
+      console.log("Not good");
       res.send("Wrong password");
     }
   } catch {
@@ -59,9 +63,8 @@ router.post("/login", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-    await UsersRepository.deleteUser(req.params.id);
-    res.sendStatus(204);
-  });
-  
-  
+  await UsersRepository.deleteUser(req.params.id);
+  res.sendStatus(204);
+});
+
 module.exports = router;
