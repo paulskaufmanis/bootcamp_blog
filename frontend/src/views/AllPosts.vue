@@ -1,27 +1,52 @@
 <template>
+  <div>
     <h1>All posts</h1>
-       <!-- <Posts 
-        v-for="post in posts"
+      <div class="post-wrapper">
+
+       <Posts 
+        v-for="post in posts.slice(0,3)"
         :title="post.title"
-        :img="post.image"
+        :image="post.image"
         :key="post.title"
-        v-on:click="clicker"
-      /> -->
+        
+      />
+      <button @click="getLatestPosts">get all posts in console</button>
+    </div>
+  </div>
 </template>
 
 <script >
 import Posts from '../components/Posts.vue'
+import data from '../data/db.json'
 
 export default{
     component: {Posts},
     data(){
       return{
-        posts: []
-                
+        posts: data,                
       }
+    },
+    
+    methods: {
+      getLatestPosts(){
+        let latestPosts = this.posts
+        .sort((a, b) => a.last_nom > b.last_nom && 1 || -1)
+        .slice(0,3);
+        // console.log(latestPosts)
+
+        for (let i = 0; i < latestPosts.length; i++) {
+          console.log(latestPosts[i].title, latestPosts[i].date)  
+          return latestPosts[i].title  
+        }    
+      }
+      
     }
+    
 }
-
-
 </script>
+<style scoped>
+.post-wrapper{
+  height: fit-content;
+}
+</style>
 
