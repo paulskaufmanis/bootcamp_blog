@@ -1,68 +1,67 @@
 <template>
   <div class="home">
-  
-    <p>This home page</p>
+    <h1>This home page</h1>
+    <div v-for="post in posts" :key="post.title" class="post-wrapper">
+      <div class="post-card" :style="{ backgroundImage: `url(${post.image})` }">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-text">{{ post.text }}</p>
+      </div>
+    </div>
 
-      <Posts
+    <!-- <Posts
       v-for="post in posts"
-        :title="post.title"
-        :img="post.image"
-        :key="post.title"        
-        />
- <!-- v-for="post in posts" -->
-        <!-- :title="post.title" -->
-        <!-- :img="post.image" -->
-        <!-- :key="post.title" -->
-        <!-- @click="clicker" -->
+      :title="post.title"
+      :img="post.image"
+      :key="post.title"
+    /> -->
 
-       <!-- <template v-for="item in items.slice(0, 3)"> -->
-  
+    <!-- v-for="post in posts" -->
+    <!-- :title="post.title" -->
+    <!-- :img="post.image" -->
+    <!-- :key="post.title" -->
+    <!-- @click="clicker" -->
+
+    <!-- <template v-for="item in items.slice(0, 3)"> -->
   </div>
-  
 </template>
 
 <script>
-  import Posts from '../components/Posts.vue'
-
+// import Posts from "../components/Posts.vue";
+import PostService from "../services/PostService.js";
 
 export default {
-
-  name: 'Home',
-  components: {Posts},
-// accept props from imported component
-  data(){
+  name: "Home",
+  // components: { Posts },
+  data() {
     return {
-      options: [
-        {
-        title: "What is Lorem Ipsum?",
-        article: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        date: "01.01.2021",
-        author: "Peter Block",
-        image: "https://i.pinimg.com/originals/17/5c/13/175c1355af4adc478512f2ed7d3d677f.png"
-        },  
-        {
-        title: "What is Lorem Ipsum?",
-        article: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        date: "01.01.2021",
-        author: "Peter Block",
-        image: "https://i.pinimg.com/originals/17/5c/13/175c1355af4adc478512f2ed7d3d677f.png"
-        },  
-        {
-        title: "What is Lorem Ipsum?",
-        article: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        date: "01.01.2021",
-        author: "Peter Block",
-        image: "https://i.pinimg.com/originals/17/5c/13/175c1355af4adc478512f2ed7d3d677f.png"
-        }
-      ]
-    }
+      posts: [],
+    };
   },
   methods: {
-    clicker(){
-      console.log('post clicked')
+    clicker() {
+      console.log("post clicked");
+    },
+  },
+  async created() {
+    try {
+      await PostService.getPosts(this.posts);
+      console.log(this.posts);
+    } catch (err) {
+      console.log(err.message);
     }
-  }
-}
+  },
+};
 </script>
 
-
+<style>
+.post-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.post-card {
+  height: 10rem;
+  width: 40rem;
+  size: fit-content;
+  margin: 1rem;
+}
+</style>

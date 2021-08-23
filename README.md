@@ -1,4 +1,4 @@
-Recomendations
+### Recomendations
 
 ###
 
@@ -12,10 +12,6 @@ npm i cors
 
 body-parser???
 
-### 
+### frontend: 
 
-frontend: 
-
-npm i -g @vue/cli ===> kad palaidu npm install, man aizgāja arī npm run serve bet @vue/cli instalēšanas
-
-
+npm i -g @vue/cli 
