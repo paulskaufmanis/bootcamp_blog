@@ -1,8 +1,14 @@
 <template>
   <div class='header'>
-  <!-- logo -->
-  <!-- navigation -->
+    <!-- logo -->
+    <!-- <div class="header-logo">
+      <img src="../assets/logo.svg" alt="logo" 
+      > -->
+    <!-- navigation -->
     <div id="nav">
+        <router-link to="/">
+              <img src="../assets/logo.svg" alt="logo" >
+        </router-link>
         <router-link to="/">Home</router-link> |
         <router-link to="/all-posts">All posts</router-link>
     </div>
