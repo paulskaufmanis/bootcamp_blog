@@ -9,6 +9,7 @@
       <div class="post-content">
         <h3 class="post-title">{{ post.title }}</h3>
         <p class="post-text">{{ post.text }}</p>
+        <p class="post-date">{{ post.dateCreated }}</p>
       </div>
     </div>
   </div>

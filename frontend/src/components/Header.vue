@@ -1,55 +1,57 @@
 <template>
-  <div class='header'>
+  <div class="header">
     <div class="aside-left">
-          <!-- logo -->
-          <router-link to="/">
-            <img src="../assets/logo.svg" alt="logo">
-          </router-link>
-        <!-- navigation -->
-        <div id="nav">
-          <router-link to="/">Home</router-link> |
-          <router-link to="/all-posts">All posts</router-link>
-        </div>
+      <!-- logo -->
+      <router-link to="/">
+        <img src="../assets/logo.svg" alt="logo" />
+      </router-link>
+      <!-- navigation -->
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/all-posts">All posts</router-link>
       </div>
-    <div class="aside-right">
-    <!-- add blog -->
-      <span class="add">+</span>
-    <!-- login -->
-      <img src="../assets/avatar.png" @click="clicker">
     </div>
-    <Dropdown :options="options" v-if="dropdownState"/>
+    <div class="aside-right">
+      <!-- add blog -->
+      <router-link to="/add-post">
+        <span class="add">+</span>
+      </router-link>
+      <!-- login -->
+      <img src="../assets/avatar.png" @click="clicker" />
+    </div>
+    <Dropdown :options="options" v-if="dropdownState" />
   </div>
 </template>
 
 <script >
-import Dropdown from '../components/Dropdown.vue'
+import Dropdown from "../components/Dropdown.vue";
 
 export default {
-  name: 'Header',
+  name: "Header",
   props: {},
-    data(){
-      return{
-        // pass data in Dropdown component
-        options: [
-          {
-            title: "My posts",
-            url: "my-posts"
-          },
-          {
-            title: "Log in",
-            url: "login"
-          }
-        ],
-        dropdownState: false
-      }
-    },
-  components: {Dropdown},
+  data() {
+    return {
+      // pass data in Dropdown component
+      options: [
+        {
+          title: "My posts",
+          url: "my-posts",
+        },
+        {
+          title: "Log in",
+          url: "login",
+        },
+      ],
+      dropdownState: false,
+    };
+  },
+  components: { Dropdown },
   methods: {
-    clicker(){
-      return this.dropdownState = !this.dropdownState     
-    }
-  }
-}
+    clicker() {
+      return (this.dropdownState = !this.dropdownState);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -57,17 +59,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #DFB6AE;
+  background: #dfb6ae;
   padding: 25px;
-  
 }
 
-.aside-right, .aside-left{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.aside-right,
+.aside-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-.add{
+.add {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,11 +81,13 @@ export default {
   font-weight: bold;
   margin-right: 15px;
   font-size: 35px;
-
 }
 img {
   width: 32px;
   height: 32px;
 }
 
+a {
+  text-decoration: none;
+}
 </style>

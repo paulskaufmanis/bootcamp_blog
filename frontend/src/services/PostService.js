@@ -22,6 +22,7 @@ class PostService {
       .then(console.log(JSON.stringify(post)))
       .then((res) => res.json())
       .then((data) => console.log("Success!", data));
+      console.log();
   }
 
   static deletePost(id, method = "DELETE") {
