@@ -1,19 +1,18 @@
 <template>
   <div class='header'>
-    <!-- logo -->
-    <!-- <div class="header-logo">
-      <img src="../assets/logo.svg" alt="logo" 
-      > -->
-    <!-- navigation -->
-    <div id="nav">
-        <router-link to="/">
-              <img src="../assets/logo.svg" alt="logo" >
-        </router-link>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/all-posts">All posts</router-link>
-    </div>
-  <!-- add blog -->
+    <div class="aside-left">
+          <!-- logo -->
+          <router-link to="/">
+            <img src="../assets/logo.svg" alt="logo">
+          </router-link>
+        <!-- navigation -->
+        <div id="nav">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/all-posts">All posts</router-link>
+        </div>
+      </div>
     <div class="aside-right">
+    <!-- add blog -->
       <span class="add">+</span>
     <!-- login -->
       <img src="../assets/avatar.png" @click="clicker">
@@ -62,8 +61,11 @@ export default {
   padding: 25px;
   
 }
-.aside-right{
+
+.aside-right, .aside-left{
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .add{
   display: flex;
