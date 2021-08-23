@@ -7,7 +7,7 @@
         v-for="post in posts.slice(0,3)"
         :title="post.title"
         :image="post.image"
-        :key="post.title"
+        :key="post.title"       
         
       />
       <button @click="getLatestPosts">get all posts in console</button>
@@ -32,9 +32,8 @@ export default{
         let latestPosts = this.posts
         .sort((a, b) => a.last_nom > b.last_nom && 1 || -1)
         .slice(0,3);
-        // console.log(latestPosts)
-
         for (let i = 0; i < latestPosts.length; i++) {
+          
           console.log(latestPosts[i].title, latestPosts[i].date)  
           return latestPosts[i].title  
         }    
@@ -49,4 +48,3 @@ export default{
   height: fit-content;
 }
 </style>
-
