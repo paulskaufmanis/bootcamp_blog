@@ -25,7 +25,7 @@ class UserService {
     })
       .then(console.log(JSON.stringify(user)))
       .then((res) => res.json())
-      .then((data) => console.log("Success!", data));
+      .then((data) => console.log("User added!", data));
   }
 
   static loginUser(user) {
@@ -38,7 +38,7 @@ class UserService {
     })
       //   .then(console.log(JSON.stringify(user)))
       .then((res) => res)
-      .then((data) => console.log("You passed fetch chain!", data));
+      .then((data) => console.log("You passed a login fetch chain!", data));
   }
 
   static deleteUser(id, method = "DELETE") {

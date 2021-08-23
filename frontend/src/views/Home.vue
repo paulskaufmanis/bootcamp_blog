@@ -1,67 +1,50 @@
 <template>
   <div class="home">
     <h1>This home page</h1>
-    <div v-for="post in posts" :key="post.title" class="post-wrapper">
-      <div class="post-card" :style="{ backgroundImage: `url(${post.image})` }">
-        <h3 class="post-title">{{ post.title }}</h3>
-        <p class="post-text">{{ post.text }}</p>
+    <div class="post-cards">
+      <div v-for="post in getLastThree" :key="post.id" class="post-wrapper">
+        <div
+          class="post-card"
+          :style="{ backgroundImage: `url(${post.image})` }"
+        >
+          <h3 class="post-title">{{ post.title }}</h3>
+        </div>
       </div>
     </div>
-
-    <!-- <Posts
-      v-for="post in posts"
-      :title="post.title"
-      :img="post.image"
-      :key="post.title"
-    /> -->
-
-    <!-- v-for="post in posts" -->
-    <!-- :title="post.title" -->
-    <!-- :img="post.image" -->
-    <!-- :key="post.title" -->
-    <!-- @click="clicker" -->
-
-    <!-- <template v-for="item in items.slice(0, 3)"> -->
   </div>
 </template>
 
 <script>
-// import Posts from "../components/Posts.vue";
-import PostService from "../services/PostService.js";
+import { mapGetters } from "vuex";
 
 export default {
-  name: "Home",
-  // components: { Posts },
-  data() {
-    return {
-      posts: [],
-    };
+  computed: {
+    ...mapGetters(["getLastThree"]),
   },
-  methods: {
-    clicker() {
-      console.log("post clicked");
-    },
-  },
-  async created() {
-    try {
-      await PostService.getPosts(this.posts);
-      console.log(this.posts);
-    } catch (err) {
-      console.log(err.message);
-    }
+  mounted() {
+    this.$store.dispatch("getPosts");
   },
 };
 </script>
 
 <style>
+.post-cards {
+  display: flex;
+  justify-content: center;
+}
+
 .post-wrapper {
   display: flex;
   justify-content: center;
 }
 .post-card {
   height: 10rem;
-  width: 40rem;
+  width: 15rem;
   size: fit-content;
   margin: 1rem;
+}
+
+.post-content {
+  width: 24rem;
 }
 </style>

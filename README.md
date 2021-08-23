@@ -12,6 +12,8 @@ npm i cors
 
 body-parser???
 
-### frontend: 
+### frontend:
 
-npm i -g @vue/cli 
+npm i -g @vue/cli
+
+npm i vuex@next --save
