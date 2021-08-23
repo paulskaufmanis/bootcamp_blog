@@ -76,8 +76,6 @@ export default {
 
 <style>
 .form-container {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   width: 20rem;
   align-items: center;
   background: lightgray;
