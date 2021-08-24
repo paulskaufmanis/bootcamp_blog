@@ -8,7 +8,7 @@
       <!-- navigation -->
       <div id="nav">
         <router-link to="/">Home</router-link> |
-        <router-link to="/all-posts">All posts</router-link>
+        <router-link to="/posts">All posts</router-link>
       </div>
     </div>
     <div class="aside-right">
