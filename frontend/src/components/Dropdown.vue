@@ -27,6 +27,8 @@
         right: 0.5rem;
         width: 20rem;
         background: #FFF;
+        border-radius: 8px;
+        overflow: hidden;
         box-shadow: -2px 3px 5px 0px rgba(0,0,0,0.75);
         -webkit-box-shadow: -2px 3px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: -2px 3px 5px 0px rgba(0,0,0,0.75);
