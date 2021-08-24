@@ -33,10 +33,11 @@ export default {
   justify-content: center;
 }
 .post-card {
-  height: 10rem;
+  /* height: 10rem;
   width: 15rem;
   size: fit-content;
-  margin: 1rem;
+  margin: 1rem; */
+  padding: 20px;
 }
 
 .post-content {
