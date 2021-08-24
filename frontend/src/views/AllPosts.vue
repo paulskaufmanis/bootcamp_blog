@@ -1,26 +1,47 @@
 <template>
   <div>
-    <h1>All posts</h1>
-    <div v-for="post in posts" :key="post.title" class="post-wrapper">
-      <div
-        class="post-card"
-        :style="{ backgroundImage: `url(${post.image})` }"
-      ></div>
-      <div class="post-content">
-        <h3 class="post-title">{{ post.title }}</h3>
-        <p class="post-text">{{ post.text }}</p>
-        <p class="post-date">{{ post.dateCreated }}</p>
+    <div v-if="!$route.params.id">
+      <h1>All posts</h1>
+      <div v-for="post in posts" :key="post.title" class="post-wrapper">
+        <router-view :to="'/posts/' + post.id">
+          <div
+            class="post-card"
+            :style="{ backgroundImage: `url(${post.image})` }"
+            @click="openPost(post.id)"
+          ></div>
+          <div class="post-content">
+            <h3 class="post-title">{{ post.title }}</h3>
+
+            <p class="post-text">{{ post.text }}</p>
+            <p class="post-date">{{ post.dateCreated }}</p>
+          </div>
+        </router-view>
       </div>
+    </div>
+
+    <div v-if="$route.params.id">
+      <Post />
     </div>
   </div>
 </template>
 
 <script >
 import { mapState } from "vuex";
+import Post from "./Post.vue";
 
 export default {
+  methods: {
+    openPost(id) {
+      this.$router.push(`/posts/${id}`);
+    },
+  },
+  components: { Post },
   computed: {
     ...mapState(["posts"]),
+  },
+  findPostbyId() {
+    const post = this.posts.find(({ id }) => this.$route.params.id == id);
+    return JSON.stringify(post);
   },
   mounted() {
     this.$store.dispatch("getPosts");

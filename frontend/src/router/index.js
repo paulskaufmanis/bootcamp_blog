@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import AllPosts from "../views/AllPosts.vue";
 import Login from "../views/Login.vue";
 import AddPost from "../views/AddPost.vue";
+// import Post from "../views/Post.vue";
 
 const routes = [
   {
@@ -11,7 +12,7 @@ const routes = [
     component: Home,
   },
   {
-    path: "/all-posts",
+    path: "/posts/:id?",
     name: "AllPosts",
     component: AllPosts,
   },
