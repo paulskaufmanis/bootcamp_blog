@@ -32,13 +32,18 @@ class UserService {
     fetch(`${url}login`, {
       method: "POST",
       headers: {
+        // check if token, pass to header
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     })
       //   .then(console.log(JSON.stringify(user)))
       .then((res) => res)
-      .then((data) => console.log("You passed a login fetch chain!", data));
+
+      .then((data) => {
+        console.log(this.headers, data);
+        // data is token, store token to local storage
+      });
   }
 
   static deleteUser(id, method = "DELETE") {

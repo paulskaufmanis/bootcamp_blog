@@ -4,6 +4,8 @@ const PostsCtlr = require("../controllers/PostsController");
 const UsersCtlr = require("../controllers/UsersController");
 
 router.use("/posts-management/posts", PostsCtlr);
+router.use("/posts", PostsCtlr);
+router.post("/login", UsersCtlr);
 router.use("/users-management/users", UsersCtlr);
 
 router.use("*", (req, res) => {
