@@ -9,6 +9,10 @@ server.use(cors({ origin: "http://localhost:8080" }));
 
 server.use("/api", apiRouter);
 
+server.get("/posts", apiRouter);
+
+server.post("/login", apiRouter);
+
 server.use("/", function (req, res) {
   res.send("Hey, this is Bootcamp blog server");
 });
