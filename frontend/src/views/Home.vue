@@ -75,7 +75,7 @@ export default {
   width: 24rem;
 }
 
-@media only screen and (max-width: 375px) {
+/* @media only screen and (max-width: 375px) {
   body {
     background-color: lightblue;
   }
@@ -97,5 +97,5 @@ export default {
   body {
     background-color: yellow;
   }
-}
+} */
 </style>
