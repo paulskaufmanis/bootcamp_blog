@@ -1,18 +1,18 @@
 <template>
   <div>
-    <Header />
+    <Header1 />
     <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import Header1 from "./components/Header1.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
 
-  components: { Header, Footer },
+  components: { Header1, Footer },
   data(){
     return{
       mobileView: true,
@@ -28,8 +28,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 #app {
-  /* font-family:'Poppins', sans-serif;
-  font-family:'Open Sans', sans-serif; */
+  /* /* font-family:'Poppins', sans-serif; */
+  font-family:'Open Sans', sans-serif; 
 }
 * {
   margin: 0;
