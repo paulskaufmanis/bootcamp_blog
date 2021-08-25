@@ -9,11 +9,13 @@ export default createStore({
     getLastThree(state) {
       return state.posts.slice(-3).reverse();
     },
+    
   },
   mutations: {
     fillPosts(state, { posts }) {
       state.posts = posts;
     },
+
   },
 
   actions: {

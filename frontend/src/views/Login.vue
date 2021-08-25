@@ -25,15 +25,9 @@ export default {
     async handleData(user) {
       if (this.authType === "Register") {
         await UserService.addUser(user);
-      } else {
-        await UserService.loginUser(user);
-        // this.users.map((existingUser) => {
-        //   if (existingUser.username === user.username) {
-        //     return console.log("Wow, You logged in!");
-        //   } else {
-        //     return console.log("Nice try :D");
-        //   }
-        // });
+      } 
+      else {
+        await UserService.loginUser(user);        
       }
     },
     changeAuthType(type) {

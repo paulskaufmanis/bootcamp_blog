@@ -1,26 +1,26 @@
 <template>
   <div class="header">
-    <div class="aside-left">
-      <!-- logo -->
-      <router-link to="/">
-        <img src="../assets/logo.svg" alt="logo" />
-      </router-link>
-      <!-- navigation -->
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/posts">All posts</router-link>
-      </div>
-    </div>
-    <div class="aside-right">
-      <!-- add blog -->
-      <router-link to="/add-post">
-        <span class="add">+</span>
-      </router-link>
-      <!-- login -->
+    <!-- <div class="hamburger" @click="clickMenu" > -->
+      <img class="hamburger"
+        @click="showMobileMenu"
+        src="../assets/hamburger-icon.png">
+    <!-- </div> -->
+    
+    <router-link class="logo" to="/">team4</router-link>
+
+   <nav class="navigation" id="nav" ref="mobileNavigation">      
+     <router-link class="link link-home" to="/">home</router-link>
+     <router-link class="link link-posts" to="/posts">all posts</router-link>
+     <span class="hidden"></span>
+     <router-link to="/add-post">
+       <button class="add">+</button>
+     </router-link>
+     <button class="avatar">
       <img src="../assets/avatar.png" @click="clicker" />
-    </div>
-    <Dropdown :options="options" v-if="dropdownState" />
+    </button>
+   </nav>
   </div>
+  <Dropdown :options="options" v-if="dropdownState" />
 </template>
 
 <script >
@@ -43,6 +43,10 @@ export default {
         },
       ],
       dropdownState: false,
+      // dropmenuState: false,
+      // mobileMenu: false,
+      // mobileView: false,
+      
     };
   },
   components: { Dropdown },
@@ -50,18 +54,51 @@ export default {
     clicker() {
       return (this.dropdownState = !this.dropdownState);
     },
+  //   clickMenu() {
+  //     return (this.dropmenuState = !this.dropmenuState);
+  //   },
+    showMobileMenu(){
+      console.log('REFS CLICKED', this.$refs.mobileNavigation.style)      
+        return (this.$refs.mobileNavigation.style.display = "block");
+        
+      
+      // if (this.$refs.mobileNavigation.style.display === "block"){
+      //   return (this.$refs.mobileNavigation.style.display = "none");
+      // }
+
+      // let nav = this.$refs.mobileNavigation
+      // return nav.style.display = "block"
+      // return this.navigation = !this.navigation
+      
+      // document.querySelector(".navigation").style.display = "block";+
+      // return (nav.style.display="none" ? 
+      //     nav.style.display="block" : 
+      //     nav.style.display="none");
+
+  // if(nav.style.display === "none"){
+  //     return nav.style.display = "block"
+  // }else{
+  //   return nav.style.display = "none"
+  // }
+
+      // return (this.$refs.mobileNavigation.style.display = "block" ? 
+          // this.$refs.mobileNavigation.style.display = "block" :
+        // this.$refs.mobileNavigation.style.display = "none")
+      
+    },  
+  //     //   hideMobileMenu(){
+  //     //     console.log('pressing hide')
+  //     // return this.$refs.mobileNavigation.style.display = "none";  
+  //     //   }
+ 
   },
 };
 </script>
 
 <style scoped>
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #dfb6ae;
-  padding: 25px;
-}
+/* .header {
+  
+} */
 
 .aside-right,
 .aside-left {
@@ -82,10 +119,11 @@ export default {
   margin-right: 15px;
   font-size: 35px;
 }
-img {
+img{
   width: 32px;
   height: 32px;
 }
+
 
 a {
   text-decoration: none;

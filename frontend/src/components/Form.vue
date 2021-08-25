@@ -1,7 +1,9 @@
 <template>
   <div class="form-container">
     <form v-on:submit.prevent>
+
       <h3>{{ authType }}</h3>
+
       <label v-if="this.authType === 'Register'" for="name">Name:</label>
       <input
         v-if="this.authType === 'Register'"
@@ -9,6 +11,7 @@
         type="text"
         v-model="newUser.name"
       />
+
       <label v-if="this.authType === 'Register'" for="surname">Surname:</label>
       <input
         v-if="this.authType === 'Register'"
@@ -16,16 +19,20 @@
         type="text"
         v-model="newUser.surname"
       />
+
       <label for="email">Email:</label>
       <input name="email" type="email" v-model="newUser.username" />
+
       <label for="password">Password:</label>
       <input name="password" type="password" v-model="newUser.password" />
+      
       <button
         class="submit_btn"
         @click="$emit('handle-data', newUser), clearForm"
       >
         {{ authType }}
       </button>
+      <!-- <span> {{loginError}} </span> -->
     </form>
     <div class="register-link-container" v-if="this.authType === 'Login'">
       <router-link
@@ -58,6 +65,8 @@ export default {
         username: "",
         password: "",
       },
+      //added login error 
+      // loginError: "",
     };
   },
   props: {
