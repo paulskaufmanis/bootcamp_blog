@@ -1,68 +1,101 @@
 <template>
   <div class="home">
-  
-    <p>This home page</p>
-
-      <Posts
-      v-for="post in posts"
-        :title="post.title"
-        :img="post.image"
-        :key="post.title"        
-        />
- <!-- v-for="post in posts" -->
-        <!-- :title="post.title" -->
-        <!-- :img="post.image" -->
-        <!-- :key="post.title" -->
-        <!-- @click="clicker" -->
-
-       <!-- <template v-for="item in items.slice(0, 3)"> -->
-  
+    <h1>This home page</h1>
+    <div v-if="!$route.params.id" class="post-cards">
+      <div v-for="post in getLastThree" :key="post.id" class="post-wrapper">
+        <router-view :to="'/posts/' + post.id">
+          <div
+            class="post-card"
+            :style="{ backgroundImage: `url(${post.image})` }"
+            @click="openPost(post.id)"
+          >
+            <h3 class="post-title">{{ post.title }}</h3>
+          </div>
+        </router-view>
+      </div>
+    </div>
+    <div v-if="$route.params.id">
+      <Post />
+    </div>
   </div>
-  
 </template>
 
 <script>
-  import Posts from '../components/Posts.vue'
-
+import { mapGetters } from "vuex";
+import Post from "./Post.vue";
 
 export default {
-
-  name: 'Home',
-  components: {Posts},
-// accept props from imported component
-  data(){
-    return {
-      options: [
-        {
-        title: "What is Lorem Ipsum?",
-        article: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        date: "01.01.2021",
-        author: "Peter Block",
-        image: "https://i.pinimg.com/originals/17/5c/13/175c1355af4adc478512f2ed7d3d677f.png"
-        },  
-        {
-        title: "What is Lorem Ipsum?",
-        article: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        date: "01.01.2021",
-        author: "Peter Block",
-        image: "https://i.pinimg.com/originals/17/5c/13/175c1355af4adc478512f2ed7d3d677f.png"
-        },  
-        {
-        title: "What is Lorem Ipsum?",
-        article: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        date: "01.01.2021",
-        author: "Peter Block",
-        image: "https://i.pinimg.com/originals/17/5c/13/175c1355af4adc478512f2ed7d3d677f.png"
-        }
-      ]
-    }
-  },
   methods: {
-    clicker(){
-      console.log('post clicked')
-    }
-  }
-}
+    openPost(id) {
+      this.$router.push(`/posts/${id}`);
+    },
+  },
+
+  components: { Post },
+
+  computed: {
+    ...mapGetters(["getLastThree"]),
+  },
+  mounted() {
+    this.$store.dispatch("getPosts");
+  },
+};
 </script>
 
+<style>
+.home {
+  margin-top: 50px;
+}
 
+.post-cards {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.post-wrapper {
+  display: flex;
+  justify-content: center;
+  /* margin:auto; */
+  /* width: 100%; */
+}
+.post-card {
+  height: 10rem;
+  width: 95%;
+  size: fit-content;
+  margin: 1rem;
+
+  border-radius: 8px;
+  padding: 25px;
+  cursor: pointer;
+}
+
+.post-content {
+  width: 24rem;
+}
+
+/* @media only screen and (max-width: 375px) {
+  body {
+    background-color: lightblue;
+  }
+  .post-card {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: green;
+  }
+  .post-card {
+    width: 75%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  body {
+    background-color: yellow;
+  }
+} */
+</style>

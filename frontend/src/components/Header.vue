@@ -1,71 +1,119 @@
 <template>
-  <div class='header'>
-    <!-- logo -->
-    <!-- <div class="header-logo">
-      <img src="../assets/logo.svg" alt="logo" 
-      > -->
-    <!-- navigation -->
-    <div id="nav">
-        <router-link to="/">
-              <img src="../assets/logo.svg" alt="logo" >
+  <div>
+    <div class="header">
+      <!-- <div class="hamburger" @click="clickMenu" > -->
+      <img
+        class="hamburger"
+        @click="showMobileMenu"
+        src="../assets/hamburger-icon.png"
+      />
+      <!-- </div> -->
+
+      <router-link class="logo" to="/">team4</router-link>
+
+      <nav class="navigation" id="nav" ref="mobileNavigation">
+        <router-link class="link link-home" to="/">home</router-link>
+        <router-link class="link link-posts" to="/posts">all posts</router-link>
+        <span class="hidden"></span>
+        <router-link to="/add-post">
+          <button class="add">+</button>
         </router-link>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/all-posts">All posts</router-link>
+        <button class="avatar">
+          <img src="../assets/avatar.png" @click="clicker" />
+        </button>
+      </nav>
     </div>
-  <!-- add blog -->
-    <div class="aside-right">
-      <span class="add">+</span>
-    <!-- login -->
-      <img src="../assets/avatar.png" @click="clicker">
-    </div>
-    <Dropdown :options="options" v-if="dropdownState"/>
+    <Dropdown :options="options" v-if="dropdownState" />
   </div>
 </template>
 
 <script >
-import Dropdown from '../components/Dropdown.vue'
-
+import Dropdown from "../components/Dropdown.vue";
 export default {
-  name: 'Header',
+  name: "Header",
   props: {},
-    data(){
-      return{
-        // pass data in Dropdown component
-        options: [
-          {
-            title: "My posts",
-            url: "my-posts"
-          },
-          {
-            title: "Log in",
-            url: "login"
-          }
-        ],
-        dropdownState: false
-      }
-    },
-  components: {Dropdown},
+  data() {
+    return {
+      // pass data in Dropdown component
+      options: [
+        {
+          title: "My posts",
+          url: "my-posts",
+        },
+        {
+          title: "Log in",
+          url: "login",
+        },
+      ],
+      dropdownState: false,
+      // dropmenuState: false,
+      // mobileMenu: false,
+      // mobileView: false,
+    };
+  },
+  components: { Dropdown },
   methods: {
-    clicker(){
-      return this.dropdownState = !this.dropdownState     
-    }
-  }
-}
+    clicker() {
+      return (this.dropdownState = !this.dropdownState);
+    },
+    //   clickMenu() {
+    //     return (this.dropmenuState = !this.dropmenuState);
+    //   },
+    showMobileMenu() {
+      // console.log("REFS CLICKED", this.$refs.mobileNavigation.style);
+      // if (this.$refs.mobileNavigation.style.display === "") {
+      //   return (this.$refs.mobileNavigation.style.display = "block");
+      // } else if (this.$refs.mobileNavigation.style.display === "block") {
+      //   return (this.$refs.mobileNavigation.style.display = "");
+      // }
+      let nav = this.$refs.mobileNavigation.style;
+      return nav.display === "" ? (nav.display = "block") : (nav.display = "");
+      // if (nav.display === "") {
+      //   return (nav.display = "block");
+      // } else if (nav.display === "block") {
+      //   return (nav.display = "");
+      // }
+      // this.$refs.mobileNavigation.style.display === ""
+      //   ? this.$refs.mobileNavigation.style.display === "block"
+      //   : this.$refs.mobileNavigation.style.display === "";
+      // if (this.$refs.mobileNavigation.style.display === "block"){
+      //   return (this.$refs.mobileNavigation.style.display = "none");
+      // }
+      // let nav = this.$refs.mobileNavigation
+      // return nav.style.display = "block"
+      // return this.navigation = !this.navigation
+      // document.querySelector(".navigation").style.display = "block";+
+      // return (nav.style.display="none" ?
+      //     nav.style.display="block" :
+      //     nav.style.display="none");
+      // if(nav.style.display === "none"){
+      //     return nav.style.display = "block"
+      // }else{
+      //   return nav.style.display = "none"
+      // }
+      // return (this.$refs.mobileNavigation.style.display = "block" ?
+      // this.$refs.mobileNavigation.style.display = "block" :
+      // this.$refs.mobileNavigation.style.display = "none")
+    },
+    //     //   hideMobileMenu(){
+    //     //     console.log('pressing hide')
+    //     // return this.$refs.mobileNavigation.style.display = "none";
+    //     //   }
+  },
+};
 </script>
 
 <style scoped>
-.header {
+/* .header {
+  
+} */
+.aside-right,
+.aside-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: #DFB6AE;
-  padding: 25px;
-  
+  justify-content: flex-end;
 }
-.aside-right{
-    display: flex;
-}
-.add{
+.add {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,11 +125,12 @@ export default {
   font-weight: bold;
   margin-right: 15px;
   font-size: 35px;
-
 }
 img {
   width: 32px;
   height: 32px;
 }
-
+a {
+  text-decoration: none;
+}
 </style>

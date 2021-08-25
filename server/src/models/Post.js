@@ -2,9 +2,9 @@ class Post {
   #data;
   constructor(data) {
     this.#data = Object.assign({}, data, {
-      username: this._getUsername(data),
+      // username: this._getUsername(data),
       // slug: this._getSlug(data),
-      // dateCreated: this._dateCreated(),
+      dateCreated: this._dateCreated(),
     });
   }
 
@@ -15,7 +15,8 @@ class Post {
   _getSlug(data) {}
 
   _dateCreated() {
-    return Date.now();
+    const d = new Date();
+    return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
   }
 
   _getUsername({ id, created_by }) {

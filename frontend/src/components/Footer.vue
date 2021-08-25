@@ -21,7 +21,7 @@
         justify-content: center;
         background: #DFB6AE;
         padding: 25px;
-        position: absolute;
+        /* position: absolute; */
         width: 100vw;
         bottom: 0;
         right: 0.5rem;

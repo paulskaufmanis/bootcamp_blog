@@ -1,50 +1,67 @@
 <template>
   <div>
-    <h1>All posts</h1>
-      <div class="post-wrapper">
+    <div v-if="!$route.params.id">
+      <h1>All posts</h1>
+      <div v-for="post in posts" :key="post.title" class="post-wrapper">
+        <router-view :to="'/posts/' + post.id">
+          <div
+            class="post-card"
+            :style="{ backgroundImage: `url(${post.image})` }"
+            @click="openPost(post.id)"
+          ></div>
+          <div class="post-content">
+            <h3 class="post-title">{{ post.title }}</h3>
 
-       <Posts 
-        v-for="post in posts.slice(0,3)"
-        :title="post.title"
-        :image="post.image"
-        :key="post.title"       
-        
-      />
-      <button @click="getLatestPosts">get all posts in console</button>
+            <p class="post-text">{{ post.text }}</p>
+            <p class="post-date">{{ post.dateCreated }}</p>
+          </div>
+        </router-view>
+      </div>
+    </div>
+
+    <div v-if="$route.params.id">
+      <Post />
     </div>
   </div>
 </template>
 
 <script >
-import Posts from '../components/Posts.vue'
-import data from '../data/db.json'
+import { mapState } from "vuex";
+import Post from "./Post.vue";
 
-export default{
-    component: {Posts},
-    data(){
-      return{
-        posts: data,                
-      }
+export default {
+  methods: {
+    openPost(id) {
+      this.$router.push(`/posts/${id}`);
     },
-    
-    methods: {
-      getLatestPosts(){
-        let latestPosts = this.posts
-        .sort((a, b) => a.last_nom > b.last_nom && 1 || -1)
-        .slice(0,3);
-        for (let i = 0; i < latestPosts.length; i++) {
-          
-          console.log(latestPosts[i].title, latestPosts[i].date)  
-          return latestPosts[i].title  
-        }    
-      }
-      
-    }
-    
-}
+  },
+  components: { Post },
+  computed: {
+    ...mapState(["posts"]),
+  },
+  findPostbyId() {
+    const post = this.posts.find(({ id }) => this.$route.params.id == id);
+    return JSON.stringify(post);
+  },
+  mounted() {
+    this.$store.dispatch("getPosts");
+  },
+};
 </script>
 <style scoped>
-.post-wrapper{
-  height: fit-content;
+.post-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.post-card {
+  /* height: 10rem;
+  width: 15rem;
+  size: fit-content;
+  margin: 1rem; */
+  padding: 20px;
+}
+
+.post-content {
+  width: 24rem;
 }
 </style>

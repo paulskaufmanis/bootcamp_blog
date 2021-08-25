@@ -18,8 +18,8 @@ class User {
     return Date.now();
   }
 
-  _getInitials({ username }) {
-    return `${username.charAt(0)}`;
+  _getInitials({ name, surname }) {
+    return `${name.charAt(0)}${surname.charAt(0)}`;
   }
 }
 
