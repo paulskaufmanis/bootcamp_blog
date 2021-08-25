@@ -1,26 +1,30 @@
 <template>
-  <div class="header">
-    <!-- <div class="hamburger" @click="clickMenu" > -->
-      <img class="hamburger"
+  <div>
+    <div class="header">
+      <!-- <div class="hamburger" @click="clickMenu" > -->
+      <img
+        class="hamburger"
         @click="showMobileMenu"
-        src="../assets/hamburger-icon.png">
-    <!-- </div> -->
-    
-    <router-link class="logo" to="/">team4</router-link>
+        src="../assets/hamburger-icon.png"
+      />
+      <!-- </div> -->
 
-   <nav class="navigation" id="nav" ref="mobileNavigation">      
-     <router-link class="link link-home" to="/">home</router-link>
-     <router-link class="link link-posts" to="/posts">all posts</router-link>
-     <span class="hidden"></span>
-     <router-link to="/add-post">
-       <button class="add">+</button>
-     </router-link>
-     <button class="avatar">
-      <img src="../assets/avatar.png" @click="clicker" />
-    </button>
-   </nav>
+      <router-link class="logo" to="/">team4</router-link>
+
+      <nav class="navigation" id="nav" ref="mobileNavigation">
+        <router-link class="link link-home" to="/">home</router-link>
+        <router-link class="link link-posts" to="/posts">all posts</router-link>
+        <span class="hidden"></span>
+        <router-link to="/add-post">
+          <button class="add">+</button>
+        </router-link>
+        <button class="avatar">
+          <img src="../assets/avatar.png" @click="clicker" />
+        </button>
+      </nav>
+    </div>
+    <Dropdown :options="options" v-if="dropdownState" />
   </div>
-  <Dropdown :options="options" v-if="dropdownState" />
 </template>
 
 <script >
@@ -46,7 +50,6 @@ export default {
       // dropmenuState: false,
       // mobileMenu: false,
       // mobileView: false,
-      
     };
   },
   components: { Dropdown },
@@ -54,14 +57,29 @@ export default {
     clicker() {
       return (this.dropdownState = !this.dropdownState);
     },
-  //   clickMenu() {
-  //     return (this.dropmenuState = !this.dropmenuState);
-  //   },
-    showMobileMenu(){
-      console.log('REFS CLICKED', this.$refs.mobileNavigation.style)      
-        return (this.$refs.mobileNavigation.style.display = "block");
-        
-      
+    //   clickMenu() {
+    //     return (this.dropmenuState = !this.dropmenuState);
+    //   },
+    showMobileMenu() {
+      // console.log("REFS CLICKED", this.$refs.mobileNavigation.style);
+      // if (this.$refs.mobileNavigation.style.display === "") {
+      //   return (this.$refs.mobileNavigation.style.display = "block");
+      // } else if (this.$refs.mobileNavigation.style.display === "block") {
+      //   return (this.$refs.mobileNavigation.style.display = "");
+      // }
+
+      let nav = this.$refs.mobileNavigation.style;
+      return nav.display === "" ? (nav.display = "block") : (nav.display = "");
+
+      // if (nav.display === "") {
+      //   return (nav.display = "block");
+      // } else if (nav.display === "block") {
+      //   return (nav.display = "");
+      // }
+
+      // this.$refs.mobileNavigation.style.display === ""
+      //   ? this.$refs.mobileNavigation.style.display === "block"
+      //   : this.$refs.mobileNavigation.style.display === "";
       // if (this.$refs.mobileNavigation.style.display === "block"){
       //   return (this.$refs.mobileNavigation.style.display = "none");
       // }
@@ -69,28 +87,26 @@ export default {
       // let nav = this.$refs.mobileNavigation
       // return nav.style.display = "block"
       // return this.navigation = !this.navigation
-      
+
       // document.querySelector(".navigation").style.display = "block";+
-      // return (nav.style.display="none" ? 
-      //     nav.style.display="block" : 
+      // return (nav.style.display="none" ?
+      //     nav.style.display="block" :
       //     nav.style.display="none");
 
-  // if(nav.style.display === "none"){
-  //     return nav.style.display = "block"
-  // }else{
-  //   return nav.style.display = "none"
-  // }
+      // if(nav.style.display === "none"){
+      //     return nav.style.display = "block"
+      // }else{
+      //   return nav.style.display = "none"
+      // }
 
-      // return (this.$refs.mobileNavigation.style.display = "block" ? 
-          // this.$refs.mobileNavigation.style.display = "block" :
-        // this.$refs.mobileNavigation.style.display = "none")
-      
-    },  
-  //     //   hideMobileMenu(){
-  //     //     console.log('pressing hide')
-  //     // return this.$refs.mobileNavigation.style.display = "none";  
-  //     //   }
- 
+      // return (this.$refs.mobileNavigation.style.display = "block" ?
+      // this.$refs.mobileNavigation.style.display = "block" :
+      // this.$refs.mobileNavigation.style.display = "none")
+    },
+    //     //   hideMobileMenu(){
+    //     //     console.log('pressing hide')
+    //     // return this.$refs.mobileNavigation.style.display = "none";
+    //     //   }
   },
 };
 </script>
@@ -119,11 +135,10 @@ export default {
   margin-right: 15px;
   font-size: 35px;
 }
-img{
+img {
   width: 32px;
   height: 32px;
 }
-
 
 a {
   text-decoration: none;
