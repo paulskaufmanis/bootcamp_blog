@@ -8,14 +8,14 @@
 
       <div class="navigation" id="nav" ref="mobileNavigation">
         <ul class="list-wrapper">
-          <li><router-link class="link link-home" to="/">home</router-link></li>
-          <li><router-link class="link link-posts" to="/posts">all posts</router-link></li>
+          <li ><router-link @click="showAvatarMenu" class="link link-home" to="/" >home</router-link></li>
+          <li ><router-link @click="showAvatarMenu" class="link link-posts" to="/posts" >all posts</router-link></li>
           <li class="hidden"><span></span></li>
-          <li><router-link to="/add-post"><button class="add">+</button></router-link></li>
+          <li ><router-link to="/add-post"><button class="add">+</button></router-link></li>
           <li><button class="avatar"><img src="../assets/avatar.png" @click="showAvatarMenu" /></button></li>
           <div class="drop-down" ref="avatarClick">
-            <li class="drd"><router-link class="link link-login" to="/posts">Login / Register</router-link></li>
-            <li class="drd"><router-link class="link link-myPosts" to="/posts">My Posts</router-link></li>
+            <li class="drd"><router-link class="link link-login" to="/login">Login / Register</router-link></li>
+            <li class="drd"><router-link class="link link-myPosts" to="/my-posts">My Posts</router-link></li>
           </div>
         </ul>
       </div>
@@ -48,6 +48,7 @@ export default {
     };
   },
   // components: { Dropdown },
+  
   methods: {
     // clicker() {
     //   return (this.dropdownState = !this.dropdownState);
@@ -68,10 +69,9 @@ export default {
       console.log('feeling avatar click')
       return avatarDropDown.display === "" ? (avatarDropDown.display = "block") : (avatarDropDown.display = ""); 
     },
-    //     //   hideMobileMenu(){
-    //     //     console.log('pressing hide')
-    //     // return this.$refs.mobileNavigation.style.display = "none";
-    //     //   }
+    // closeBurgerMenu(){
+
+    // }
   },
 };
 </script>
@@ -88,7 +88,7 @@ body {
 
 }
 .hamburger{
-    display: block;
+    display: none;
     height: 32px;
     width: 32px; 
     /* color: white; */
@@ -120,8 +120,10 @@ body {
   border-radius: 6px;
   border: 1px solid black;
 }
+
 .hidden {
   flex:1;
+  border: none;
 }
 .drop-down{
   display: none;
@@ -176,6 +178,14 @@ body {
   }
   .header-wrapper{
     justify-content: space-between;
+  }
+  .drop-down{
+    display: block;
+    top: 41vh;
+    left: 0;
+    text-align: bottom;    
+    width: 100%;
+    box-shadow: 0 0 0 0;
   }
 
 }
