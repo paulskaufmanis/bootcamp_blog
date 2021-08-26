@@ -107,9 +107,10 @@ export default {
 <style>
 .header-wrapper{
     display: flex;
+      position: relative;
+
 }
 header {
-  position: relative;
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 99;

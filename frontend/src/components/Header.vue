@@ -59,47 +59,12 @@ export default {
     //   clickMenu() {
     //     return (this.dropmenuState = !this.dropmenuState);
     //   },
-    showMobileMenu() {
-      // console.log("REFS CLICKED", this.$refs.mobileNavigation.style);
-      // if (this.$refs.mobileNavigation.style.display === "") {
-      //   return (this.$refs.mobileNavigation.style.display = "block");
-      // } else if (this.$refs.mobileNavigation.style.display === "block") {
-      //   return (this.$refs.mobileNavigation.style.display = "");
-      // }
 
+    showMobileMenu() {
       let nav = this.$refs.mobileNavigation.style;
       return nav.display === "" ? (nav.display = "block") : (nav.display = "");
+   
 
-      // if (nav.display === "") {
-      //   return (nav.display = "block");
-      // } else if (nav.display === "block") {
-      //   return (nav.display = "");
-      // }
-
-      // this.$refs.mobileNavigation.style.display === ""
-      //   ? this.$refs.mobileNavigation.style.display === "block"
-      //   : this.$refs.mobileNavigation.style.display === "";
-      // if (this.$refs.mobileNavigation.style.display === "block"){
-      //   return (this.$refs.mobileNavigation.style.display = "none");
-      // }
-      // let nav = this.$refs.mobileNavigation
-      // return nav.style.display = "block"
-      // return this.navigation = !this.navigation
-
-      // document.querySelector(".navigation").style.display = "block";+
-      // return (nav.style.display="none" ?
-      //     nav.style.display="block" :
-      //     nav.style.display="none");
-
-      // if(nav.style.display === "none"){
-      //     return nav.style.display = "block"
-      // }else{
-      //   return nav.style.display = "none"
-      // }
-
-      // return (this.$refs.mobileNavigation.style.display = "block" ?
-      // this.$refs.mobileNavigation.style.display = "block" :
-      // this.$refs.mobileNavigation.style.display = "none")
     },
     //     //   hideMobileMenu(){
     //     //     console.log('pressing hide')
@@ -136,7 +101,6 @@ img {
   width: 32px;
   height: 32px;
 }
-
 a {
   text-decoration: none;
 }

@@ -1,19 +1,19 @@
 <template>
   <div>
-    <Header1 />
+    <Header />
     <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
-import Header1 from "./components/Header1.vue";
+import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
 
 
-  components: { Header1, Footer },
+  components: { Header, Footer },
   data(){
     return{
 
@@ -29,7 +29,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 #app {
 
-  /* /* font-family:'Poppins', sans-serif; */
+  font-family:'Poppins', sans-serif;
   font-family:'Open Sans', sans-serif; 
 
 }
