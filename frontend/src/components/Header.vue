@@ -29,7 +29,6 @@
 
 <script >
 import Dropdown from "../components/Dropdown.vue";
-
 export default {
   name: "Header",
   props: {},
@@ -83,7 +82,6 @@ export default {
       // if (this.$refs.mobileNavigation.style.display === "block"){
       //   return (this.$refs.mobileNavigation.style.display = "none");
       // }
-
       // let nav = this.$refs.mobileNavigation
       // return nav.style.display = "block"
       // return this.navigation = !this.navigation
@@ -115,7 +113,6 @@ export default {
 /* .header {
   
 } */
-
 .aside-right,
 .aside-left {
   display: flex;
