@@ -26,11 +26,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// router.delete("/:id", async (req, res) => {
-//   await UsersRepository.deleteUser(req.params.id);
-//   res.sendStatus(204);
-// });
-
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -44,6 +39,7 @@ function authenticateToken(req, res, next) {
   });
 }
 
+// Register new user
 router.post("/", async (req, res) => {
   if (await UsersRepository.findUser(req.body.username)) {
     return console.log("User exists");
@@ -64,6 +60,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Login
 let refreshTokens = [];
 
 router.post("/login", async (req, res) => {
@@ -83,10 +80,13 @@ router.post("/login", async (req, res) => {
 
       refreshTokens.push(refreshToken);
       res.json({ accessToken: accessToken, refreshToken: refreshToken });
+      
+      
+      // res.send data to frontend 
 
-      //token here
-      //
-      // res.send("Success!"); // send token
+
+
+      
     } else {
       console.log("Wrong password");
       res.send("Wrong password");

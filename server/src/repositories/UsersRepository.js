@@ -1,14 +1,14 @@
 const User = require("../models/User");
-const receivedData = require("../data/Users.json");
+const fileData = require("../data/Users.json");
+const DbStorage = require("../data/db");
 const bcrypt = require("bcrypt");
 
 class UsersRepository {
-  data = [];
+  // data = [];
 
   constructor() {
-    receivedData.forEach((item) => {
-      this.data.push(item);
-    });
+    this.data = fileData;
+    // this.data = new DbStorage("users");
   }
 
   getAllUsers() {
