@@ -88,7 +88,7 @@ body {
 
 }
 .hamburger{
-    display: block;
+    display: none;
     height: 32px;
     width: 32px; 
     /* color: white; */
