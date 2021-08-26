@@ -41,7 +41,7 @@ class UserService {
       .then((res) => res)
 
       .then((data) => {
-        console.log(this.headers, data);
+        console.log(data.body, data.headers);
         // data is token, store token to local storage
       });
   }

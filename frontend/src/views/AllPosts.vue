@@ -27,7 +27,7 @@
 
 <script >
 import { mapState } from "vuex";
-import Post from "./Post.vue";
+import Post from "../components/Post.vue";
 
 export default {
   methods: {

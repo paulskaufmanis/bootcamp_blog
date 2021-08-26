@@ -25,9 +25,8 @@ export default {
     async handleData(user) {
       if (this.authType === "Register") {
         await UserService.addUser(user);
-      } 
-      else {
-        await UserService.loginUser(user);        
+      } else {
+        await UserService.loginUser(user);
       }
     },
     changeAuthType(type) {
@@ -41,11 +40,6 @@ export default {
       }
     },
   },
-  watch: {
-    $route(to, from) {
-      console.log(to, from);
-    },
-  },
   async created() {
     try {
       await UserService.getUsers(this.users);
@@ -55,9 +49,6 @@ export default {
     }
     this.navUrl = this.$router.currentRoute._value.href;
     this.authSwitcher();
-  },
-  mounted() {
-    console.log(this.$router);
   },
 };
 </script>
