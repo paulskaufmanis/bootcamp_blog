@@ -1,38 +1,29 @@
 <template>
   <div class="form-container">
     <form v-on:submit.prevent>
-
       <h3>{{ authType }}</h3>
 
-      <label v-if="this.authType === 'Register'" for="name">Name:</label>
-      <input
-        v-if="this.authType === 'Register'"
-        name="name"
-        type="text"
-        v-model="newUser.name"
-      />
+      <div v-if="this.authType === 'Register'" class="reg-fields">
+        <label for="name">Name:</label>
+        <input name="name" type="text" v-model="newUser.name" />
 
-      <label v-if="this.authType === 'Register'" for="surname">Surname:</label>
-      <input
-        v-if="this.authType === 'Register'"
-        name="surname"
-        type="text"
-        v-model="newUser.surname"
-      />
-
+        <label for="surname">Surname:</label>
+        <input name="surname" type="text" v-model="newUser.surname" />
+      </div>
       <label for="email">Email:</label>
       <input name="email" type="email" v-model="newUser.username" />
 
       <label for="password">Password:</label>
       <input name="password" type="password" v-model="newUser.password" />
-      
-      <button
-        class="submit_btn"
-        @click="$emit('handle-data', newUser), clearForm"
-      >
+
+      <button class="submit_btn" @click="sendData">
         {{ authType }}
       </button>
-      <!-- <span> {{loginError}} </span> -->
+      <div v-if="this.authType === 'Register'">
+        <div v-for="(error, index) in errors" :key="index">
+          {{ error }}
+        </div>
+      </div>
     </form>
     <div class="register-link-container" v-if="this.authType === 'Login'">
       <router-link
@@ -65,7 +56,8 @@ export default {
         username: "",
         password: "",
       },
-      //added login error 
+      errors: [],
+      //added login error
       // loginError: "",
     };
   },
@@ -73,11 +65,26 @@ export default {
     authType: String,
   },
   methods: {
-    clearForm() {
-      this.newUser.name = "";
-      this.newUser.surname = "";
-      this.newUser.username = "";
-      this.newUser.password = "";
+    sendData() {
+      this.errors = [];
+      if (this.newUser.password.length < 6) {
+        this.errors.push("- Password too short. Minimum 6 characters \n");
+      }
+
+      if (!/\d/.test(this.newUser.password)) {
+        this.errors.push("- Password must contain a number \n");
+      }
+
+      if (!/[a-z]/.test(this.newUser.password)) {
+        this.errors.push("- Password must contain a letter \n");
+      }
+      console.log(this.errors);
+
+      if (this.errors.length > 0) return;
+
+      this.$emit("handle-data", this.newUser);
+
+      // this.$router.push("/");
     },
   },
 };
@@ -93,7 +100,8 @@ export default {
   border-radius: 0.5rem;
 }
 
-form {
+form,
+.reg-fields {
   display: flex;
   flex-direction: column;
   align-items: center;

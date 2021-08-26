@@ -22,7 +22,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Post from "./Post.vue";
+import Post from "../components/Post.vue";
 
 export default {
   methods: {

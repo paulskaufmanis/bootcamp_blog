@@ -45,6 +45,9 @@ function authenticateToken(req, res, next) {
 }
 
 router.post("/", async (req, res) => {
+  if (await UsersRepository.findUser(req.body.username)) {
+    return console.log("User exists");
+  }
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     let data = await UsersRepository.addUser({
