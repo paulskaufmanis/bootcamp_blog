@@ -1,24 +1,25 @@
 <template>
     <div class="header-wrapper">
       <router-link class="logo" to="/">team4</router-link>
-      <img
-        class="hamburger" @click="showMobileMenu"
-        src="../assets/hamburger-icon.png"
-      />
+      
 
-      <div class="navigation" id="nav" ref="mobileNavigation">
+      <div class="navigation" id="nav" @click="showMobileMenu" ref="mobileNavigation">
         <ul class="list-wrapper">
-          <li ><router-link @click="showAvatarMenu" class="link link-home" to="/" >home</router-link></li>
-          <li ><router-link @click="showAvatarMenu" class="link link-posts" to="/posts" >all posts</router-link></li>
+          <li ><div class="home-icon"></div><router-link class="link link-home" to="/" >home</router-link></li>
+          <li ><router-link class="link link-posts" to="/posts" >all posts</router-link></li>
           <li class="hidden"><span></span></li>
           <li ><router-link to="/add-post"><button class="add">+</button></router-link></li>
-          <li><button class="avatar"><img src="../assets/avatar.png" @click="showAvatarMenu" /></button></li>
+          <li><button class="avatar"><img src="../assets/avatar.png" /></button></li>
           <div class="drop-down" ref="avatarClick">
             <li class="drd"><router-link class="link link-login" to="/login">Login / Register</router-link></li>
             <li class="drd"><router-link class="link link-myPosts" to="/my-posts">My Posts</router-link></li>
           </div>
         </ul>
       </div>
+      <img
+        class="hamburger" @click="showAvatarMenu"
+        src="../assets/hamburger-icon.png"
+      />
     </div>
     <!-- <Dropdown :options="options" v-if="dropdownState" /> -->
 </template>
@@ -59,7 +60,7 @@ export default {
 
     showMobileMenu() {
       let nav = this.$refs.mobileNavigation.style;
-            console.log('feeling avatar click')
+      console.log('feeling burger menu click')      
 
       return nav.display === "" ? (nav.display = "block") : (nav.display = "");   
 
@@ -67,6 +68,7 @@ export default {
     showAvatarMenu(){
       let avatarDropDown = this.$refs.avatarClick.style;
       console.log('feeling avatar click')
+      
       return avatarDropDown.display === "" ? (avatarDropDown.display = "block") : (avatarDropDown.display = ""); 
     },
     // closeBurgerMenu(){
@@ -178,6 +180,16 @@ body {
   }
   .header-wrapper{
     justify-content: space-between;
+  }
+  li {
+    display: flex;
+  }
+  .home-icon {
+    background-image: url("https://images.unsplash.com/photo-1525971226737-a341ed2f6295?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+    width: 25px;
+    height: 25px;
+    background-size:cover;
+    margin-right: 10px;
   }
   .drop-down{
     display: block;

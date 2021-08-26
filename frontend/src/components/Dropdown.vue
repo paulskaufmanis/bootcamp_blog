@@ -35,6 +35,8 @@
         z-index: 1;
     }
     ul {
+        display: flex;
+        flex-direction: column;
         list-style: none;
         line-height: 2rem;
         margin: 0;

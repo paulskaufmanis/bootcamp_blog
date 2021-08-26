@@ -5,7 +5,7 @@
         </div>
       <header>
     
-    <nav>
+    <nav class="navigation-wrapper">
       <ul v-show="!mobile" class="navigation">
         <li><router-link class="link link-home" to="/">home</router-link></li>
         <li>          <router-link class="link link-posts" to="/posts"
@@ -22,39 +22,30 @@
           </button>
         </li>
       </ul>
+          <Dropdown :options="options" v-if="dropdownState" />
+
       
       <transition name="mobile-nav">
-        <ul v-show="mobileNav" class="dropdown-nav">
-          <li><router-link class="link link-home" to="/">home</router-link></li>
-          <li>
-            <router-link class="link link-posts" to="/posts"
-              >all posts</router-link
-            >
-          </li>
-          <li>
-            <router-link to="/add-post"
-              ><button class="add">+</button></router-link
-            >
-          </li>
-          <li>
-            <button>
-              <img class="avatar" src="../assets/avatar.png" @click="clicker" />
-            </button>
-          </li>
+        <ul v-show="mobileNav" class="dropdown-nav">        
+          
+           <li v-for="option in options" :key="option.title">
+                <a :href="option.url">{{option.title}}</a>
+            </li>
+          
         </ul>
       </transition>
     </nav>
     
-    <Dropdown :options="options" v-if="dropdownState" />
+    <!-- <Dropdown :options="options" v-if="dropdownState" /> -->
   </header>
   <div class="icon">
-        <img
-          v-show="mobile"
-          @click="toggleMobileNav"
-          src="../assets/hamburger-icon.png"
-          :class="{ 'icon-active': mobileNav }"
-        />
-    </div>
+      <img
+        v-show="mobile"
+        @click="toggleMobileNav"
+        src="../assets/hamburger-icon.png"
+        :class="{ 'icon-active': mobileNav }"
+      />
+  </div>
     </div>
 </template>
 
@@ -68,6 +59,9 @@ export default {
     return {
       // pass data in Dropdown component
       options: [
+        { title: "Home", url: "/" },
+        { title: "All posts", url: "posts" },
+        { title: "Add post", url: "add-post" },
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
       ],
@@ -83,7 +77,11 @@ export default {
   },
   methods: {
     clicker() {
-      return (this.dropdownState = !this.dropdownState);
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth <= 375) {
+        this.dropdownState = false;
+        return;
+      }
     },
 
     toggleMobileNav() {
@@ -107,13 +105,14 @@ export default {
 <style>
 .header-wrapper{
     display: flex;
-      position: relative;
+    align-items: flex-start;
+    position: relative;
 
 }
 header {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 99;
+  background-color: gray;
+  /* z-index: 99; */
   width: 100%;
   /* position: fixed; */
   /* transition: .5s ease all; */
@@ -124,14 +123,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5%;
   
 }
-nav {
-  /* position: relative; */
+.navigation-wrapper {
+  position: absolute;
   display: flex;
   padding: 12px 0;
   transition: 0.5s ease all;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   @media (min-width: 1140px) {
     max-width: 1140px;
@@ -139,6 +139,8 @@ nav {
 }
 ul,
 .link {
+  display: flex;
+  flex:1;
   color: white;
   list-style: none;
   text-decoration: none;
@@ -166,7 +168,7 @@ button {
   display: flex;
   align-items: center;
   position: absolute;
-  top: 35px;
+  top: 15px;
   right: 25px;
   z-index: 99;
 }
@@ -189,17 +191,21 @@ button {
 
 .dropdown-nav {
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  top: 30;
-  left: 0;
+  /* background-color: #fff; */
+  background-color: green;
+  /* padding-left: 20px; */
+
+  top: 30px;
 }
 
 .dropdown-nav > li {
   margin-left: 0;
   padding: 15px;
+  color: black;
 }
 
 .dropdown-nav > li a {
@@ -237,7 +243,11 @@ a {
 } */
 @media (max-width: 375px) {
   header {
-    padding: 35px;
+    padding: 0;
+    margin-top: 35px;
+  }
+  .branding{
+    position: absolute;
   }
 }
 </style>
