@@ -55,7 +55,7 @@ export default {
 .posts {
   flex-direction: column;
   background-color: rgba(192, 192, 192, 0.8);
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   margin: 2rem 0;
 }
 
@@ -66,7 +66,7 @@ export default {
   max-width: 19rem;
   margin: 2rem;
   cursor: pointer;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   /* opacity: 0.8; */
 }
 
@@ -79,7 +79,7 @@ export default {
   justify-content: center;
   align-items: flex-end;
   width: 19rem;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   size: fit-content;
   background-size: cover;
 }
