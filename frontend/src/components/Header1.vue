@@ -1,9 +1,9 @@
 <template>
     <div class="header-wrapper">
-    <div class="branding">
-      <router-link class="logo" to="/">team4</router-link>
-    </div>
-  <header>
+        <div class="branding">
+          <router-link class="logo" to="/">team4</router-link>
+        </div>
+      <header>
     
     <nav>
       <ul v-show="!mobile" class="navigation">

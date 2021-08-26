@@ -1,70 +1,72 @@
 <template>
-  <div>
-    <div class="header">
-      <!-- <div class="hamburger" @click="clickMenu" > -->
+    <div class="header-wrapper">
+      <router-link class="logo" to="/">team4</router-link>
       <img
-        class="hamburger"
-        @click="showMobileMenu"
+        class="hamburger" @click="showMobileMenu"
         src="../assets/hamburger-icon.png"
       />
-      <!-- </div> -->
 
-      <router-link class="logo" to="/">team4</router-link>
-
-      <nav class="navigation" id="nav" ref="mobileNavigation">
-        <router-link class="link link-home" to="/">home</router-link>
-        <router-link class="link link-posts" to="/posts">all posts</router-link>
-        <span class="hidden"></span>
-        <router-link to="/add-post">
-          <button class="add">+</button>
-        </router-link>
-        <button class="avatar">
-          <img src="../assets/avatar.png" @click="clicker" />
-        </button>
-      </nav>
+      <div class="navigation" id="nav" ref="mobileNavigation">
+        <ul class="list-wrapper">
+          <li><router-link class="link link-home" to="/">home</router-link></li>
+          <li><router-link class="link link-posts" to="/posts">all posts</router-link></li>
+          <li class="hidden"><span></span></li>
+          <li><router-link to="/add-post"><button class="add">+</button></router-link></li>
+          <li><button class="avatar"><img src="../assets/avatar.png" @click="showAvatarMenu" /></button></li>
+          <div class="drop-down" ref="avatarClick">
+            <li class="drd"><router-link class="link link-login" to="/posts">Login / Register</router-link></li>
+            <li class="drd"><router-link class="link link-myPosts" to="/posts">My Posts</router-link></li>
+          </div>
+        </ul>
+      </div>
     </div>
-    <Dropdown :options="options" v-if="dropdownState" />
-  </div>
+    <!-- <Dropdown :options="options" v-if="dropdownState" /> -->
 </template>
 
 <script >
-import Dropdown from "../components/Dropdown.vue";
+// import Dropdown from "../components/Dropdown.vue";
 export default {
   name: "Header",
   props: {},
   data() {
     return {
       // pass data in Dropdown component
-      options: [
-        {
-          title: "My posts",
-          url: "my-posts",
-        },
-        {
-          title: "Log in",
-          url: "login",
-        },
-      ],
-      dropdownState: false,
+      // options: [
+      //   {
+      //     title: "My posts",
+      //     url: "my-posts",
+      //   },
+      //   {
+      //     title: "Log in",
+      //     url: "login",
+      //   },
+      // ],
+      // dropdownState: false,
       // dropmenuState: false,
       // mobileMenu: false,
       // mobileView: false,
     };
   },
-  components: { Dropdown },
+  // components: { Dropdown },
   methods: {
-    clicker() {
-      return (this.dropdownState = !this.dropdownState);
-    },
+    // clicker() {
+    //   return (this.dropdownState = !this.dropdownState);
+    // },
     //   clickMenu() {
     //     return (this.dropmenuState = !this.dropmenuState);
     //   },
 
     showMobileMenu() {
       let nav = this.$refs.mobileNavigation.style;
-      return nav.display === "" ? (nav.display = "block") : (nav.display = "");
-   
+            console.log('feeling avatar click')
 
+      return nav.display === "" ? (nav.display = "block") : (nav.display = "");   
+
+    },
+    showAvatarMenu(){
+      let avatarDropDown = this.$refs.avatarClick.style;
+      console.log('feeling avatar click')
+      return avatarDropDown.display === "" ? (avatarDropDown.display = "block") : (avatarDropDown.display = ""); 
     },
     //     //   hideMobileMenu(){
     //     //     console.log('pressing hide')
@@ -75,33 +77,107 @@ export default {
 </script>
 
 <style scoped>
-/* .header {
-  
-} */
-.aside-right,
-.aside-left {
+
+body {
+    background-color: black;
+}
+.header-wrapper{
+    display: flex;
+    position: relative;
+    padding: 25px;
+
+}
+.hamburger{
+    display: block;
+    height: 32px;
+    width: 32px; 
+    /* color: white; */
+    /* background: black; */
+    /* background-image: url('/src/assets/hamburger-icon.png');
+    background-size: cover; */
+    /* background-repeat: no-repeat; */
+}
+.logo{
+  padding: 8px 32px 8px 0;
+}
+
+.avatar > img {
+    height: 32px;
+    width: 32px; 
+    border-radius: 550px;
+
+}
+.navigation{
+  flex:1;
+}
+.list-wrapper{
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
-.add {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: black;
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50px;
-  font-weight: bold;
-  margin-right: 15px;
-  font-size: 35px;
-}
-img {
-  width: 32px;
-  height: 32px;
-}
-a {
+.list-wrapper > li, .drd {
   text-decoration: none;
+  list-style-type:none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid black;
 }
+.hidden {
+  flex:1;
+}
+.drop-down{
+  display: none;
+  position: absolute;
+  right: 25px;
+  top: 100px;
+  border-radius: 8px;
+  box-shadow: 3px 24px 27px -3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px 24px 27px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 24px 27px -3px rgba(0,0,0,0.75);
+  }
+  
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-right: 15px;
+    font-size: 35px;
+  }
+
+@media (max-width: 375px){
+  .hamburger{
+    display: block;
+  }
+  .hidden {
+    display: none;
+  }
+  .navigation {
+    display: none;
+    position:absolute;
+    height: 50vh;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    transform: 5s ease all;
+  }
+  .list-wrapper{
+        flex-direction: column;
+        top: 100px;
+
+  }
+  .header-wrapper{
+    justify-content: space-between;
+  }
+
+}
+
 </style>
