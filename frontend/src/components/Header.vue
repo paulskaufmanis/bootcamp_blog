@@ -122,6 +122,7 @@ body {
 }
 .hidden {
   flex:1;
+  border: none;
 }
 .drop-down{
   display: none;
