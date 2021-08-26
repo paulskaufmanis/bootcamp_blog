@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import AllPosts from "../views/AllPosts.vue";
+import MyPosts from "../views/MyPosts.vue";
 import Login from "../views/Login.vue";
 import AddPost from "../views/AddPost.vue";
-// import Post from "../views/Post.vue";
+import PageNotFound from "../views/PageNotFound.vue";
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: "/posts/:id?",
     name: "AllPosts",
     component: AllPosts,
+  },
+  {
+    path: "/my-posts",
+    name: "MyPosts",
+    component: MyPosts,
   },
   {
     path: "/login",
@@ -30,6 +36,11 @@ const routes = [
     path: "/add-post",
     name: "AddPost",
     component: AddPost,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "PageNotFound",
+    component: PageNotFound,
   },
 ];
 

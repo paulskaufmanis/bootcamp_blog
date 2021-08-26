@@ -84,7 +84,7 @@ export default {
 
       this.$emit("handle-data", this.newUser);
 
-      // this.$router.push("/");
+      this.$router.push("/");
     },
   },
 };
