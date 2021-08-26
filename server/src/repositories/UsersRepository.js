@@ -19,7 +19,8 @@ class UsersRepository {
   }
 
   async findUser(data) {
-    return this.data.find((user) => user.username === data);
+    const user = this.data.find((user) => user.username === data);
+    return user;
   }
 
   getSingleUser(id) {

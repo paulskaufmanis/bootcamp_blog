@@ -9,7 +9,13 @@ class PostService {
       .then((data) => data.map((item) => posts.push(item)));
   }
 
-  static getPostById() {}
+  static getUserPosts(posts, method = "GET") {
+    fetch(`${url}${"my-posts"}`, { method })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => data.map((item) => posts.push(item)));
+  }
 
   static addPost(post) {
     fetch(url, {
@@ -22,7 +28,7 @@ class PostService {
       .then(console.log(JSON.stringify(post)))
       .then((res) => res.json())
       .then((data) => console.log("Success!", data));
-      console.log();
+    console.log();
   }
 
   static deletePost(id, method = "DELETE") {

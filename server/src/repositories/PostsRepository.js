@@ -17,6 +17,11 @@ class PostsRepository {
     });
   }
 
+  getUserPosts(username) {
+    console.log(username);
+    return this.data.filter((post) => post.created_by === username);
+  }
+
   getSinglePost(id) {
     let found;
     this.data.map((item) => (item.id == id ? (found = item) : "not found"));
