@@ -81,7 +81,6 @@ export default {
   width: 19rem;
   border-radius: 0.5rem;
   size: fit-content;
-  z-index: 0;
   background-size: cover;
 }
 
@@ -103,7 +102,6 @@ export default {
     rgba(255, 0, 0, 0),
     rgba(0, 0, 0, 0.8)
   );
-  z-index: 100;
 }
 
 @media only screen and (min-width: 768px) {
