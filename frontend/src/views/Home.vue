@@ -148,10 +148,4 @@ export default {
     /* overflow: hidden; */
   }
 }
-
-/* @media only screen and (min-width: 1440px) {
-  .post-card {
-    flex-direction: row;
-  }
-} */
 </style>
