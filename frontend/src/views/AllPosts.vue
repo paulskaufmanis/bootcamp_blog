@@ -22,9 +22,10 @@
             @click="openPost(post.id)"
           ></div>
           <div class="post-content">
-            <h3 class="post-title">{{ post.title }}</h3>
-
-            <p class="post-text">{{ post.text }}</p>
+            <div>
+              <h3 class="post-title">{{ post.title }}</h3>
+              <p class="post-text">{{ post.text }}</p>
+            </div>
             <div class="post-footer">
               <div class="initials-wrap">
                 <p class="initials">PA</p>
@@ -141,6 +142,17 @@ button {
   background: white;
 }
 
+.post-title {
+  margin-bottom: 0.5rem;
+}
+
+.post-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .post-footer {
   display: flex;
   align-items: center;
@@ -171,5 +183,44 @@ button {
 
 .post-date {
   font-size: small;
+}
+
+@media only screen and (min-width: 768px) {
+  .posts-block {
+    width: 40rem;
+  }
+
+  .post-wrapper {
+    flex-direction: row;
+  }
+
+  .post-card {
+    height: 19rem;
+    min-width: 19rem;
+    margin: 1rem 0 1rem 1rem;
+  }
+
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 1rem 1rem 1rem 0;
+    width: 19rem;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    .posts-block {
+      width: 60rem;
+    }
+
+    .post-card {
+      min-width: 30rem;
+    }
+    .post-content {
+      width: 30rem;
+      /* justify-content: ; */
+    }
+  }
 }
 </style>
