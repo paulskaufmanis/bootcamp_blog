@@ -6,11 +6,7 @@
         <form class="search-wrap">
           <input class="search-box" type="text" name="" id="" />
           <button>
-            <img
-              class="search-button"
-              src="../assets/search.png"
-              alt="search"
-            />
+            <div id="search-icon"></div>
           </button>
         </form>
       </div>
@@ -103,9 +99,27 @@ export default {
   outline: none;
 }
 
-.search-button {
-  width: 1rem;
-  height: 1rem;
+#search-icon {
+  font-size: 1.9em;
+  display: inline-block;
+  width: 0.4em;
+  box-sizing: content-box;
+  height: 0.4em;
+  border: 0.11em solid black;
+  position: relative;
+  border-radius: 0.35em;
+}
+#search-icon:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: -0.25em;
+  bottom: -0.1em;
+  border-width: 0;
+  background: black;
+  width: 0.35em;
+  height: 0.09em;
+  transform: rotate(45deg);
 }
 
 button {
