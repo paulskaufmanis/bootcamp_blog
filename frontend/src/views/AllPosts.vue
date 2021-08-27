@@ -127,6 +127,7 @@ button {
   height: 1.5rem;
   border-radius: 0;
   background: transparent;
+  border: none;
   border-bottom: 2px solid black;
 }
 
