@@ -1,4 +1,4 @@
-const url = "http://localhost:3400/api/posts-management/posts/";
+const url = "http://localhost:3300/api/posts-management/posts/";
 
 class PostService {
   static getPosts(posts, method = "GET") {
