@@ -110,11 +110,14 @@ export default {
   }
   .post-background {
     width: 40rem;
+    height: 10rem;
+    background-position: center 25%;
   }
 
   .post-card {
     display: block;
     width: 40rem;
+    height: 10rem;
   }
 }
 
@@ -127,8 +130,8 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 64rem;
-    height: 21rem;
+    width: 65rem;
+    height: 23rem;
   }
 
   .post-background {
