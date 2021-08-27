@@ -10,12 +10,16 @@
           </button>
         </form>
       </div>
-      <div v-for="post in posts" :key="post.title" class="post-wrapper">
+      <div
+        v-for="post in posts"
+        :key="post.title"
+        class="post-wrapper"
+        @click="openPost(post.id)"
+      >
         <router-view :to="'/posts/' + post.id">
           <div
             class="post-card"
             :style="{ backgroundImage: `url(${post.image})` }"
-            @click="openPost(post.id)"
           ></div>
           <div class="post-content">
             <div>
@@ -73,6 +77,8 @@ export default {
   background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
+
   padding: 2rem;
 }
 

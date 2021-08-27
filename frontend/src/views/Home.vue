@@ -49,6 +49,7 @@ export default {
   justify-content: center;
   background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg);
   background-repeat: no-repeat;
+  background-position: center;
   background-attachment: fixed;
 }
 

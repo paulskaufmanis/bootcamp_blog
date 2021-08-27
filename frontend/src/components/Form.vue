@@ -65,7 +65,7 @@ export default {
     authType: String,
   },
   methods: {
-    sendData() {
+    async sendData() {
       this.errors = [];
       if (this.newUser.password.length < 6) {
         this.errors.push("- Password too short. Minimum 6 characters \n");
@@ -84,7 +84,7 @@ export default {
 
       this.$emit("handle-data", this.newUser);
 
-      this.$router.push("/");
+      await this.$router.push("/login");
     },
   },
 };
