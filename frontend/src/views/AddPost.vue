@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     async addPost() {
-      await PostService.addPost(this.newPost, this.$store.user);
+      await PostService.addPost(this.newPost);
       this.newPost.title = "";
       this.newPost.text = "";
       this.newPost.image = "";

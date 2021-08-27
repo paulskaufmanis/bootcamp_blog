@@ -1,45 +1,49 @@
 <template>
+  <div>
     <div class="header-wrapper">
-        <div class="branding">
-          <router-link class="logo" to="/">team4</router-link>
-        </div>
-        <nav class="navigation-wrapper">
-          <ul v-show="!mobile" class="navigation">
-            <li><router-link class="link link-home" to="/">home</router-link></li>
-            <li><router-link class="link link-posts" to="/posts"
-                >all posts</router-link
-              >
-            </li>
-            <li class="hidden"><span></span></li>
-            <li>          <router-link to="/add-post"
-                ><div class="add-wrapper"><div class="add"></div></div></router-link
-              >
-            </li>
-            <li>          <div class="avatar">
-                <img src="../assets/avatar.png" @click="clicker" />
-              </div>
-            </li>
-          </ul>
-          <Dropdown :options="options" v-if="dropdownState" />
-        </nav>
-            
-        <transition name="mobile-nav">
-          <ul v-show="mobileNav" class="dropdown-nav">        
-                
-            <li class="drd-link" v-for="option in options1" :key="option.title">
-                  <a :href="option.url">{{option.title}}</a>
-              </li>
+      <div class="branding">
+        <router-link class="logo" to="/">team4</router-link>
+      </div>
+      <nav class="navigation-wrapper">
+        <ul v-show="!mobile" class="navigation">
+          <li><router-link class="link link-home" to="/">home</router-link></li>
+          <li>
+            <router-link class="link link-posts" to="/posts"
+              >all posts</router-link
+            >
+          </li>
+          <li class="hidden"><span></span></li>
+          <li>
+            <router-link to="/add-post"
+              ><div class="add-wrapper"><div class="add"></div></div
+            ></router-link>
+          </li>
+          <li>
+            <div class="avatar">
+              <img src="../assets/avatar.png" @click="clicker" />
+            </div>
+          </li>
+        </ul>
+        <Dropdown :options="options" v-if="dropdownState" />
+      </nav>
 
-            </ul>
-        </transition>
-          
+      <transition name="mobile-nav">
+        <ul v-show="mobileNav" class="dropdown-nav">
+          <li class="drd-link" v-for="option in options1" :key="option.title">
+            <a :href="option.url">{{ option.title }}</a>
+          </li>
+        </ul>
+      </transition>
     </div>
     <!-- <Dropdown :options="options" v-if="dropdownState" /> -->
- 
-  <div class="icon" v-show="mobile"
-        @click="toggleMobileNav"
-        src="../assets/hamburger-icon.png"
-        :class="{ 'icon-active': mobileNav }">
+
+    <div
+      class="icon"
+      v-show="mobile"
+      @click="toggleMobileNav"
+      src="../assets/hamburger-icon.png"
+      :class="{ 'icon-active': mobileNav }"
+    >
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
@@ -49,6 +53,7 @@
         src="../assets/hamburger-icon.png"
         :class="{ 'icon-active': mobileNav }"
       /> -->
+    </div>
   </div>
 </template>
 
@@ -72,7 +77,7 @@ export default {
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
       ],
-      
+
       dropdownState: false,
       mobile: null,
       mobileNav: null,
@@ -85,7 +90,7 @@ export default {
   },
   methods: {
     clicker() {
-      console.log('clicked avatar')
+      console.log("clicked avatar");
       return (this.dropdownState = !this.dropdownState);
     },
 
@@ -108,13 +113,13 @@ export default {
 </script>
 
 <style scoped>
-.header-wrapper{
-    display: flex;
-    align-items: center;
-    /* align-items: flex-start; */
-    position: relative;
-    padding: 0 35px;
-    background: rgba(14, 13, 14, .8);
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  /* align-items: flex-start; */
+  position: relative;
+  padding: 0 35px;
+  background: rgba(14, 13, 14, 0.8);
 }
 
 .branding {
@@ -130,7 +135,7 @@ export default {
   text-decoration: none;
   color: rgba(134, 229, 244, 1);
   font-weight: 800;
-  font-family:'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 34px;
   margin-right: 25px;
 }
@@ -145,13 +150,13 @@ export default {
   margin: 0 auto;
   @media (min-width: 1140px) {
     max-width: 1140px;
-    
   }
 }
 
-.navigation, .link {
+.navigation,
+.link {
   display: flex;
-  flex:1;
+  flex: 1;
   color: #fff;
   list-style: none;
   text-decoration: none;
@@ -171,7 +176,7 @@ li {
 }
 .link:hover {
   color: #fff;
-  border-color:#fff;
+  border-color: #fff;
 }
 .avatar {
   display: flex;
@@ -196,7 +201,6 @@ li {
   right: 25px;
   z-index: 99;
   background-color: transparent;
-
 }
 .icon > .line {
   width: 100%;
@@ -211,13 +215,12 @@ li {
 }
 .icon-active {
   transform: rotate(180deg);
-
 }
 .avatar {
   width: 32px;
   height: 32px;
 }
-.avater:hover{
+.avater:hover {
   cursor: pointer;
 }
 button {
@@ -227,63 +230,61 @@ button {
 }
 
 .dropdown-nav {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    /* background-color: #fff; */
-     backdrop-filter: blur(3px) saturate(98%);
-    -webkit-backdrop-filter: blur(3px) saturate(98%);
-    background-color: rgba(11, 223, 245, 0.37);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-    /* padding-left: 20px; */
-    top: 50px;
-    left:0;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  /* background-color: #fff; */
+  backdrop-filter: blur(3px) saturate(98%);
+  -webkit-backdrop-filter: blur(3px) saturate(98%);
+  background-color: rgba(11, 223, 245, 0.37);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  /* padding-left: 20px; */
+  top: 50px;
+  left: 0;
 }
 
 .dropdown-nav > li {
   margin-left: 0;
   padding: 15px;
   color: black;
-   backdrop-filter: blur(3px) saturate(98%);
-    -webkit-backdrop-filter: blur(3px) saturate(98%);
-    background-color: rgba(134, 229, 244, 0.8);
-    border-radius: 4px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-
+  backdrop-filter: blur(3px) saturate(98%);
+  -webkit-backdrop-filter: blur(3px) saturate(98%);
+  background-color: rgba(134, 229, 244, 0.8);
+  border-radius: 4px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
 .dropdown-nav > li a {
   color: black;
 }
-.add-wrapper{
+.add-wrapper {
   height: 32px;
   width: 32px;
 }
 .add {
-      width: 100%;
-      height: 90%;
-      background: white;
-      position: relative;
-      -moz-border-radius: 50%;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-    }
-    .add:before {
-      content: "";
-      position: absolute;
-      right: 80%;
-      top: 22px;
-      width: 0;
-      height: 0;
-      border-top: 4px solid transparent;
-      border-right: 8px solid white;
-      border-bottom: 4px solid transparent;
-       transform: rotate(-35deg);
-    }
-    
+  width: 100%;
+  height: 90%;
+  background: white;
+  position: relative;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.add:before {
+  content: "";
+  position: absolute;
+  right: 80%;
+  top: 22px;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-right: 8px solid white;
+  border-bottom: 4px solid transparent;
+  transform: rotate(-35deg);
+}
 
 img {
   width: 32px;
@@ -301,9 +302,8 @@ a {
   padding: 35px;
 } */
 @media (max-width: 375px) {
-  .header-wrapper{
+  .header-wrapper {
     align-items: center;
-
   }
   header {
     padding: 0;
@@ -313,10 +313,8 @@ a {
   .navigation-wrapper {
     padding: 25px 0;
   }
-  .branding{
+  .branding {
     position: absolute;
   }
-  
-  
 }
 </style>
