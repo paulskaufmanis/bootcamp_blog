@@ -3,41 +3,39 @@
         <div class="branding">
           <router-link class="logo" to="/">team4</router-link>
         </div>
-      <header>
-    
-    <nav class="navigation-wrapper">
-      <ul v-show="!mobile" class="navigation">
-        <li><router-link class="link link-home" to="/">home</router-link></li>
-        <li>          <router-link class="link link-posts" to="/posts"
-            >all posts</router-link
-          >
-        </li>
-        <li class="hidden"><span></span></li>
-        <li>          <router-link to="/add-post"
-            ><button class="add">+</button></router-link
-          >
-        </li>
-        <li>          <button class="avatar">
-            <img src="../assets/avatar.png" @click="clicker" />
-          </button>
-        </li>
-      </ul>
-          <Dropdown :options="options" v-if="dropdownState" />
-
-      
-      <transition name="mobile-nav">
-        <ul v-show="mobileNav" class="dropdown-nav">        
-          
-           <li v-for="option in options" :key="option.title">
-                <a :href="option.url">{{option.title}}</a>
+        <nav class="navigation-wrapper">
+          <ul v-show="!mobile" class="navigation">
+            <li><router-link class="link link-home" to="/">home</router-link></li>
+            <li><router-link class="link link-posts" to="/posts"
+                >all posts</router-link
+              >
             </li>
+            <li class="hidden"><span></span></li>
+            <li>          <router-link to="/add-post"
+                ><button class="add">+</button></router-link
+              >
+            </li>
+            <li>          <button class="avatar">
+                <img src="../assets/avatar.png" @click="clicker" />
+              </button>
+            </li>
+          </ul>
+          <Dropdown :options="options" v-if="dropdownState" />
+        </nav>
+            
+        <transition name="mobile-nav">
+          <ul v-show="mobileNav" class="dropdown-nav">        
+                
+            <li v-for="option in options1" :key="option.title">
+                  <a :href="option.url">{{option.title}}</a>
+              </li>
+
+            </ul>
+        </transition>
           
-        </ul>
-      </transition>
-    </nav>
-    
+    </div>
     <!-- <Dropdown :options="options" v-if="dropdownState" /> -->
-  </header>
+ 
   <div class="icon">
       <img
         v-show="mobile"
@@ -46,7 +44,6 @@
         :class="{ 'icon-active': mobileNav }"
       />
   </div>
-    </div>
 </template>
 
 <script>
@@ -59,12 +56,17 @@ export default {
     return {
       // pass data in Dropdown component
       options: [
+        { title: "My posts", url: "my-posts" },
+        { title: "Log in", url: "login" },
+      ],
+      options1: [
         { title: "Home", url: "/" },
         { title: "All posts", url: "posts" },
         { title: "Add post", url: "add-post" },
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
       ],
+      
       dropdownState: false,
       mobile: null,
       mobileNav: null,
@@ -77,11 +79,8 @@ export default {
   },
   methods: {
     clicker() {
-      this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 375) {
-        this.dropdownState = false;
-        return;
-      }
+      console.log('clicked avatar')
+      return (this.dropdownState = !this.dropdownState);
     },
 
     toggleMobileNav() {
@@ -107,27 +106,18 @@ export default {
     display: flex;
     align-items: flex-start;
     position: relative;
+    padding: 0 35px;
+}
 
-}
-header {
-  display: flex;
-  background-color: gray;
-  /* z-index: 99; */
-  width: 100%;
-  /* position: fixed; */
-  /* transition: .5s ease all; */
-  color: #fff;
-  padding: 5%;
-}
 .branding {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5%;
+  /* padding: 5%; */
   
 }
 .navigation-wrapper {
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   padding: 12px 0;
   transition: 0.5s ease all;
@@ -141,7 +131,7 @@ ul,
 .link {
   display: flex;
   flex:1;
-  color: white;
+  color: black;
   list-style: none;
   text-decoration: none;
 }
@@ -157,8 +147,8 @@ li {
   border-bottom: 1px solid transparent;
 }
 .link:hover {
-  color: #fff;
-  border-color: #fff;
+  color: black;
+  border-color:black;
 }
 button {
   border: none;
@@ -190,14 +180,15 @@ button {
 }
 
 .dropdown-nav {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  /* background-color: #fff; */
-  background-color: green;
-  /* padding-left: 20px; */
+      display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    /* background-color: #fff; */
+    background-color: green;
+    /* padding-left: 20px; */
+    top: 54px;
 
   top: 30px;
 }
@@ -206,6 +197,8 @@ button {
   margin-left: 0;
   padding: 15px;
   color: black;
+  background-color: green;
+
 }
 
 .dropdown-nav > li a {
@@ -241,7 +234,7 @@ a {
   display: flex;
   padding: 35px;
 } */
-@media (max-width: 375px) {
+@media (min-width: 375px) {
   header {
     padding: 0;
     margin-top: 35px;
