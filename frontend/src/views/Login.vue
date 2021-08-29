@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login-page">
     <Form
       :authType="authType"
       v-on:handle-data="handleData($event)"
@@ -36,7 +36,7 @@ export default {
       if (this.navUrl === "/register") {
         return (this.authType = "Register");
       } else {
-        return (this.authType = "Login");
+        return (this.authType = "Log in");
       }
     },
   },
@@ -55,4 +55,20 @@ export default {
 
 
 <style>
+*{
+  font-family: 'Poppins';
+}
+  .login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0 214px 0;
+  }
+  @media (min-width: 768px) {
+    .login-page {
+      margin: 139px;
+      transition: 0.3s ease all;
+    }
+  }
+
 </style>

@@ -2,16 +2,13 @@
   <div class="all-posts">
     <div v-if="!$route.params.id" class="posts-block">
       <div class="all-posts-heading">
-        <h2>ALL POSTS</h2>
+        <h2>All posts</h2>
         <form class="search-wrap">
           <input class="search-box" type="text" name="" id="" />
-          <button>
-            <img
-              class="search-button"
-              src="../assets/search.png"
-              alt="search"
-            />
-          </button>
+          <div class="search-icon-wrapper">
+            <div class=" search-icon">
+            </div>
+          </div>
         </form>
       </div>
       <div v-for="post in posts" :key="post.title" class="post-wrapper">
@@ -70,89 +67,56 @@ export default {
 };
 </script>
 <style scoped>
+.posts-block {
+  width: 19rem;
+  width: 100%;
+}
 .all-posts {
   display: flex;
-  flex-direction: column;
-
-  background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg);
+  justify-content: center;
+  /* background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg); */
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 2rem;
+  background-size: cover;
 }
-
-.all-posts-heading {
+.all-posts-heading{
+  padding: 16px 0;
   display: flex;
   justify-content: space-between;
   margin: 1rem 0 0 1rem;
-  padding-right: 1rem;
+  align-items: flex-end;
 }
-
-.search-wrap {
-  flex-direction: row;
-}
-
-.search-box {
-  width: 6rem;
-  height: 1.5rem;
-  background: inherit;
-  border: none;
-  border-bottom: 2px solid black;
-  padding-left: 0.5rem;
-}
-.search-box:focus {
-  outline: none;
-}
-
-.search-button {
-  width: 1rem;
-  height: 1rem;
-}
-
-button {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 0;
-  background: transparent;
-  border-bottom: 2px solid black;
-}
-
-.posts-block {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  background-color: rgba(192, 192, 192, 0.8);
-  width: 21rem;
+h2 {
+  font-size: 22px;
 }
 
 .post-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.post-card {
-  height: 9.5rem;
-  width: 19rem;
-  background-size: cover;
-  margin: 1rem 1rem 0 1rem;
+  background: gray;
+  margin-bottom: 20px;
+  cursor: pointer; 
 }
 
+.post-card {  
+ height: 9.5rem;
+ background-size: cover;
+}
+.post-title{
+  text-align:start;
+}
 .post-content {
-  margin: 0 1rem;
-  padding: 1rem;
-  background: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.post-title {
-  margin-bottom: 0.5rem;
-}
-
-.post-text {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+.post-text{
+  margin-top: 8px;
+  max-height: 110px;
   overflow: hidden;
-}
+  font-size: 14px;
+  line-height: 1.5;
 
+  }
 .post-footer {
   display: flex;
   align-items: center;
@@ -160,7 +124,6 @@ button {
   padding-top: 1rem;
   margin: 1rem 0;
 }
-
 .initials-wrap {
   display: flex;
   justify-content: center;
@@ -171,56 +134,90 @@ button {
   border-radius: 50%;
   margin-right: 1rem;
 }
-
 .initials {
   font-size: x-large;
   font-weight: 500;
+  margin:0;
+  padding: 0;
 }
-
 .post-author {
-  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
-
 .post-date {
-  font-size: small;
+  font-size: 12px;
+}
+.all-posts-heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 0 1rem;
+  padding-right: 1rem;
+}
+.search-wrap {
+  display: flex;
+  /* flex-direction: row; */
+  border-bottom: 1px solid black;
+  align-items: flex-end;
+  margin-bottom: 8px;
+  
+}
+.search-box {
+  width: 6rem;
+  height: 1.5rem;
+  background: inherit;
+  border: none;
+  padding-left: 0.5rem;
+  outline: none;
+
 }
 
-@media only screen and (min-width: 768px) {
+.search-icon-wrapper{
+  width: 18px;
+  height: 18px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.search-icon { 
+  font-size: 10em;
+  width:50%;
+  box-sizing: content-box;
+  height:50%;
+  border: 2px solid black;
+  position: relative;
+  border-radius: 50px;
+}
+  .search-icon:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: -6px;
+  bottom: -3px;
+  border-width: 0;
+  background: black;
+  width: 8px;
+  height: 2px;
+  transform: rotate(45deg);
+}
+ 
+@media
+(min-width: 768px) 
+ {
   .posts-block {
-    width: 40rem;
+    padding: 0 7%;
+    width: 60rem;    
   }
-
   .post-wrapper {
-    flex-direction: row;
-  }
-
-  .post-card {
-    height: 19rem;
-    min-width: 19rem;
-    margin: 1rem 0 1rem 1rem;
-  }
-
-  .post-content {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    margin: 1rem 1rem 1rem 0;
-    width: 19rem;
-  }
-
-  @media only screen and (min-width: 1440px) {
-    .posts-block {
-      width: 60rem;
-    }
-
-    .post-card {
-      min-width: 30rem;
-    }
-    .post-content {
-      width: 30rem;
-      /* justify-content: ; */
-    }
+ }
+  .post-card {
+    height: 300px;
+    width: 50%;
+ }
+  .post-content{
+    width: 50%;
   }
 }
+
 </style>
