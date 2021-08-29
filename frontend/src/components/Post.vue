@@ -31,9 +31,5 @@ export default {
 </script>
 
 <style scoped>
-.post-wrapper {
-  width: 40rem;
-  display: flex;
-  flex-direction: column;
-}
+
 </style>
