@@ -50,18 +50,18 @@ export default {
 </script>
 <style scoped>
 .post-wrapper {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 .post-card {
   /* height: 10rem;
   width: 15rem;
   size: fit-content;
   margin: 1rem; */
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .post-content {
-  width: 24rem;
+  /* width: 24rem; */
 }
 </style>

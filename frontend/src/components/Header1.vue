@@ -1,64 +1,52 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <div class="branding">
-        <router-link class="logo" to="/">team4</router-link>
-      </div>
-      <nav class="navigation-wrapper">
-        <ul v-show="!mobile" class="navigation">
-          <li><router-link class="link link-home" to="/">home</router-link></li>
-          <li>
-            <router-link class="link link-posts" to="/posts"
-              >all posts</router-link
-            >
-          </li>
-          <li class="hidden"><span></span></li>
-          <li>
-            <router-link to="/add-post"
-              ><div class="add-wrapper"><div class="add"></div></div
-            ></router-link>
-          </li>
-          <li>
-            <div class="avatar">
-              <img src="../assets/avatar.png" @click="clicker" />
-            </div>
-          </li>
-        </ul>
-        <Dropdown :options="options" v-if="dropdownState" />
-      </nav>
 
-      <transition name="mobile-nav">
-        <ul v-show="mobileNav" class="dropdown-nav">
-          <li class="drd-link" v-for="option in options1" :key="option.title">
-            <a :href="option.url">{{ option.title }}</a>
-          </li>
-        </ul>
-      </transition>
+        <div class="branding">
+          <router-link class="logo" to="/">team4</router-link>
+        </div>
+        <nav class="navigation-wrapper">
+          <ul class="navigation" 
+              v-show="!mobile">
+            <li class="list-element"><router-link class="link" to="/">home</router-link></li>
+            <li class="list-element"><router-link class="link" to="/posts"
+                >all posts</router-link></li>
+            <li class="hidden"><span></span></li>
+            <li class="list-element"><router-link to="/add-post"
+                ><div class="add-wrapper"><div class="add"></div></div></router-link >
+            </li>
+            <li class="list-element"  @mouseover="hover = true"
+             ><div class="avatar-wrapper" 
+            ><div class="avatar">
+              </div></div>
+            </li>
+          </ul>
+          <Dropdown :options="options" v-if="hover" @mouseleave="hover = false"/>
+        </nav>
+            
+        <transition name="mobile-nav">
+          <ul v-show="mobileNav" class="dropdown-nav">        
+                
+            <li class="drd-link" v-for="option in options1" :key="option.title">
+                  <a :href="option.url">{{option.title}}</a>
+              </li>
+
+         </transition>
     </div>
-    <!-- <Dropdown :options="options" v-if="dropdownState" /> -->
-
-    <div
-      class="icon"
-      v-show="mobile"
-      @click="toggleMobileNav"
-      src="../assets/hamburger-icon.png"
-      :class="{ 'icon-active': mobileNav }"
-    >
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <!-- <img
-        v-show="mobile"
+ 
+  <div class="icon" v-show="mobile"
         @click="toggleMobileNav"
         src="../assets/hamburger-icon.png"
-        :class="{ 'icon-active': mobileNav }"
-      /> -->
-    </div>
+        :class="{ 'icon-active': mobileNav }">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>      
+
   </div>
 </template>
 
 <script>
-import Dropdown from "../components/Dropdown.vue";
+import Dropdown from "./Dropdown.vue";
 
 export default {
   components: { Dropdown },
@@ -70,6 +58,7 @@ export default {
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
       ],
+      //pass data in mobile menu
       options1: [
         { title: "Home", url: "/" },
         { title: "All posts", url: "posts" },
@@ -77,11 +66,12 @@ export default {
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
       ],
-
-      dropdownState: false,
+      
+      // dropdownState: false,
       mobile: null,
       mobileNav: null,
       windowWidth: null,
+      hover: false,
     };
   },
   created() {
@@ -89,10 +79,11 @@ export default {
     this.checkScreen();
   },
   methods: {
-    clicker() {
-      console.log("clicked avatar");
-      return (this.dropdownState = !this.dropdownState);
-    },
+
+    // clicker() {
+    //   return (this.dropdownState = !this.dropdownState);
+    // },
+
 
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
@@ -100,7 +91,7 @@ export default {
 
     checkScreen() {
       this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 375) {
+      if (this.windowWidth <= 768) {
         this.mobile = true;
         return;
       }
@@ -113,13 +104,13 @@ export default {
 </script>
 
 <style scoped>
-.header-wrapper {
+
+.header-wrapper{
   display: flex;
   align-items: center;
-  /* align-items: flex-start; */
   position: relative;
-  padding: 0 35px;
-  background: rgba(14, 13, 14, 0.8);
+  padding: 0 7%;
+  background: rgba(14, 13, 14, .8);
 }
 
 .branding {
@@ -127,7 +118,6 @@ export default {
   align-items: center;
   justify-content: center;
   padding-bottom: 6px;
-  /* padding: 5%; */
   color: gray;
 }
 .logo {
@@ -135,22 +125,20 @@ export default {
   text-decoration: none;
   color: rgba(134, 229, 244, 1);
   font-weight: 800;
-  font-family: "Poppins", sans-serif;
-  font-size: 34px;
-  margin-right: 25px;
+
+  font-family:'Poppins', sans-serif;
+  font-size: 28px;
+  margin-right: 7%;
+
 }
 
 .navigation-wrapper {
-  /* position: absolute; */
   display: flex;
   padding: 25px 0;
   align-items: center;
   transition: 0.5s ease all;
   width: 100%;
   margin: 0 auto;
-  @media (min-width: 1140px) {
-    max-width: 1140px;
-  }
 }
 
 .navigation,
@@ -163,13 +151,12 @@ export default {
   align-items: center;
   width: 100%;
 }
-li {
+.list-element {
   text-transform: uppercase;
-  /* padding: 8px 12px; */
-  margin-left: 16px;
+  margin-left: 4%;
 }
 .link {
-  font-size: 14px;
+  font-size: 0.8rem;
   transition: 0.5s ease all;
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
@@ -178,18 +165,34 @@ li {
   color: #fff;
   border-color: #fff;
 }
-.avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  outline: none;
-  border-radius: 50px;
-  overflow: hidden;
+.avatar-wrapper {
+  padding-top: 7px;
+  border: 2px solid white;
+  height: 28px;
+  width: 32px;
+  transform: scale(0.7);
+  border-radius: 4px;
+  cursor: pointer;
 }
-.avatar > img {
-  height: 120%;
-  width: 120%;
+.avatar {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-right: 9px solid white;
+  transform: rotate(-40deg);
+ }
+.avatar:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 3px solid white;
+  border-radius: 20px 0 0 0;
+  top: -12px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);      
 }
 .icon {
   width: 28px;
@@ -215,6 +218,7 @@ li {
 }
 .icon-active {
   transform: rotate(180deg);
+
 }
 .avatar {
   width: 32px;
@@ -222,35 +226,35 @@ li {
 }
 .avater:hover {
   cursor: pointer;
+
 }
 button {
   width: 32px;
   height: 32px;
   border-radius: 50px;
 }
-
 .dropdown-nav {
   display: flex;
   position: absolute;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  /* background-color: #fff; */
+
   backdrop-filter: blur(3px) saturate(98%);
   -webkit-backdrop-filter: blur(3px) saturate(98%);
-  background-color: rgba(11, 223, 245, 0.37);
+  /* background-color: rgba(11, 223, 245, 0.37); */
   border-radius: 12px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
-  /* padding-left: 20px; */
+  /* border: 1px solid rgba(209, 213, 219, 0.3); */
   top: 50px;
-  left: 0;
-}
+  left:0;
 
+}
 .dropdown-nav > li {
   margin-left: 0;
   padding: 15px;
   color: black;
   backdrop-filter: blur(3px) saturate(98%);
+
   -webkit-backdrop-filter: blur(3px) saturate(98%);
   background-color: rgba(134, 229, 244, 0.8);
   border-radius: 4px;
@@ -263,10 +267,14 @@ button {
 .add-wrapper {
   height: 32px;
   width: 32px;
+  transform: scale(0.7);
+  margin:1%
 }
 .add {
   width: 100%;
-  height: 90%;
+
+  height: 85%;
+
   background: white;
   position: relative;
   -moz-border-radius: 50%;
@@ -277,19 +285,19 @@ button {
   content: "";
   position: absolute;
   right: 80%;
-  top: 22px;
+
+  top: 20px;
+
   width: 0;
   height: 0;
   border-top: 4px solid transparent;
   border-right: 8px solid white;
   border-bottom: 4px solid transparent;
   transform: rotate(-35deg);
+
 }
 
-img {
-  width: 32px;
-  height: 32px;
-}
+
 .hidden {
   flex: 1;
 }
@@ -297,24 +305,18 @@ img {
 a {
   text-decoration: none;
 }
-/* nav {
+/* SHAPES FOR MOBILE-MENU */
+@media (min-width: 1024px) {
+ .header-wrapper{
   display: flex;
-  padding: 35px;
-} */
-@media (max-width: 375px) {
-  .header-wrapper {
-    align-items: center;
-  }
-  header {
-    padding: 0;
-    margin-top: 35px;
-  }
 
-  .navigation-wrapper {
-    padding: 25px 0;
-  }
-  .branding {
-    position: absolute;
-  }
+  align-items: center;
+  position: relative;
+  padding: 0 15%;
+  background: rgba(14, 13, 14, .8);
 }
+ 
+  
+}
+
 </style>

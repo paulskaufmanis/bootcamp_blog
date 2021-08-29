@@ -44,112 +44,70 @@ export default {
 </script>
 
 <style scoped>
-.home {
+.home { 
   display: flex;
   justify-content: center;
   background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-}
-
-.posts {
-  flex-direction: column;
-  background-color: rgba(192, 192, 192, 0.8);
-  /* border-radius: 0.5rem; */
-  margin: 2rem 0;
-}
-
-.post-card {
-  display: flex;
-  justify-content: center;
-  height: 19rem;
-  max-width: 19rem;
-  margin: 2rem;
-  cursor: pointer;
-  /* border-radius: 0.5rem; */
-  /* opacity: 0.8; */
-}
-
-/* .post-card:hover {
-  opacity: 1;
-} */
-
-.post-background {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  width: 19rem;
-  /* border-radius: 0.5rem; */
-  size: fit-content;
   background-size: cover;
 }
+ .posts {
+  width: fit-content;
+  background-color: yellow;
+  padding: 15px  0;
+  }
 
-.post-title {
-  padding: 1rem;
-  font-weight: 900;
-  color: white;
-}
-
-.post-title:hover {
-  font-size: xx-large;
-  transition: 0.2s;
-}
-.shadow {
-  height: 19rem;
+.post-card {
+  width: 100%;
   width: 19rem;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 0, 0, 0),
-    rgba(0, 0, 0, 0.8)
-  );
-}
-
-@media only screen and (min-width: 768px) {
-  .posts {
-    width: 44rem;
+  height:19rem;
+  padding: 15px 30px;
+  background-color: pink;
   }
   .post-background {
-    width: 40rem;
-    height: 10rem;
-    background-position: center 25%;
+      width: 100%;
+      height:100%;
+
   }
 
+ @media
+(min-width: 768px) and
+(max-width: 1024px)
+{ 
+  
+.home {
+  align-items: center;
+}
+  .posts {
+    margin: 0 7%;
+
+  }
   .post-card {
-    display: block;
-    width: 40rem;
+  width: 100%;
+  width: 40rem;
+  height:10rem;
+  padding: 15px 30px;
+  background-color: pink;
+  }
+
+  .post-background {
     height: 10rem;
   }
 }
 
-@media only screen and (min-width: 1440px) {
-  .home {
-    height: 35vw;
-  }
+@media (min-width: 1024px){
+  
   .posts {
+    margin: 5%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 65rem;
-    height: 23rem;
+    padding: 15px;
   }
-
-  .post-background {
-    height: 19rem;
-    max-width: 19rem;
-  }
-
-  /* .post-background:hover {
-    transform: scale(1.1);
-    transition: 0.2s;
-  }
- */
   .post-card {
-    height: 19rem;
-    width: 100rem;
-    margin: 1rem;
-    /* overflow: hidden; */
+  background-color: green;
+  padding: 15px;
   }
+
 }
 </style>
