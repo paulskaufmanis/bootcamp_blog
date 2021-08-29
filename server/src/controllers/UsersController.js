@@ -79,14 +79,12 @@ router.post("/login", async (req, res) => {
       const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
 
       refreshTokens.push(refreshToken);
+      // res.set("Access-Control-Allow-Origin", "http://localhost:8080");
+      // res.set("Access-Control-Allow-Credentials", "true");
       res.json({ accessToken: accessToken, refreshToken: refreshToken });
-      
-      
-      // res.send data to frontend 
+      // res.setHeader("Authorization", "Bearer " + token);
 
-
-
-      
+      // res.send data to frontend
     } else {
       console.log("Wrong password");
       res.send("Wrong password");

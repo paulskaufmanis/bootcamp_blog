@@ -5,18 +5,24 @@
         <h2>All posts</h2>
         <form class="search-wrap">
           <input class="search-box" type="text" name="" id="" />
+
           <div class="search-icon-wrapper">
             <div class=" search-icon">
             </div>
           </div>
+
         </form>
       </div>
-      <div v-for="post in posts" :key="post.title" class="post-wrapper">
+      <div
+        v-for="post in posts"
+        :key="post.title"
+        class="post-wrapper"
+        @click="openPost(post.id)"
+      >
         <router-view :to="'/posts/' + post.id">
           <div
             class="post-card"
             :style="{ backgroundImage: `url(${post.image})` }"
-            @click="openPost(post.id)"
           ></div>
           <div class="post-content">
             <div>
@@ -77,7 +83,9 @@ export default {
   /* background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg); */
   background-repeat: no-repeat;
   background-attachment: fixed;
+
   background-size: cover;
+
 }
 .all-posts-heading{
   padding: 16px 0;
@@ -90,6 +98,7 @@ h2 {
   font-size: 22px;
 }
 
+
 .post-wrapper {
   background: gray;
   margin-bottom: 20px;
@@ -99,6 +108,7 @@ h2 {
 .post-card {  
  height: 9.5rem;
  background-size: cover;
+
 }
 .post-title{
   text-align:start;

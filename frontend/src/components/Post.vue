@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="single-post">
     <div class="post-wrapper">
       <img :src="thisPost().image" alt="" />
-      <h1>{{ thisPost().title }}</h1>
-      <p>Date: {{ thisPost().created_at }}</p>
-      <p>Author: {{ thisPost().created_by }}</p>
-      <p>{{ thisPost().text }}</p>
+      <div class="post-content">
+        <h1>{{ thisPost().title }}</h1>
+        <p class="post-author">Author: {{ thisPost().created_by }}</p>
+        <p class="post-date">Date: {{ thisPost().created_at }}</p>
+        <p>{{ thisPost().text }}</p>
+      </div>
       <p class="back" @click="goBack">Back</p>
     </div>
   </div>
@@ -31,5 +33,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>
