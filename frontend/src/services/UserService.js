@@ -30,10 +30,17 @@ class UserService {
   }
 
   static loginUser(user) {
+    // const token = window.localStorage.token;
+    // console.log(token, "aha");
+    // const token = response.localStorage.token;
+    // console.log(req.headers.authorization);
     axios
       .post(`${url}${"login"}`, {
         username: user.username,
         password: user.password,
+        headers: {
+          authorization: `Bearer ` + localStorage.token,
+        },
       })
       .then((response) => {
         console.log(response.data);

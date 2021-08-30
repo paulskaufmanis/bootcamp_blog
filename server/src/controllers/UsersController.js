@@ -83,26 +83,26 @@ router.post("/", async (req, res) => {
 
 //____________________________________________________________________________________________________
 
-const verifyJWT = (req, res, next) => {
-  const token = req.headers["x-access-token"];
+// const verifyJWT = (req, res, next) => {
+//   const token = req.headers["x-access-token"];
 
-  if (!token) {
-    res.send("Need a token!");
-  } else {
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-      if (err) {
-        res.json({ auth: false, message: "Failed to authenticate" });
-      } else {
-        req.id = decoded.id;
-        next();
-      }
-    });
-  }
-};
+//   if (!token) {
+//     res.send("Need a token!");
+//   } else {
+//     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+//       if (err) {
+//         res.json({ auth: false, message: "Failed to authenticate" });
+//       } else {
+//         req.id = decoded.id;
+//         next();
+//       }
+//     });
+//   }
+// };
 
-router.get("/isUserAuth", verifyJWT, (req, res) => {
-  res.send("You are authentificated!!!!!!!");
-});
+// router.get("/isUserAuth", verifyJWT, (req, res) => {
+//   res.send("You are authentificated!!!!!!!");
+// });
 
 let refreshTokens = [];
 
@@ -123,29 +123,12 @@ router.post("/login", async (req, res) => {
       const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
 
       refreshTokens.push();
-      // res.set("Access-Control-Allow-Origin", "http://localhost:8080");
-      // res.set("Access-Control-Allow-Credentials", "true");
-      // import axios from "axios";
-
-      // const authAxios = axios.create({
-      //   baseURL: "http://localhost:3300/api/users-management/users/login",
-      //   headers: {
-      //     Authorization: `Bearer ${accessToken}`,
-      //   },
-      // });
-
       res.json({
         auth: true,
         accessToken: accessToken,
         refreshToken: refreshToken,
         user: user,
       });
-      // res.set({
-      //   "Access-Control-Allow-Credentials": true,
-      //   authorization: "Bearer " + accessToken,
-      // });
-
-      // res.send data to frontend
     } else {
       console.log("Wrong password");
       res.send("Wrong password");
@@ -174,7 +157,9 @@ router.delete("/logout", (req, res) => {
 });
 
 function generateAccessToken(user) {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "130s" });
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+    expiresIn: "1300s",
+  });
 }
 
 router.delete("/:id", async (req, res) => {
