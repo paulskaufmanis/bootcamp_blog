@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const express = require("express");
 const bcrypt = require("bcrypt");
 
@@ -61,6 +60,50 @@ router.post("/", async (req, res) => {
 });
 
 // Login
+
+//____________________________________________________________________________________________________
+
+// router.post("/login", async (req, res) => {
+//   const user = await UsersRepository.findUser(req.body.username);
+//   if (!user) {
+//     return res.status(400).send("Didn't find user");
+//   }
+//   try {
+//     if (await bcrypt.compare(req.body.password, user.password)) {
+//       res.send(user);
+//       console.log(user, "Fine, passwords match!");
+//     } else {
+//       console.log("Wrong password");
+//       res.send({ message: "Wrong password" });
+//     }
+//   } catch {
+//     res.status(500).send("something wrong with login code");
+//   }
+// });
+
+//____________________________________________________________________________________________________
+
+const verifyJWT = (req, res, next) => {
+  const token = req.headers["x-access-token"];
+
+  if (!token) {
+    res.send("Need a token!");
+  } else {
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+      if (err) {
+        res.json({ auth: false, message: "Failed to authenticate" });
+      } else {
+        req.id = decoded.id;
+        next();
+      }
+    });
+  }
+};
+
+router.get("/isUserAuth", verifyJWT, (req, res) => {
+  res.send("You are authentificated!!!!!!!");
+});
+
 let refreshTokens = [];
 
 router.post("/login", async (req, res) => {
@@ -70,6 +113,7 @@ router.post("/login", async (req, res) => {
   }
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
+      // res.send()
       console.log("Fine, passwords match!");
 
       const username = req.body.username;
@@ -78,11 +122,36 @@ router.post("/login", async (req, res) => {
       const accessToken = generateAccessToken(user);
       const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
 
+<<<<<<< HEAD
       refreshTokens.push(refreshToken);
       // res.set("Access-Control-Allow-Origin", "http://localhost:8080");
       // res.set("Access-Control-Allow-Credentials", "true");
       res.json({ accessToken: accessToken, refreshToken: refreshToken });
       // res.setHeader("Authorization", "Bearer " + token);
+=======
+      refreshTokens.push();
+      // res.set("Access-Control-Allow-Origin", "http://localhost:8080");
+      // res.set("Access-Control-Allow-Credentials", "true");
+      // import axios from "axios";
+
+      // const authAxios = axios.create({
+      //   baseURL: "http://localhost:3300/api/users-management/users/login",
+      //   headers: {
+      //     Authorization: `Bearer ${accessToken}`,
+      //   },
+      // });
+
+      res.json({
+        auth: true,
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+        user: user,
+      });
+      // res.set({
+      //   "Access-Control-Allow-Credentials": true,
+      //   authorization: "Bearer " + accessToken,
+      // });
+>>>>>>> b311843ae01ff56dd84daa3f5ddeb46f93614b14
 
       // res.send data to frontend
     } else {
@@ -104,6 +173,8 @@ router.post("/token", (req, res) => {
     res.json({ accessToken: accessToken });
   });
 });
+
+//____________________________________________________________________________________________________
 
 router.delete("/logout", (req, res) => {
   refreshTokens = refreshTokens.filter((token) => token !== req.body.token);
