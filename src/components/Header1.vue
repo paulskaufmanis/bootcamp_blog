@@ -22,6 +22,7 @@
         </ul>
           <Dropdown :options="options" v-if="hover" @mouseleave="hover = false"/>
       </nav>
+      <h1>some changes for commit</h1>
             
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
