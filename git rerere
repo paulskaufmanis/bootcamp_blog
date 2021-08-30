@@ -1,0 +1,454 @@
+[33mcommit 43a5419c6af88dc051c9cdd3d684d5119392789e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Mon Aug 30 16:10:17 2021 +0300
+
+    fixed merge?
+
+[33mcommit 3f253ab2b69aedacbebe70df30292e6f72852b3e[m
+Merge: 457ea21 074849f
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Sun Aug 29 22:30:29 2021 +0300
+
+    Merge branch 'overall-styles1'
+
+[33mcommit 074849f087d907d1ec7b866775bea0081c1d9be1[m[33m ([m[1;32moverall-styles1[m[33m)[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Sun Aug 29 22:27:51 2021 +0300
+
+    port but g fix, Header name bug
+
+[33mcommit f534339809212a8b6eb40f35f430d249672af4e5[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Sun Aug 29 22:23:09 2021 +0300
+
+    overall styles
+
+[33mcommit 457ea21e09370dab7e241a9d949388c13ddee1cb[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Fri Aug 27 15:47:39 2021 +0300
+
+    header-styles
+
+[33mcommit 966ca44542874ff222549f332709e22051b2262a[m
+Merge: 6e7f866 097e60a
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Fri Aug 27 14:22:56 2021 +0300
+
+    Merge pull request #23 from paulskaufmanis/all-posts
+    
+    all posts styled
+
+[33mcommit 097e60af4198dc09b144b157197b03f5f7c9733f[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Fri Aug 27 14:22:01 2021 +0300
+
+    all posts styled
+
+[33mcommit 6e7f8667e35a88d0823b6f6afd45cf0ed6e38395[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Fri Aug 27 12:38:04 2021 +0300
+
+    responsive styling
+
+[33mcommit dbc7ee2dcf15540b706f90b43054c850860cb829[m
+Merge: 1c74c86 5eb6f5a
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Fri Aug 27 11:14:32 2021 +0300
+
+    Merge pull request #22 from paulskaufmanis/all
+    
+    css for All posts
+
+[33mcommit 5eb6f5a6b14985a351cfcb21db9b93298cfc087c[m[33m ([m[1;31morigin/all[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Fri Aug 27 11:13:34 2021 +0300
+
+    css for All posts
+
+[33mcommit 1c74c860ad1702478558929059cf3cee6b77fa80[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 23:05:39 2021 +0300
+
+    adapted style
+
+[33mcommit a2fc70ad0667f2af736755a8118d08f9dc89c201[m
+Merge: 28cab9f 7d02b9c
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 22:33:10 2021 +0300
+
+    Merge pull request #21 from paulskaufmanis/home
+    
+    Home
+
+[33mcommit 7d02b9ccfb0189a1377614ebee54ad0eb399813b[m[33m ([m[1;31morigin/home[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 22:32:18 2021 +0300
+
+    home-bugfix
+
+[33mcommit e4fe879834d3a668d65293b58cc62efdc086301e[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 22:24:51 2021 +0300
+
+    style-home
+
+[33mcommit 28cab9f9c24bd5265b3d4c3a2c97f8cfd935813d[m
+Merge: 1e6e7e1 717d900
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Thu Aug 26 21:16:16 2021 +0300
+
+    Merge pull request #20 from paulskaufmanis/header-functionality
+    
+    adding header1
+
+[33mcommit 717d900928bb2943cafa763746d4062c6f1274f5[m[33m ([m[1;31morigin/header-functionality[m[33m, [m[1;32mheader-functionality[m[33m)[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Thu Aug 26 21:15:01 2021 +0300
+
+    adding header1
+
+[33mcommit 1e6e7e18b85e8d26afb1d87e720ebe4a5de0aca3[m
+Merge: 8089731 55d5ba8
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 19:28:50 2021 +0300
+
+    Merge pull request #19 from paulskaufmanis/db
+    
+    started adding db connection
+
+[33mcommit 55d5ba8d37ebf22ddcb60ccda279f6dbe580d68a[m[33m ([m[1;31morigin/db[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 19:26:50 2021 +0300
+
+    started adding db connection
+
+[33mcommit 808973182dd99ac56e8306bd3d645175152388f4[m
+Merge: faa986f d541d4b
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Thu Aug 26 18:10:23 2021 +0300
+
+    Merge pull request #18 from paulskaufmanis/header-functionality
+    
+    header-functionality
+
+[33mcommit d541d4b0f23b157fbb768a418bbdc2da6e46ab5f[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Thu Aug 26 18:07:32 2021 +0300
+
+    header-functionality
+
+[33mcommit faa986fb4c779191bb42f151ea2c5128ce82aaf2[m
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Thu Aug 26 17:06:22 2021 +0300
+
+    Update Header.vue
+
+[33mcommit 4a76bd52e2327d806d031022a36111c9d2867579[m
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Thu Aug 26 17:01:01 2021 +0300
+
+    Update Header.vue
+
+[33mcommit 78117b08187c93d6cb88ca4a2a7f95cb34f8c93b[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Thu Aug 26 16:59:41 2021 +0300
+
+    header-functionality
+
+[33mcommit e1b170645e8821039983c48ae09e7056c45cd400[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Thu Aug 26 15:10:47 2021 +0300
+
+    header-styles
+
+[33mcommit b11154bbd9a1a7466f309f0214ae86a43cd637b0[m
+Merge: 422391e 70fed7e
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 12:26:09 2021 +0300
+
+    Merge pull request #16 from paulskaufmanis/frontend
+    
+    Frontend
+
+[33mcommit 70fed7e6a99f723345e64fb1a79a1fd10f4b8f6c[m[33m ([m[1;31morigin/frontend[m[33m)[m
+Merge: c39577a 422391e
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 12:25:06 2021 +0300
+
+    Merge branch 'main' into frontend
+
+[33mcommit 422391ed170c7cde92c967f02e98887fb16483aa[m
+Merge: cc15b6a e1db29c
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 11:59:26 2021 +0300
+
+    Merge pull request #17 from paulskaufmanis/validation
+    
+    validation added
+
+[33mcommit e1db29c8333dbfb2202bdf474785b8df392431fa[m[33m ([m[1;31morigin/validation[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 26 11:55:39 2021 +0300
+
+    validation added
+
+[33mcommit c39577acff27f75ccffe0f564db9c3b9acb77ac2[m
+Merge: 1c863bd d63d483
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Thu Aug 26 01:25:13 2021 +0300
+
+    Merge pull request #15 from paulskaufmanis/styles-header
+    
+    burgermenu update
+
+[33mcommit d63d48330f01da1b20baa1786a0e325a521a379d[m[33m ([m[1;31morigin/styles-header[m[33m, [m[1;32mstyles-header[m[33m)[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Thu Aug 26 01:21:48 2021 +0300
+
+    styles/header burger-menu
+
+[33mcommit cc15b6a8d382682b958d68b2b31058e26cda9b98[m
+Merge: f830c64 8c848a4
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Wed Aug 25 23:32:07 2021 +0300
+
+    Merge pull request #14 from paulskaufmanis/tokens
+    
+    burgermenu update
+
+[33mcommit 8c848a43f234eef6946cf9413bf20088533f4d67[m[33m ([m[1;31morigin/tokens[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Wed Aug 25 23:31:26 2021 +0300
+
+    burgermenu update
+
+[33mcommit f830c64465559acecb1bfaebef7ca21c9b77836d[m
+Merge: 7949fdf 63ae0a0
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Wed Aug 25 23:00:11 2021 +0300
+
+    Merge pull request #13 from paulskaufmanis/tokens
+    
+    tokens added
+
+[33mcommit 63ae0a0f80a79346cef87fcad140853a13ac6d90[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Wed Aug 25 22:58:54 2021 +0300
+
+    tokens added
+
+[33mcommit 7949fdfc82ca50cc490d5d98e1044d209a5d0833[m
+Merge: 912be96 b15cbf6
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Wed Aug 25 22:28:19 2021 +0300
+
+    Merge pull request #12 from paulskaufmanis/styles-header
+    
+    header styles/burger menu
+
+[33mcommit b15cbf69857cecf78318b2e747a2dc4045d4ce43[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Wed Aug 25 22:26:01 2021 +0300
+
+    header styles/burger menu
+
+[33mcommit 912be96ea57ab0a32e55221361e677ed3f1cdbd5[m
+Merge: 6c04520 d684e17
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Tue Aug 24 12:34:23 2021 +0300
+
+    Merge pull request #11 from paulskaufmanis/open-post
+    
+    Open single post
+
+[33mcommit d684e1796b46ab7c6c1ed259cfec5868c27bc46a[m[33m ([m[1;31morigin/open-post[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Tue Aug 24 12:33:27 2021 +0300
+
+    Open single post
+
+[33mcommit 6c045205b51b7c60d3700a09e7d045be1e17afac[m
+Merge: b9a5ea1 9420b59
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Tue Aug 24 08:51:46 2021 +0300
+
+    Merge pull request #10 from paulskaufmanis/styles-home
+    
+    ADD: styles-home
+
+[33mcommit 9420b59d15381a891cbe86314a97aca654b02e87[m[33m ([m[1;31morigin/styles-home[m[33m, [m[1;32mstyles-home[m[33m)[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Tue Aug 24 08:49:13 2021 +0300
+
+    ADD: styles-home
+
+[33mcommit b9a5ea1bb2b6a68fc76c7bc16996cd940eb10ca4[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Tue Aug 24 00:06:04 2021 +0300
+
+    Add post
+
+[33mcommit 9d7ca1780d84ff8f0e0cf2e9aef2b08059349084[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Mon Aug 23 23:03:15 2021 +0300
+
+    Vuex implemented
+
+[33mcommit 49b7e6cf4d83dd9f06f55527b866c2becdb23d80[m
+Merge: e246463 d7a9597
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Mon Aug 23 13:45:16 2021 +0300
+
+    Merge pull request #9 from paulskaufmanis/post_front_back
+    
+    ADD: posts from backend
+
+[33mcommit d7a9597c9ad90c75ce95ea1acbd60f2b148f97ad[m[33m ([m[1;31morigin/post_front_back[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Mon Aug 23 13:43:24 2021 +0300
+
+    ADD: posts from backend
+
+[33mcommit e246463a05d90e7592101a8b8090d1d4f7073aed[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Mon Aug 23 13:12:14 2021 +0300
+
+    CHNG:styles
+
+[33mcommit 8a46fda279f42ee8a967a962698fed4dc4ab205a[m
+Merge: 812c520 1c863bd
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Mon Aug 23 12:59:51 2021 +0300
+
+    Merge pull request #8 from paulskaufmanis/frontend
+    
+    ADD: styles for header,footer,dropdown,logo
+
+[33mcommit 1c863bdc922b45add06421c8708b88611e5f425f[m[33m ([m[1;32mfrontend[m[33m)[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Mon Aug 23 12:59:12 2021 +0300
+
+    ADD: styles for header,footer,dropdown,logo
+
+[33mcommit 812c5209efe408a9d2f2c6886541ed7c7e6cf7ad[m
+Merge: 30e3fbf e775781
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Mon Aug 23 11:35:39 2021 +0300
+
+    Merge pull request #7 from paulskaufmanis/frontend
+    
+    CHNG: all/home
+
+[33mcommit e7757814fd9d6c3b5d6b6fa5308caefe3329ec90[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Mon Aug 23 11:34:46 2021 +0300
+
+    CHNG: all/home
+
+[33mcommit 30e3fbf2a2fa57a4312d0af59e4c18f6b8a0f866[m
+Merge: 2de32ea 00fffab
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Mon Aug 23 10:34:48 2021 +0300
+
+    Merge pull request #6 from paulskaufmanis/frontend
+    
+    CHNG: All posts
+
+[33mcommit 00fffabdedbf59a676b4e60493fae9e4ef28f2de[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Mon Aug 23 10:33:09 2021 +0300
+
+    CHNG: All posts
+
+[33mcommit 2de32ea3ab7f3fea25a3a2208c9ffb73f907a1bf[m
+Merge: 015780f ec595c9
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Sat Aug 21 22:03:00 2021 +0300
+
+    Merge pull request #5 from paulskaufmanis/login
+    
+    ADD: user login/register form
+
+[33mcommit ec595c9cc14a891b9ea52dccb67c676cb11266de[m[33m ([m[1;31morigin/login[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Sat Aug 21 21:58:47 2021 +0300
+
+    ADD: user login/register form
+
+[33mcommit 015780f1984e4757541fc24dd6f4e2e75dcc3011[m
+Merge: b57e4dd d6c9c66
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Fri Aug 20 18:31:20 2021 +0300
+
+    Merge pull request #4 from paulskaufmanis/frontend
+    
+    ADD: Form
+
+[33mcommit d6c9c663ae221d86d9dae574adb798df7634af2a[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Fri Aug 20 18:30:27 2021 +0300
+
+    ADD: Form
+
+[33mcommit b57e4dd5ae573fd116ceeac0dc95251649e21906[m
+Merge: a9dd680 35fa4bc
+Author: Ywette <65426230+Ywette@users.noreply.github.com>
+Date:   Fri Aug 20 13:32:58 2021 +0300
+
+    Merge pull request #3 from paulskaufmanis/frontend
+    
+    ADD: frontend
+
+[33mcommit 35fa4bc08d578ceee9a2ca2feb1a2a584df2f7cc[m
+Author: Ywette <ywette.pro@gmail.com>
+Date:   Fri Aug 20 13:28:27 2021 +0300
+
+    ADD: frontend
+
+[33mcommit a9dd680502b983a5c44e013aeb2cd592f9e925c7[m
+Merge: a04645d 8faa273
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Fri Aug 20 08:54:51 2021 +0300
+
+    Merge pull request #2 from paulskaufmanis/users
+    
+    Users
+
+[33mcommit 8faa2730e25c1f47146b69d92314a0b7b438af23[m[33m ([m[1;31morigin/users[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Fri Aug 20 08:52:40 2021 +0300
+
+    Users api backend
+
+[33mcommit 7024e2815a492bdef745a4d303d34e298b9c0d92[m[33m ([m[1;31morigin/posts[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Thu Aug 19 13:50:40 2021 +0300
+
+    posts API server side
+
+[33mcommit a04645d47416f1743396abb039236478e03e3e5b[m
+Merge: 8b9ea50 817b250
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Wed Aug 18 12:12:19 2021 +0300
+
+    Merge pull request #1 from paulskaufmanis/pauls
+    
+    frontend app created
+
+[33mcommit 817b25095540cd12995b6706c18b120d709511d4[m[33m ([m[1;31morigin/pauls[m[33m)[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Wed Aug 18 12:10:20 2021 +0300
+
+    frontend app created
+
+[33mcommit 8b9ea50294b0cae102115ef20b3d4241bf82eb75[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Wed Aug 18 11:45:56 2021 +0300
+
+    basic structure for backend and frontend
+
+[33mcommit 14c6d13b5937822ed834ea7e977ebe7432b08bbf[m
+Author: paulskaufmanis <71510131+paulskaufmanis@users.noreply.github.com>
+Date:   Tue Aug 17 17:43:35 2021 +0300
+
+    first commit
