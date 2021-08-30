@@ -1,4 +1,4 @@
-const url = "http://localhost:3300/api/users-management/users/";
+const url = "http://localhost:3400/api/users-management/users/";
 
 class UserService {
   static getUsers(users, method = "GET") {
@@ -28,20 +28,21 @@ class UserService {
       .then((data) => console.log("User added!", data));
   }
 
-  static loginUser(user) {
-    fetch(`${url}login`, {
+  static async loginUser(user) {
+    await fetch(`${url}login`, {
       method: "POST",
       headers: {
         // check if token, pass to header
         "Content-Type": "application/json",
       },
+      // credentials: "include",
       body: JSON.stringify(user),
     })
       //   .then(console.log(JSON.stringify(user)))
       .then((res) => res)
 
       .then((data) => {
-        console.log(data.body, data.headers);
+        console.log(JSON.stringify(data.headers), data.headers);
         // data is token, store token to local storage
       });
   }

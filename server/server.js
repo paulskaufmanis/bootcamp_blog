@@ -17,7 +17,7 @@ server.use("/", function (req, res) {
   res.send("Hey, this is Bootcamp blog server");
 });
 
-const port = 3300;
+const port = 3400;
 // start server
 server.listen(port, function () {
   console.log(`Server running at http://localhost:${port}`);

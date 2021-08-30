@@ -1,47 +1,48 @@
 <template>
+  <div>
     <div class="header-wrapper">
-        <div class="branding">
-          <router-link class="logo" to="/">team4</router-link>
-        </div>
-        <nav class="navigation-wrapper">
-          <ul class="navigation" 
-              v-show="!mobile">
-            <li class="list-element"><router-link class="link" to="/">home</router-link></li>
-            <li class="list-element"><router-link class="link" to="/posts"
+      <div class="branding">
+        <router-link class="logo" to="/">team4</router-link>
+      </div>
+      <nav class="navigation-wrapper">
+        <ul class="navigation" 
+            v-show="!mobile">
+          <li class="list-element"><router-link class="link" to="/">home</router-link></li>
+          <li class="list-element"><router-link class="link" to="/posts"
                 >all posts</router-link></li>
-            <li class="hidden"><span></span></li>
-            <li class="list-element"><router-link to="/add-post"
+          <li class="hidden"><span></span></li>
+          <li class="list-element"><router-link to="/add-post"
                 ><div class="add-wrapper"><div class="add"></div></div></router-link >
-            </li>
-            <li class="list-element"  @mouseover="hover = true"
-             ><div class="avatar-wrapper" 
-            ><div class="avatar">
-              </div></div>
-            </li>
-          </ul>
+          </li>
+          <li class="list-element"  @mouseover="hover = true"
+           ><div class="avatar-wrapper" 
+          ><div class="avatar">
+            </div></div>
+          </li>
+        </ul>
           <Dropdown :options="options" v-if="hover" @mouseleave="hover = false"/>
-        </nav>
+      </nav>
             
-        <transition name="mobile-nav">
-          <ul v-show="mobileNav" class="dropdown-nav">        
-                
-            <li class="drd-link" v-for="option in options1" :key="option.title">
-                  <a :href="option.url">{{option.title}}</a>
-              </li>
-
-            </ul>
+      <transition name="mobile-nav">
+        <ul v-show="mobileNav" class="dropdown-nav">
+          <li class="drd-link" v-for="option in options1" :key="option.title">
+            <a :href="option.url">{{option.title}}</a>
+          </li>
+        </ul>
         </transition>
-          
     </div>
- 
-  <div class="icon" v-show="mobile"
+    <div class="icon" v-show="mobile"
         @click="toggleMobileNav"
         src="../assets/hamburger-icon.png"
         :class="{ 'icon-active': mobileNav }">
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>      
+
   </div>
+    </div>
+ 
+  
 </template>
 
 <script>
@@ -78,9 +79,11 @@ export default {
     this.checkScreen();
   },
   methods: {
+
     // clicker() {
     //   return (this.dropdownState = !this.dropdownState);
     // },
+
 
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
@@ -101,6 +104,7 @@ export default {
 </script>
 
 <style scoped>
+
 .header-wrapper{
   display: flex;
   align-items: center;
@@ -121,9 +125,11 @@ export default {
   text-decoration: none;
   color: rgba(134, 229, 244, 1);
   font-weight: 800;
+
   font-family:'Poppins', sans-serif;
   font-size: 28px;
   margin-right: 7%;
+
 }
 
 .navigation-wrapper {
@@ -135,9 +141,10 @@ export default {
   margin: 0 auto;
 }
 
-.navigation, .link {
+.navigation,
+.link {
   display: flex;
-  flex:1;
+  flex: 1;
   color: #fff;
   list-style: none;
   text-decoration: none;
@@ -156,7 +163,7 @@ export default {
 }
 .link:hover {
   color: #fff;
-  border-color:#fff;
+  border-color: #fff;
 }
 .avatar-wrapper {
   padding-top: 7px;
@@ -211,6 +218,15 @@ export default {
 }
 .icon-active {
   transform: rotate(180deg);
+
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+}
+.avater:hover {
+  cursor: pointer;
+
 }
 button {
   width: 32px;
@@ -223,6 +239,7 @@ button {
   flex-direction: column;
   width: 100%;
   height: 100%;
+
   backdrop-filter: blur(3px) saturate(98%);
   -webkit-backdrop-filter: blur(3px) saturate(98%);
   /* background-color: rgba(11, 223, 245, 0.37); */
@@ -230,12 +247,14 @@ button {
   /* border: 1px solid rgba(209, 213, 219, 0.3); */
   top: 50px;
   left:0;
+
 }
 .dropdown-nav > li {
   margin-left: 0;
   padding: 15px;
   color: black;
-   backdrop-filter: blur(3px) saturate(98%);
+  backdrop-filter: blur(3px) saturate(98%);
+
   -webkit-backdrop-filter: blur(3px) saturate(98%);
   background-color: rgba(134, 229, 244, 0.8);
   border-radius: 4px;
@@ -245,7 +264,7 @@ button {
 .dropdown-nav > li a {
   color: black;
 }
-.add-wrapper{
+.add-wrapper {
   height: 32px;
   width: 32px;
   transform: scale(0.7);
@@ -253,7 +272,9 @@ button {
 }
 .add {
   width: 100%;
+
   height: 85%;
+
   background: white;
   position: relative;
   -moz-border-radius: 50%;
@@ -264,14 +285,19 @@ button {
   content: "";
   position: absolute;
   right: 80%;
+
   top: 20px;
+
   width: 0;
   height: 0;
   border-top: 4px solid transparent;
   border-right: 8px solid white;
   border-bottom: 4px solid transparent;
   transform: rotate(-35deg);
+
 }
+
+
 .hidden {
   flex: 1;
 }
@@ -283,6 +309,7 @@ a {
 @media (min-width: 1024px) {
  .header-wrapper{
   display: flex;
+
   align-items: center;
   position: relative;
   padding: 0 15%;
