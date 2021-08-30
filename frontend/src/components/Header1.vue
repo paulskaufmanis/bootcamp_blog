@@ -1,37 +1,36 @@
 <template>
   <div>
     <div class="header-wrapper">
-
-        <div class="branding">
-          <router-link class="logo" to="/">team4</router-link>
-        </div>
-        <nav class="navigation-wrapper">
-          <ul class="navigation" 
-              v-show="!mobile">
-            <li class="list-element"><router-link class="link" to="/">home</router-link></li>
-            <li class="list-element"><router-link class="link" to="/posts"
+      <div class="branding">
+        <router-link class="logo" to="/">team4</router-link>
+      </div>
+      <nav class="navigation-wrapper">
+        <ul class="navigation" 
+            v-show="!mobile">
+          <li class="list-element"><router-link class="link" to="/">home</router-link></li>
+          <li class="list-element"><router-link class="link" to="/posts"
                 >all posts</router-link></li>
-            <li class="hidden"><span></span></li>
-            <li class="list-element"><router-link to="/add-post"
+          <li class="hidden"><span></span></li>
+          <li class="list-element"><router-link to="/add-post"
                 ><div class="add-wrapper"><div class="add"></div></div></router-link >
-            </li>
-            <li class="list-element"  @mouseover="hover = true"
-             ><div class="avatar-wrapper" 
-            ><div class="avatar">
-              </div></div>
-            </li>
-          </ul>
+          </li>
+          <li class="list-element"  @mouseover="hover = true"
+           ><div class="avatar-wrapper" 
+          ><div class="avatar">
+            </div></div>
+          </li>
+        </ul>
           <Dropdown :options="options" v-if="hover" @mouseleave="hover = false"/>
-        </nav>
+      </nav>
             
-        <transition name="mobile-nav">
-          <ul v-show="mobileNav" class="dropdown-nav">        
-                
-            <li class="drd-link" v-for="option in options1" :key="option.title">
-                  <a :href="option.url">{{option.title}}</a>
-              </li>
-
-         </transition>
+      <transition name="mobile-nav">
+        <ul v-show="mobileNav" class="dropdown-nav">
+          <li class="drd-link" v-for="option in options1" :key="option.title">
+            <a :href="option.url">{{option.title}}</a>
+          </li>
+        </ul>
+        </transition>
+    </div>
     </div>
  
   <div class="icon" v-show="mobile"
