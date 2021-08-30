@@ -1,4 +1,5 @@
-const url = "http://localhost:3400/api/users-management/users/";
+const url = "http://localhost:3300/api/users-management/users/";
+import axios from "axios";
 
 class UserService {
   static getUsers(users, method = "GET") {
@@ -45,7 +46,37 @@ class UserService {
         console.log(JSON.stringify(data.headers), data.headers);
         // data is token, store token to local storage
       });
+    console.log(localStorage.token);
   }
+
+  //____________________________________________________________________________________________________
+
+  // static async loginUser(user) {
+  //   await fetch(`${url}login`, {
+  //     method: "POST",
+  //     headers: {
+  //       "x-access-token": "adgdfg sdhgsdfg sdfg sdfg asgd",
+  //       "Content-Type": "application/json",
+  //       // check if token, pass to header
+  //       // "Access-Control-Allow-Credentials": true,
+  //       // authorization: "Bearer ",
+  //     },
+  //     // credentials: "include",
+  //     body: JSON.stringify(user),
+  //   })
+  //     //   .then(console.log(JSON.stringify(user)))
+  //     // .then((res) => res)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       localStorage.setItem("token", res.token);
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //       // data is token, store token to local storage
+  //     });
+  // }
+
+  //____________________________________________________________________________________________________
 
   static deleteUser(id, method = "DELETE") {
     fetch(`${url}${id}`, { method }).then((response) => console.log(response));
