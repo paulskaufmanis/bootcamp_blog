@@ -29,24 +29,28 @@ class UserService {
       .then((data) => console.log("User added!", data));
   }
 
-  static async loginUser(user) {
-    await fetch(`${url}login`, {
-      method: "POST",
-      headers: {
-        // check if token, pass to header
-        "Content-Type": "application/json",
-      },
-      // credentials: "include",
-      body: JSON.stringify(user),
-    })
-      //   .then(console.log(JSON.stringify(user)))
-      .then((res) => res)
-
-      .then((data) => {
-        console.log(JSON.stringify(data.headers), data.headers);
-        // data is token, store token to local storage
+  static loginUser(user) {
+    // const token = window.localStorage.token;
+    // console.log(token, "aha");
+    // const token = response.localStorage.token;
+    // console.log(req.headers.authorization);
+    axios
+      .post(`${url}${"login"}`, {
+        username: user.username,
+        password: user.password,
+        // headers: {
+        //   authorization: `Bearer ` + localStorage.token,
+        // },
+      })
+      .then((response) => {
+        console.log(response.data);
+        this.$store.dispatch("setUser");
+        // response.data;
+        // localStorage.setItem("token", response.data.accessToken);
       });
-    console.log(localStorage.token);
+
+    // console.log(localStorage.token);
+
   }
 
   //____________________________________________________________________________________________________
