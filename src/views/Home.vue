@@ -46,17 +46,17 @@ export default {
 <style scoped>
 .home { 
   display: flex;
-  justify-content: center;
-  background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
+  justify-content: center;  
+  
+
 }
- .posts {
+
+.posts {
   width: fit-content;
-  background-color: yellow;
   padding: 15px  0;
+  background: lightgray;
+  opacity: 0.95;
+  
   }
 
 .post-card {
@@ -64,13 +64,14 @@ export default {
   width: 19rem;
   height:19rem;
   padding: 15px 30px;
-  background-color: pink;
+  background: lightgray;
+  /* opacity: 0.9; */
   }
   .post-background {
       width: 100%;
       height:100%;
-
-  }
+      background-size: cover;
+   }
 
  @media
 (min-width: 768px) and
@@ -80,17 +81,18 @@ export default {
 .home {
   align-items: center;
 }
-  .posts {
-    margin: 0 7%;
-
-  }
-  .post-card {
+.posts {
+  margin: 0 7%;
+}
+  
+.post-card {
   width: 100%;
   width: 40rem;
   height:10rem;
-  padding: 15px 30px;
+  padding: 30px;
   background-color: pink;
-  }
+  margin: 35px 0;
+}
 
   .post-background {
     height: 10rem;
@@ -105,8 +107,8 @@ export default {
     padding: 15px;
   }
   .post-card {
-  background-color: green;
   padding: 15px;
+
   }
 
 }
