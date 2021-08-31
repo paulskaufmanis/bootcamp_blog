@@ -203,6 +203,10 @@ export default {
   height: 12px;
   transform: rotate(45deg);
 }
+
+.avater:hover {
+  cursor: pointer;
+}
 .icon {
   width: 28px;
   height: 28px;
@@ -228,13 +232,7 @@ export default {
 .icon-active {
   transform: rotate(180deg);
 }
-.avatar {
-  width: 32px;
-  height: 32px;
-}
-.avater:hover {
-  cursor: pointer;
-}
+
 button {
   width: 32px;
   height: 32px;
