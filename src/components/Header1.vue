@@ -251,19 +251,17 @@ export default {
   transform: rotate(45deg);      
 }
 
-.avatar {
-  width: 32px;
-  height: 32px;
 }
 .avater:hover {
   cursor: pointer;
-
 }
-button {
+
+/* button {
   width: 32px;
   height: 32px;
   border-radius: 50px;
-}
+} */
+
 .dropdown-nav {
   display: flex;
   position: absolute;
@@ -304,6 +302,7 @@ button {
 color: rgba(14, 13, 14, .95); 
 
 }
+
 .drd-link:hover{
   background-color: rgba(134, 229, 244, 1);
   transition: .5s ease all; 
@@ -312,6 +311,37 @@ color: rgba(14, 13, 14, .95);
 hr {
   margin: 0 40px;
   
+}
+
+.add-wrapper {
+  height: 32px;
+  width: 32px;
+  transform: scale(0.7);
+  margin:1%
+}
+.add {
+  width: 100%;
+  height: 85%;
+  background: white;
+  position: relative;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.add:before {
+  content: "";
+  position: absolute;
+  right: 80%;
+
+  top: 20px;
+
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-right: 8px solid white;
+  border-bottom: 4px solid transparent;
+  transform: rotate(-35deg);
+
 }
 
 .hidden {
