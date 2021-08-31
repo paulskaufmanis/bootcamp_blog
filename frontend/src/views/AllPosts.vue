@@ -75,22 +75,24 @@ export default {
 <style scoped>
 .posts-block {
   width: 19rem;
+  width: 100%;
 }
 .all-posts {
   display: flex;
   justify-content: center;
-  margin: 10px;
-  background: lightgray;
-  opacity: 0.92;
+  /* background-image: url(https://play-guitars.com/wp-content/uploads/2019/03/bass-guitar-for-beginners-01.jpg); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  background-size: cover;
+
 }
 .all-posts-heading{
-  width: 100%;
   padding: 16px 0;
   display: flex;
   justify-content: space-between;
   margin: 1rem 0 0 1rem;
   align-items: flex-end;
-  padding-right: 15px;
 }
 h2 {
   font-size: 22px;
@@ -119,9 +121,9 @@ h2 {
 }
 .post-text{
   margin-top: 8px;
-  max-height: 108px;
+  max-height: 110px;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 
   }
@@ -130,7 +132,7 @@ h2 {
   align-items: center;
   border-top: 1px solid lightgrey;
   padding-top: 1rem;
-  margin: 8px 0;
+  margin: 1rem 0;
 }
 .initials-wrap {
   display: flex;
@@ -149,11 +151,11 @@ h2 {
   padding: 0;
 }
 .post-author {
-  font-size: 10px;
+  font-size: 14px;
   margin-bottom: 4px;
 }
 .post-date {
-  font-size: 10px;
+  font-size: 12px;
 }
 .all-posts-heading {
   width: 100%;
@@ -177,9 +179,7 @@ h2 {
   border: none;
   padding-left: 0.5rem;
   outline: none;
-}
-input{
-  margin:0;
+
 }
 
 .search-icon-wrapper{
@@ -212,18 +212,14 @@ input{
 }
  
 @media
-(min-width: 768px) {
-   .all-posts {
-     margin: 45px 150px;
-     padding: 0 25px;
-   }
+(min-width: 768px) 
+ {
   .posts-block {
-    /* padding: 0 ; */
+    padding: 0 7%;
     width: 60rem;    
   }
   .post-wrapper {
     display: flex;
-    margin-bottom: 45px;
  }
   .post-card {
     height: 300px;
@@ -231,17 +227,6 @@ input{
  }
   .post-content{
     width: 50%;
-  }
-  .post-text{
-    font-size: 14px;
-  }
-  .post-author {
-    font-size: 12px;
-  }
-}
-@media (min-width: 1240px){
-  .all-posts{
-    margin: 35px 200px;
   }
 }
 

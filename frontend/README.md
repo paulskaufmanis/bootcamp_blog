@@ -1,25 +1,24 @@
-### Recomendations
+# frontend
 
-###
+## Project setup
+```
+npm install
+```
 
-npm i
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-npm express
+### Compiles and minifies for production
+```
+npm run build
+```
 
-npm nodemon
+### Lints and fixes files
+```
+npm run lint
+```
 
-npm i cors
-
-body-parser???
-
-### frontend:
-
-npm i -g @vue/cli
-
-npm i vuex@next --save
-
-npm i jsonwebtoken
-
-npm i dotenv
-
-npm i mysql2
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
