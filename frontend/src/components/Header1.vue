@@ -1,48 +1,56 @@
 <template>
   <div>
+    <div>
+      <p>
+        {{ user }}
+      </p>
+    </div>
     <div class="header-wrapper">
       <div class="branding">
         <router-link class="logo" to="/">team4</router-link>
       </div>
       <nav class="navigation-wrapper">
-        <ul class="navigation" 
-            v-show="!mobile">
-          <li class="list-element"><router-link class="link" to="/">home</router-link></li>
-          <li class="list-element"><router-link class="link" to="/posts"
-                >all posts</router-link></li>
-          <li class="hidden"><span></span></li>
-          <li class="list-element"><router-link to="/add-post"
-                ><div class="add-wrapper"><div class="add"></div></div></router-link >
+        <ul class="navigation" v-show="!mobile">
+          <li class="list-element">
+            <router-link class="link" to="/">home</router-link>
           </li>
-          <li class="list-element"  @mouseover="hover = true"
-           ><div class="avatar-wrapper" 
-          ><div class="avatar">
-            </div></div>
+          <li class="list-element">
+            <router-link class="link" to="/posts">all posts</router-link>
+          </li>
+          <li class="hidden"><span></span></li>
+          <li class="list-element">
+            <router-link to="/add-post"
+              ><div class="add-wrapper"><div class="add"></div></div
+            ></router-link>
+          </li>
+          <li class="list-element" @mouseover="hover = true">
+            <div class="avatar-wrapper"><div class="avatar"></div></div>
           </li>
         </ul>
-          <Dropdown :options="options" v-if="hover" @mouseleave="hover = false"/>
+        <Dropdown :options="options" v-if="hover" @mouseleave="hover = false" />
       </nav>
-            
+
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
           <li class="drd-link" v-for="option in options1" :key="option.title">
-            <a :href="option.url">{{option.title}}</a>
+            <a :href="option.url">{{ option.title }}</a>
           </li>
         </ul>
-        </transition>
+      </transition>
     </div>
-    <div class="icon" v-show="mobile"
-        @click="toggleMobileNav"
-        src="../assets/hamburger-icon.png"
-        :class="{ 'icon-active': mobileNav }">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>      
-
   </div>
-    </div>
- 
-  
+
+  <div
+    class="icon"
+    v-show="mobile"
+    @click="toggleMobileNav"
+    src="../assets/hamburger-icon.png"
+    :class="{ 'icon-active': mobileNav }"
+  >
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
 </template>
 
 <script>
@@ -66,24 +74,27 @@ export default {
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
       ],
-      
+
       // dropdownState: false,
       mobile: null,
       mobileNav: null,
       windowWidth: null,
       hover: false,
+      user: "",
     };
   },
   created() {
     window.addEventListener("resize", this.checkScreen);
     this.checkScreen();
   },
+  mounted() {
+    this.user = this.$store.getters.getUserNameSurname;
+    console.log(this.user);
+  },
   methods: {
-
     // clicker() {
     //   return (this.dropdownState = !this.dropdownState);
     // },
-
 
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
@@ -104,13 +115,12 @@ export default {
 </script>
 
 <style scoped>
-
-.header-wrapper{
+.header-wrapper {
   display: flex;
   align-items: center;
   position: relative;
   padding: 0 7%;
-  background: rgba(14, 13, 14, .8);
+  background: rgba(14, 13, 14, 0.8);
 }
 
 .branding {
@@ -126,10 +136,9 @@ export default {
   color: rgba(134, 229, 244, 1);
   font-weight: 800;
 
-  font-family:'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 28px;
   margin-right: 7%;
-
 }
 
 .navigation-wrapper {
@@ -181,7 +190,7 @@ export default {
   border-top: 9px solid transparent;
   border-right: 9px solid white;
   transform: rotate(-40deg);
- }
+}
 .avatar:after {
   content: "";
   position: absolute;
@@ -192,7 +201,7 @@ export default {
   left: -9px;
   width: 12px;
   height: 12px;
-  transform: rotate(45deg);      
+  transform: rotate(45deg);
 }
 .icon {
   width: 28px;
@@ -218,7 +227,6 @@ export default {
 }
 .icon-active {
   transform: rotate(180deg);
-
 }
 .avatar {
   width: 32px;
@@ -226,7 +234,6 @@ export default {
 }
 .avater:hover {
   cursor: pointer;
-
 }
 button {
   width: 32px;
@@ -246,8 +253,7 @@ button {
   border-radius: 12px;
   /* border: 1px solid rgba(209, 213, 219, 0.3); */
   top: 50px;
-  left:0;
-
+  left: 0;
 }
 .dropdown-nav > li {
   margin-left: 0;
@@ -268,7 +274,7 @@ button {
   height: 32px;
   width: 32px;
   transform: scale(0.7);
-  margin:1%
+  margin: 1%;
 }
 .add {
   width: 100%;
@@ -294,9 +300,7 @@ button {
   border-right: 8px solid white;
   border-bottom: 4px solid transparent;
   transform: rotate(-35deg);
-
 }
-
 
 .hidden {
   flex: 1;
@@ -307,16 +311,13 @@ a {
 }
 /* SHAPES FOR MOBILE-MENU */
 @media (min-width: 1024px) {
- .header-wrapper{
-  display: flex;
+  .header-wrapper {
+    display: flex;
 
-  align-items: center;
-  position: relative;
-  padding: 0 15%;
-  background: rgba(14, 13, 14, .8);
+    align-items: center;
+    position: relative;
+    padding: 0 15%;
+    background: rgba(14, 13, 14, 0.8);
+  }
 }
- 
-  
-}
-
 </style>

@@ -2,10 +2,11 @@ const url = "http://localhost:3400/api/posts-management/posts/";
 
 class PostService {
   static getPosts(posts, method = "GET") {
-    fetch(url, { method }).then((res) => {
-      return res.json();
-    });
-    // .then((data) => data.map((item) => posts.push(item)));
+    fetch(url, { method })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => data.map((item) => posts.push(item)));
   }
 
   static getUserPosts(posts, method = "GET") {

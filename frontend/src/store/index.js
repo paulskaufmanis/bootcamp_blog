@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+// import UserService from "../services/UserService";
 // import PostService from "../services/PostService";
 
 export default createStore({
@@ -18,6 +19,13 @@ export default createStore({
     getLastThree(state) {
       return state.posts.slice(-3).reverse();
     },
+    getUsersPosts(state) {
+      const user = this.user;
+      return state.posts.filter((post) => post.author === user.username);
+    },
+    getUserNameSurname(state) {
+      return `${state.user.name} ${state.user.surname}`;
+    },
   },
   mutations: {
     fillPosts(state, { posts }) {
@@ -26,22 +34,33 @@ export default createStore({
     fillMyPosts(state, { myPosts }) {
       state.myPosts = myPosts;
     },
+    setUser(state, payload) {
+      state.user = payload;
+    },
   },
 
   actions: {
     getPosts(context) {
-      fetch("http://localhost:3300/api/posts-management/posts/")
+      fetch("http://localhost:3400/api/posts-management/posts/")
         .then((res) => {
           return res.json();
         })
         .then((data) => context.commit("fillPosts", { posts: data }));
     },
-    getMyPosts(context) {
-      fetch("http://localhost:3300/api/posts-management/posts/my-posts")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => context.commit("fillPosts", { myPosts: data }));
+
+    async setUser(context, user) {
+      // const user = await UserService.loginUser(user);
+      // console.log("Sore action user: ", user);
+      context.commit("setUser", { user: user });
+      // console.log("Store: ", this.$store.user);
     },
+
+    // getMyPosts(context) {
+    //   fetch("http://localhost:3300/api/posts-management/posts/my-posts")
+    //     .then((res) => {
+    //       return res.json();
+    //     })
+    //     .then((data) => context.commit("fillPosts", { myPosts: data }));
+    // },
   },
 });

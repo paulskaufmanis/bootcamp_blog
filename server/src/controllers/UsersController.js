@@ -117,10 +117,10 @@ router.post("/login", async (req, res) => {
       console.log("Fine, passwords match!");
 
       const username = req.body.username;
-      const user = { name: username };
+      const xuser = { name: username };
 
-      const accessToken = generateAccessToken(user);
-      const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+      const accessToken = generateAccessToken(xuser);
+      const refreshToken = jwt.sign(xuser, process.env.REFRESH_TOKEN_SECRET);
 
       refreshTokens.push();
       res.json({
@@ -129,6 +129,7 @@ router.post("/login", async (req, res) => {
         refreshToken: refreshToken,
         user: user,
       });
+      console.log("This is user from data: ", user);
     } else {
       console.log("Wrong password");
       res.send("Wrong password");
