@@ -30,7 +30,7 @@ export default createStore({
 
   actions: {
     getPosts(context) {
-      fetch("http://localhost:3400/api/posts-management/posts/")
+      fetch("http://localhost:3300/api/posts-management/posts/")
         .then((res) => {
           return res.json();
         })
@@ -43,7 +43,7 @@ export default createStore({
     },
 
     getMyPosts(context) {
-      fetch("http://localhost:3400/api/posts-management/posts/my-posts")
+      fetch("http://localhost:3300/api/posts-management/posts/my-posts")
         .then((res) => {
           return res.json();
         })
