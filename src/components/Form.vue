@@ -102,12 +102,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-container {
   width: 20rem;
   align-items: center;
   background: lightgray;
-  /* margin: 2rem auto; */
+  opacity: 0.9;
   padding: 25px;
 }
 h3 {

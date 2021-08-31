@@ -7,6 +7,7 @@
         <p class="post-author">Author: {{ thisPost().created_by }}</p>
         <p class="post-date">Date: {{ thisPost().created_at }}</p>
         <p>{{ thisPost().text }}</p>
+        <small>...</small>
       </div>
       <p class="back" @click="goBack">Back</p>
     </div>
