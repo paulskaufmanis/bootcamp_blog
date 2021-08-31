@@ -39,11 +39,8 @@
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>      
-
-  </div>
     </div>
- 
-  
+  </div>  
 </template>
 
 <script>
@@ -103,7 +100,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 
 .header-wrapper{
@@ -121,16 +117,15 @@ export default {
   padding-bottom: 6px;
   color: gray;
 }
+
 .logo {
   list-style: none;
   text-decoration: none;
   color: rgba(134, 229, 244, 1);
   font-weight: 800;
-
   font-family:'Poppins', sans-serif;
   font-size: 28px;
   margin-right: 7%;
-
 }
 
 .navigation-wrapper {
@@ -152,6 +147,7 @@ export default {
   align-items: center;
   width: 100%;
 }
+
 .list-element {
   text-transform: uppercase;
   margin-left: 4%;
@@ -166,35 +162,7 @@ export default {
   color: #fff;
   border-color: #fff;
 }
-.avatar-wrapper {
-  padding-top: 7px;
-  border: 2px solid white;
-  height: 28px;
-  width: 32px;
-  transform: scale(0.7);
-  border-radius: 4px;
-  cursor: pointer;
-}
-.avatar {
-  position: relative;
-  width: 0;
-  height: 0;
-  border-top: 9px solid transparent;
-  border-right: 9px solid white;
-  transform: rotate(-40deg);
- }
-.avatar:after {
-  content: "";
-  position: absolute;
-  border: 0 solid transparent;
-  border-top: 3px solid white;
-  border-radius: 20px 0 0 0;
-  top: -12px;
-  left: -9px;
-  width: 12px;
-  height: 12px;
-  transform: rotate(45deg);      
-}
+/* BURGER MENU */
 .icon {
   width: 28px;
   height: 28px;
@@ -219,8 +187,70 @@ export default {
 }
 .icon-active {
   transform: rotate(180deg);
-
 }
+
+/* ADD POST */
+.add-wrapper {
+  height: 32px;
+  width: 32px;
+  transform: scale(0.7);
+  margin:1%
+}
+.add {
+  width: 100%;
+  height: 85%;
+  background: white;
+  position: relative;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.add:before {
+  content: "";
+  position: absolute;
+  right: 80%;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-right: 8px solid white;
+  border-bottom: 4px solid transparent;
+  transform: rotate(-35deg);
+}
+
+/* LOGIN / REGISTER */
+.avatar-wrapper {
+  padding-top: 7px;
+  border: 2px solid white;
+  height: 28px;
+  width: 32px;
+  transform: scale(0.7);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.avatar {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-right: 9px solid white;
+  transform: rotate(-40deg);
+ }
+ 
+.avatar:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 3px solid white;
+  border-radius: 20px 0 0 0;
+  top: -12px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);      
+}
+
 .avatar {
   width: 32px;
   height: 32px;
@@ -240,7 +270,6 @@ button {
   flex-direction: column;
   width: 100%;
   height: 100%;
-
   backdrop-filter: blur(3px) saturate(98%);
   -webkit-backdrop-filter: blur(3px) saturate(98%);
   /* background-color: rgba(11, 223, 245, 0.37); */
@@ -260,13 +289,12 @@ button {
   -webkit-backdrop-filter: blur(3px) saturate(98%);
   background-color: rgba(14, 13, 14, .95);
   /* border-radius: 4px;
-  border: 1px solid rgba(209, 213, 219, 0.3); */
-  
+  border: 1px solid rgba(209, 213, 219, 0.3); */  
 }
+
 .dropdown-nav > li a {
   display: inline-block;
-  color: rgba(134, 229, 244, 1);
-  
+  color: rgba(134, 229, 244, 1);  
   font-weight: regular;
   padding: 15px 15px 15px 40px;
   cursor: pointer;
@@ -274,20 +302,17 @@ button {
 }
 .dropdown-nav > li a:hover{
 color: rgba(14, 13, 14, .95); 
+
 }
 .drd-link:hover{
-        background-color: rgba(134, 229, 244, 1);
-        transition: .5s ease all; 
+  background-color: rgba(134, 229, 244, 1);
+  transition: .5s ease all; 
 }
+
 hr {
   margin: 0 40px;
   
 }
-  /* border-bottom: 4px solid transparent;
-  transform: rotate(-35deg);
-
-} */
-
 
 .hidden {
   flex: 1;
@@ -307,3 +332,4 @@ a {
   background: rgba(14, 13, 14, .8);
 }
 }
+</style>
