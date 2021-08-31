@@ -46,12 +46,12 @@ export default {
 <style scoped>
 .home { 
   display: flex;
-  justify-content: center;  
-  
-
+  justify-content: center;
 }
 
 .posts {
+  display: flex;
+  flex-direction: column;
   width: fit-content;
   padding: 15px  0;
   background: lightgray;
@@ -82,28 +82,29 @@ export default {
   align-items: center;
 }
 .posts {
-  margin: 0 7%;
+  margin: 0 7%;  
+  margin-bottom: 35px;
 }
   
 .post-card {
-  width: 100%;
+  display: block;
   width: 40rem;
   height:10rem;
   padding: 30px;
-  background-color: pink;
-  margin: 35px 0;
+  margin-bottom: 35px;
 }
 
   .post-background {
     height: 10rem;
+    background: cover;
   }
 }
 
 @media (min-width: 1024px){
   
   .posts {
-    margin: 5%;
-    display: flex;
+    flex-direction: row;
+    margin: 5%;    
     padding: 15px;
   }
   .post-card {
