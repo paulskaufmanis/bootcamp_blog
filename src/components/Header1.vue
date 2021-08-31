@@ -221,19 +221,18 @@ export default {
   transform: rotate(180deg);
 
 }
-.avatar {
-  width: 32px;
-  height: 32px;
-}
+
 .avater:hover {
   cursor: pointer;
 
 }
-button {
+
+/* button {
   width: 32px;
   height: 32px;
   border-radius: 50px;
-}
+} */
+
 .dropdown-nav {
   display: flex;
   position: absolute;
@@ -275,9 +274,10 @@ button {
 .dropdown-nav > li a:hover{
 color: rgba(14, 13, 14, .95); 
 }
+
 .drd-link:hover{
-        background-color: rgba(134, 229, 244, 1);
-        transition: .5s ease all; 
+  background-color: rgba(134, 229, 244, 1);
+  transition: .5s ease all; 
 }
 hr {
   margin: 0 40px;
@@ -292,9 +292,7 @@ hr {
 }
 .add {
   width: 100%;
-
   height: 85%;
-
   background: white;
   position: relative;
   -moz-border-radius: 50%;
