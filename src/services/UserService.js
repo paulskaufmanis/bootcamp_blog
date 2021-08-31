@@ -1,5 +1,5 @@
-const url = "http://localhost:3300/api/users-management/users/";
-import axios from "axios";
+const url = "http://localhost:3400/api/users-management/users/";
+// import axios from "axios";
 
 class UserService {
   static getUsers(users, method = "GET") {

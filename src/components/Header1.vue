@@ -22,12 +22,12 @@
         </ul>
           <Dropdown :options="options" v-if="hover" @mouseleave="hover = false"/>
       </nav>
-      <h1>some changes for commit</h1>
             
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
           <li class="drd-link" v-for="option in options1" :key="option.title">
             <a :href="option.url">{{option.title}}</a>
+            <hr>
           </li>
         </ul>
         </transition>
@@ -248,23 +248,42 @@ button {
   /* border: 1px solid rgba(209, 213, 219, 0.3); */
   top: 50px;
   left:0;
+  z-index:2;
 
 }
 .dropdown-nav > li {
+  width: 100%;
   margin-left: 0;
-  padding: 15px;
   color: black;
   backdrop-filter: blur(3px) saturate(98%);
 
   -webkit-backdrop-filter: blur(3px) saturate(98%);
-  background-color: rgba(134, 229, 244, 0.8);
-  border-radius: 4px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+  background-color: rgba(14, 13, 14, .95);
+  /* border-radius: 4px;
+  border: 1px solid rgba(209, 213, 219, 0.3); */
+  
+}
+.dropdown-nav > li a {
+  display: inline-block;
+  color: rgba(134, 229, 244, 1);
+  
+  font-weight: regular;
+  padding: 15px 15px 15px 40px;
+  cursor: pointer;
+  width: 100%;
+}
+.dropdown-nav > li a:hover{
+color: rgba(14, 13, 14, .95); 
+}
+.drd-link:hover{
+        background-color: rgba(134, 229, 244, 1);
+        transition: .5s ease all; 
+}
+hr {
+  margin: 0 40px;
+  
 }
 
-.dropdown-nav > li a {
-  color: black;
-}
 .add-wrapper {
   height: 32px;
   width: 32px;
