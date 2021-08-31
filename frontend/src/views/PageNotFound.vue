@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style>
+<style scoped> 
 .error-page-wrapper{
   width: 100%;
   display: flex;
