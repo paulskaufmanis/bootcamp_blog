@@ -90,6 +90,7 @@ export default {
   width: 40rem;
   height:10rem;
   padding: 30px;
+  background-color: pink;
   margin: 35px 0;
 }
 
