@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const url = "http://localhost:3300/api/users-management/users/";
-=======
-const url = "http://localhost:3400/api/users-management/users/";
->>>>>>> refs/remotes/origin/main
 // import axios from "axios";
 
 class UserService {
