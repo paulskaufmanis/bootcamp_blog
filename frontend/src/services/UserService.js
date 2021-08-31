@@ -1,5 +1,5 @@
 const url = "http://localhost:3300/api/users-management/users/";
-//import axios from "axios";
+import axios from "axios";
 
 class UserService {
   static getUsers(users, method = "GET") {
@@ -38,15 +38,17 @@ class UserService {
       .post(`${url}${"login"}`, {
         username: user.username,
         password: user.password,
-        headers: {
-          authorization: `Bearer ` + localStorage.token,
-        },
+        // headers: {
+        //   authorization: `Bearer ` + localStorage.token,
+        // },
       })
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem("token", response.data.accessToken);
+        this.$store.dispatch("setUser");
+        // response.data;
+        // localStorage.setItem("token", response.data.accessToken);
       });
-    console.log(localStorage.token);
+    // console.log(localStorage.token);
   }
 
   //____________________________________________________________________________________________________

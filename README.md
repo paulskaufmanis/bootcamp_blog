@@ -23,3 +23,5 @@ npm i jsonwebtoken
 npm i dotenv
 
 npm i mysql2
+
+npm i axios
