@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-container {
   width: 20rem;
   align-items: center;
