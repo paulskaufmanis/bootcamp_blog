@@ -75,6 +75,7 @@ export default {
 <style scoped>
 .posts-block {
   width: 19rem;
+  margin: 0 7%;
 }
 .all-posts {
   display: flex;
@@ -88,14 +89,14 @@ export default {
   padding: 16px 0;
   display: flex;
   justify-content: space-between;
-  margin: 1rem 0 0 1rem;
+  margin-top: 35px;
   align-items: flex-end;
   padding-right: 15px;
 }
+
 h2 {
   font-size: 22px;
 }
-
 
 .post-wrapper {
   background: gray;
@@ -106,8 +107,8 @@ h2 {
 .post-card {  
  height: 9.5rem;
  background-size: cover;
-
 }
+
 .post-title{
   text-align:start;
 }
@@ -119,19 +120,20 @@ h2 {
 }
 .post-text{
   margin-top: 8px;
-  max-height: 108px;
+  max-height: 100px;
   overflow: hidden;
   font-size: 12px;
   line-height: 1.5;
+}
 
-  }
 .post-footer {
   display: flex;
   align-items: center;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid rgba(134, 229, 244, 1);
   padding-top: 1rem;
   margin: 8px 0;
 }
+
 .initials-wrap {
   display: flex;
   justify-content: center;
@@ -142,73 +144,72 @@ h2 {
   border-radius: 50%;
   margin-right: 1rem;
 }
+
 .initials {
   font-size: x-large;
   font-weight: 500;
   margin:0;
   padding: 0;
 }
+
 .post-author {
   font-size: 10px;
   margin-bottom: 4px;
 }
+
 .post-date {
   font-size: 10px;
 }
-.all-posts-heading {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 0 0 1rem;
-  padding-right: 1rem;
-}
+
 .search-wrap {
   display: flex;
   /* flex-direction: row; */
   border-bottom: 1px solid black;
   align-items: flex-end;
-  margin-bottom: 8px;
-  
-}
-.search-box {
-  width: 6rem;
-  height: 1.5rem;
-  background: inherit;
-  border: none;
-  padding-left: 0.5rem;
-  outline: none;
-}
-input{
-  margin:0;
+  margin-bottom: 8px;  
 }
 
-.search-icon-wrapper{
-  width: 18px;
-  height: 18px;
-  margin-bottom: 5px;
-  cursor: pointer;
-}
+  .search-box {
+    width: 6rem;
+    height: 1.5rem;
+    background: inherit;
+    border: none;
+    padding-left: 0.5rem;
+    outline: none;
+  }
 
-.search-icon { 
-  font-size: 10em;
-  width:50%;
-  box-sizing: content-box;
-  height:50%;
-  border: 2px solid black;
-  position: relative;
-  border-radius: 50px;
-}
+  input{
+    margin:0;
+  }
+
+  .search-icon-wrapper{
+    width: 18px;
+    height: 18px;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  .search-icon { 
+    font-size: 10em;
+    width:50%;
+    box-sizing: content-box;
+    height:50%;
+    border: 2px solid black;
+    position: relative;
+    border-radius: 50px;
+  }
+
   .search-icon:before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  right: -6px;
-  bottom: -3px;
-  border-width: 0;
-  background: black;
-  width: 8px;
-  height: 2px;
-  transform: rotate(45deg);
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -6px;
+    bottom: -3px;
+    border-width: 0;
+    background: black;
+    width: 8px;
+    height: 2px;
+    transform: rotate(45deg);
 }
  
 @media
