@@ -7,25 +7,44 @@
         <!-- NAME -->
         <div class="input">
           <label for="name"></label>
-          <input name="name" type="text" placeholder="Name" v-model="newUser.name" />
+          <input
+            name="name"
+            type="text"
+            placeholder="Name"
+            v-model="newUser.name"
+          />
         </div>
         <!-- SURNAME -->
         <div class="input">
           <label for="surname"></label>
-          <input name="surname" type="text" placeholder="Surname" v-model="newUser.surname" />
+          <input
+            name="surname"
+            type="text"
+            placeholder="Surname"
+            v-model="newUser.surname"
+          />
         </div>
-
       </div>
       <!-- EMAIL -->
-        <div class="input">
-          <label for="email"></label>
-          <input name="email" type="email"  placeholder="Email" v-model="newUser.username" />
-        </div>
+      <div class="input">
+        <label for="email"></label>
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          v-model="newUser.username"
+        />
+      </div>
       <!-- PASSWORD -->
-        <div class="input">
-          <label for="password"></label>
-          <input name="password" type="password" placeholder="Password" v-model="newUser.password" />
-        </div>
+      <div class="input">
+        <label for="password"></label>
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          v-model="newUser.password"
+        />
+      </div>
 
       <button class="submit_btn" @click="sendData">
         {{ authType }}
@@ -38,7 +57,7 @@
       </div>
     </form>
     <div class="register-link-container" v-if="this.authType === 'Log in'">
-      <router-link      
+      <router-link
         to="/register"
         class="register-link"
         @click="$emit('change-auth-type', 'Register')"
@@ -90,7 +109,6 @@ export default {
       if (!/[a-z]/.test(this.newUser.password)) {
         this.errors.push("- Password must contain a letter \n");
       }
-      console.log(this.errors);
 
       if (this.errors.length > 0) return;
 
@@ -114,18 +132,18 @@ h3 {
   text-align: center;
   font-size: 16px;
 }
-input, button {
+input,
+button {
   margin: 12px 0;
   padding: 6px 24px;
   outline: none;
   width: 100%;
-  border: 1px solid #DBE2EF;
-
+  border: 1px solid #dbe2ef;
 }
 button {
-  background: #39C2F5;
+  background: #39c2f5;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 .register-link-container {
   font-size: 12px;
@@ -141,7 +159,6 @@ button {
   transition: 0.3s ease all;
   padding: 0;
   color: #2c92b8;
-
 }
 .register-link:focus {
   text-decoration: none;
