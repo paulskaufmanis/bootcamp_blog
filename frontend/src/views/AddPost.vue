@@ -49,7 +49,7 @@ export default {
         title: "",
         text: "",
         image: "",
-        created_by: this.$store.state.user.name,
+        created_by: localStorage.getItem("author"),
         created_at: "",
       },
     };
