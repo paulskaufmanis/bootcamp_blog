@@ -1,12 +1,13 @@
 <template>
   <div class="form-container">
-    <form v-on:submit.prevent autocomplete="off">
+    <form v-on:submit.prevent >
       <h3>{{ authType }}</h3>
 
       <div v-if="this.authType === 'Register'" class="reg-fields">
         <!-- NAME -->
         <div class="input">
           <input
+          
             name="name"
             type="text"
             placeholder="Name"
@@ -201,7 +202,7 @@ span {
 
 /* Label animation css */
 input::placeholder {
-  color: white;
+  color: gray;
 }
 input {
     display: block;
@@ -211,8 +212,6 @@ input {
 label {
   display: block;
   position: absolute;
-  /* top :145px; */
-  /* left: 20px; */
   pointer-events: none;
   color: #999;
   transition: .5s;
