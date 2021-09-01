@@ -46,7 +46,7 @@ export default {
 body {
   background-image: url(https://images.unsplash.com/photo-1525898181636-29b30c26f6e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center 25%;
   background-attachment: fixed;
   background-size: fit-content;
 }

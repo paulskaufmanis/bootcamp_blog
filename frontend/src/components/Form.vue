@@ -50,12 +50,21 @@
         {{ authType }}
       </button>
 
+      
+
       <div v-if="this.authType === 'Register'">
         <div v-for="(error, index) in errors" :key="index">
           {{ error }}
         </div>
       </div>
+      
+      <!-- LOADING ANIMATION -->
+      <span>Loading...</span>
+      <div class="loader"></div>
+
     </form>
+
+
     <div class="register-link-container" v-if="this.authType === 'Log in'">
       <router-link
         to="/register"
@@ -120,7 +129,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+*{
+  font-family: 'Poppins';
+}
 .form-container {
   width: 20rem;
   align-items: center;
@@ -140,6 +152,7 @@ button {
   width: 100%;
   border: 1px solid #dbe2ef;
 }
+
 button {
   background: #39c2f5;
   border: none;
@@ -166,6 +179,35 @@ button {
 .register-link:active {
   text-decoration: none;
 }
+span {
+  /* left: 50px; */
+  font-size: 12px;
+  text-align: center;
+}
+.loader {
+  height: 15px;  
+  border-radius: 10px;
+  margin: 5px 0 20px 0;
+    
+}
+.loader {
+  position: relative;
+  width: 40%;
+  background: rgb(7,246,250);
+  box-shadow: 0 0 20px blue;
+  animation: animate 3s forwards;
+}
+
+@keyframes animate {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+button{padding: 8px 30px;}
 
 /* form,
 .reg-fields {

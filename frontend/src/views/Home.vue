@@ -89,6 +89,11 @@ export default {
   .post-background {
     height: 10rem;
     background: cover;
+    
+  }
+  .post-background:hover {
+    transition: translate3d(0, -5px, 0);
+    box-shadow: 0 2rem 5rem 0 rgba(0,0,0, .1);
   }
 }
 @media (min-width: 1024px) {
@@ -99,6 +104,13 @@ export default {
   }
   .post-card {
     padding: 15px;
+  }
+  .post-card:hover {
+    transform: scale(1.05);
+    transition: 0.5s ease all;
+    box-shadow: 0 2rem 5rem 0 rgba(0,0,0, .5);
+    cursor: pointer;
+    border: 1px solid rgba(250, 250, 250, .5);
   }
 }
 </style>
