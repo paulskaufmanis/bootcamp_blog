@@ -32,12 +32,11 @@
             <label for="text"></label>
             <textarea name="text" placeholder="Say your thoughts...." v-model="newPost.text" />
           </div>
-                 <button @click="addPost">Publish your post</button>
-                 Loading your blog
-                 <span></span>
 
-          
-          
+          <button @click="addPost">Publish your post</button>
+          <span>Loading post...</span>
+          <div class="loader"></div>
+                 <!-- <span></span> --> 
         </form>
         </center>
     </div>
@@ -99,12 +98,46 @@ input:focus, input:active {
 .input {
   padding: 4px;
 }
-span {
-  width: 100%;
+.loader, span {
+  height: 15px;  
+  border-radius: 10px;
+  margin: 20px;
+  left: 28%;
+  /* width: 100%;
   height: 10px;
   border-radius: 50px;
   background-color: cyan;
-  margin-top: 10px;
+  margin-top: 10px; */
+}
+.loader {
+  position: relative;
+  width: 40%;
+  background: rgb(7,246,250);
+  box-shadow: 0 0 20px blue;
+  animation: animate 3s forwards;
+
+}
+span {
+  position: absolute;
+  top: 150px;
+  border: 1px solid;
+
+}
+@keyframes animate {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 40%;
+  }
+}
+span {
+  top: -36.4px;
+  width: 40%;
+  background: rgb)62,72,95);
+  border: 1px solid rgb(2,58,99);
+  display: block;
+  z-index: -1;
 }
 button{padding: 8px 30px;}
 
