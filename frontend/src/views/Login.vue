@@ -1,9 +1,8 @@
 <template>
   <div class="login-page">
-    <div v-if="$store.state.user">
-      <!-- <div> -->
-      {{ user }}
-    </div>
+    <!-- <div v-if="$store.state.user">
+            {{ user }}
+    </div> -->
 
     <Form
       :authType="authType"
@@ -23,7 +22,7 @@ export default {
       users: [],
       authType: "",
       navUrl: "",
-      user: `Hi, ${this.$store.state.user.surname}!`,
+      // user: `Hi, ${this.$store.state.user.surname}!`,
       // user: `Hi, ${localStorage.getItem("user")}!`,
     };
   },
@@ -38,6 +37,7 @@ export default {
     async handleData(user) {
       if (this.authType === "Register") {
         await UserService.addUser(user);
+        this.authType = "Login";
       } else {
         await UserService.loginUser(user);
         await this.$store.dispatch("setUser", user);
@@ -49,7 +49,7 @@ export default {
         // localStorage.setItem("user", user);
         // console.log(this.$store.state);
 
-        // this.$router.push();
+        this.$router.push("/");
         // console.log("State user: ", await UserService.loginUser(user));
       }
     },
