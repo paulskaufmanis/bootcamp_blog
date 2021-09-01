@@ -6,44 +6,44 @@
       <div v-if="this.authType === 'Register'" class="reg-fields">
         <!-- NAME -->
         <div class="input">
-          <label for="name"></label>
           <input
             name="name"
             type="text"
             placeholder="Name"
             v-model="newUser.name"
           />
+          <label for="name">Name</label>
         </div>
         <!-- SURNAME -->
         <div class="input">
-          <label for="surname"></label>
           <input
             name="surname"
             type="text"
             placeholder="Surname"
             v-model="newUser.surname"
           />
+          <label for="surname">Surname</label>
         </div>
       </div>
       <!-- EMAIL -->
       <div class="input">
-        <label for="email"></label>
         <input
           name="email"
           type="email"
           placeholder="Email"
           v-model="newUser.username"
         />
+        <label for="email">Email</label>
       </div>
       <!-- PASSWORD -->
       <div class="input">
-        <label for="password"></label>
         <input
           name="password"
           type="password"
           placeholder="Password"
           v-model="newUser.password"
         />
+        <label for="password">Password</label>
       </div>
 
       <button class="submit_btn" @click="sendData">
@@ -184,7 +184,7 @@ span {
   font-size: 12px;
   text-align: center;
 }
-.loader {
+/* .loader {
   height: 15px;  
   border-radius: 10px;
   margin: 5px 0 20px 0;
@@ -196,7 +196,49 @@ span {
   background: rgb(7,246,250);
   box-shadow: 0 0 20px blue;
   animation: animate 3s forwards;
+} */
+
+
+/* Label animation css */
+input::placeholder {
+  color: white;
 }
+input {
+    display: block;
+
+  /* position: relative;   */
+}
+label {
+  display: block;
+  position: absolute;
+  /* top :145px; */
+  /* left: 20px; */
+  pointer-events: none;
+  color: #999;
+  transition: .5s;
+  margin-top: -43px;
+  margin-left: 20px;
+}
+input:focus ~ label, 
+input:valid ~ label{
+
+  margin-top: -55px;
+  margin-left: 22px;
+  color: red;
+  transition: .5s;
+  background: transparent;
+  font-size: 10px;
+
+}
+input:focus, 
+input:valid{
+
+  border: none;
+  border-bottom: 1px solid;
+
+}
+
+
 
 @keyframes animate {
   from {
