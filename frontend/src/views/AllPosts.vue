@@ -217,7 +217,9 @@ input {
   width: 8px;
   height: 2px;
   transform: rotate(45deg);
-}
+} 
+
+
 
 @media (min-width: 768px) {
   .all-posts {
