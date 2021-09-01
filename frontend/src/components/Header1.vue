@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div>
-      <p>
-        {{ user }}
-      </p>
-    </div>
     <div class="header-wrapper">
       <div class="branding">
         <router-link class="logo" to="/">team4</router-link>
@@ -80,7 +75,6 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
-      user: this.$store.state.user,
     };
   },
   created() {

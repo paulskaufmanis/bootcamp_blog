@@ -1,8 +1,5 @@
 <template>
   <div class="all-posts">
-    <div>
-      {{ user }}
-    </div>
     <div v-if="!$route.params.id" class="posts-block">
       <div class="all-posts-heading">
         <h2>All posts</h2>
@@ -61,7 +58,6 @@ export default {
       currentUserName: this.$store.getters.getUserNameSurname,
       currentUserInitials: this.$store.getters.getUserInitials,
       initials: "",
-      user: this.$store.state.user,
     };
   },
   methods: {
@@ -116,17 +112,16 @@ h2 {
   cursor: pointer;
 }
 
-.post-wrapper:hover{
-    transform: scale(1.05);
-    transition: 0.5s ease all;
-    box-shadow: 0 2rem 5rem 0 rgba(0,0,0, .5);
-    cursor: pointer;
-    border: 1px solid rgba(250, 250, 250, .5);
+.post-wrapper:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease all;
+  box-shadow: 0 2rem 5rem 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border: 1px solid rgba(250, 250, 250, 0.5);
 }
-.post-card {  
- height: 9.5rem;
- background-size: cover;  
-
+.post-card {
+  height: 9.5rem;
+  background-size: cover;
 }
 .post-title {
   text-align: start;
