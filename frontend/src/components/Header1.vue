@@ -64,8 +64,8 @@ export default {
     return {
       // pass data in Dropdown component
       options: [
-        { title: "My posts", url: "my-posts" },
-        { title: "Log in", url: "login" },
+        { title: "My posts", url: "/my-posts" },
+        { title: "Log in", url: "/login" },
       ],
       //pass data in mobile menu
       options1: [

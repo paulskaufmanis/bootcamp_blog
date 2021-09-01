@@ -69,7 +69,13 @@ export default {
   height: 100%;
   background-size: cover;
   background-position: center 25%;
+  
 }
+.post-background:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .home {
     align-items: center;
