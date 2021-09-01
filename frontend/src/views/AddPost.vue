@@ -15,32 +15,45 @@
         <button @click="addPost">Add</button>
       </form>
     </div> -->
-    <div class="add-post-wrapper">
-    <center>
-        <form autocomplete="off" v-on:submit.prevent>
-          <div class="input">
-            <label for="title"></label>
-            <input type="text" name="title" placeholder="Write title" v-model="newPost.title" />
-          </div>
+  <div class="add-post-wrapper">
+    <div>
+      <form autocomplete="off" v-on:submit.prevent>
+        <div class="input">
+          <label for="title"></label>
+          <input
+            type="text"
+            name="title"
+            placeholder="Write title"
+            v-model="newPost.title"
+          />
+        </div>
 
-          <div class="input">
-            <label for="text"></label>
-            <textarea name="text" placeholder="Say your thoughts...." v-model="newPost.text" />
-          </div>
+        <div class="input">
+          <label for="text"></label>
+          <textarea
+            name="text"
+            placeholder="Say your thoughts...."
+            v-model="newPost.text"
+          />
+        </div>
 
-          <div class="input">
-            <label for="image"></label>
-            <input type="text" name="image" placeholder="Add image URL:" v-model="newPost.image" />
-          </div>
+        <div class="input">
+          <label for="image"></label>
+          <input
+            type="text"
+            name="image"
+            placeholder="Add image URL:"
+            v-model="newPost.image"
+          />
+        </div>
 
-          <button @click="addPost">Publish your post</button>
-          <span>Loading post...</span>
-          <div class="loader"></div>
-                 <!-- <span></span> --> 
-        </form>
-        </center>
+        <button @click="addPost">Publish your post</button>
+        <span>Loading post...</span>
+        <div class="loader"></div>
+        <!-- <span></span> -->
+      </form>
     </div>
-  
+  </div>
 </template>
 
 <script>
@@ -52,8 +65,8 @@ export default {
         title: "",
         text: "",
         image: "",
-        // created_by: "",
-        // created_at: "",
+        created_by: this.$store.state.user.name,
+        created_at: "",
       },
     };
   },
@@ -63,6 +76,7 @@ export default {
       this.newPost.title = "";
       this.newPost.text = "";
       this.newPost.image = "";
+      this.newPost.created_by = "";
     },
   },
 };
@@ -80,34 +94,36 @@ form {
   width: 100%;
   margin: 35px 0;
   background: lightgray;
-  opacity: .92;
+  opacity: 0.92;
   padding: 35px;
 }
-input, textarea {
-padding: 8px 16px;
-width: 100%;
+input,
+textarea {
+  padding: 8px 16px;
+  width: 100%;
 }
-input:focus, input:active {
+input:focus,
+input:active {
   outline: none;
   border: none;
 }
-::placeholder{
-  font-family: 'Poppins';
+::placeholder {
+  font-family: "Poppins";
   font-size: 12px;
 }
 .input {
   padding: 4px;
 }
 .loader {
-  height: 15px;  
+  height: 15px;
   border-radius: 10px;
   margin: 20px;
-  left: 28%;  
+  left: 28%;
 }
 .loader {
   position: relative;
   width: 40%;
-  background: rgb(7,246,250);
+  background: rgb(7, 246, 250);
   box-shadow: 0 0 20px blue;
   animation: animate 3s forwards;
 }
@@ -121,6 +137,7 @@ input:focus, input:active {
   }
 }
 
-button{padding: 8px 30px;}
-
+button {
+  padding: 8px 30px;
+}
 </style>
