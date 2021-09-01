@@ -27,10 +27,15 @@
 
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
+        <!-- <Dropdown :options="options1" v-show="mobileNav" /> -->
           <li class="drd-link" v-for="option in options1" :key="option.title" >
             <a :href="option.url">{{ option.title }}</a>
+          </li> 
+          <li class="drd-link" @click="logoutClick">
+          <!-- <a href="/"> -->
+          Log out
+          <!-- </a> -->
           </li>
-          <li class="drd-link" @click="logoutClick">Log out</li>
         </ul>
       </transition>
     </div>
@@ -65,10 +70,10 @@ export default {
       //pass data in mobile menu
       options1: [
         { title: "Home", url: "/" },
-        { title: "All posts", url: "posts" },
-        { title: "Add post", url: "add-post" },
-        { title: "My posts", url: "my-posts" },
-        { title: "Log in", url: "login" },
+        { title: "All posts", url: "/posts" },
+        { title: "Add post", url: "/add-post" },
+        { title: "My posts", url: "/my-posts" },
+        { title: "Log in", url: "/login" },
       ],
 
       // dropdownState: false,
@@ -106,10 +111,12 @@ export default {
       console.log(this.user);
     },
     logoutClick(){
-      console.log('logout click')
-      
-      
-    },
+      console.log('logout click');
+      localStorage.removeItem("token");
+      localStorage.removeItem("author");
+      this.$router.push("/");
+      }
+   
   },
 };
 </script>

@@ -7,6 +7,11 @@
             >
                 <a :href="option.url">{{option.title}}</a>
             </li>
+            <li class="drd-link" @click="logoutClick">
+            <!-- <a href="/"> -->
+            Log out
+            <!-- </a> -->
+            </li>
         </ul>
     </div>
 </template>
@@ -17,6 +22,14 @@
         props: {
             options: Array,
         },
+        methods: {
+             logoutClick(){
+                console.log('logout click');
+                localStorage.removeItem("token");
+                localStorage.removeItem("author");
+                this.$router.push("/");      
+            },
+        }
     }
 </script>
 
