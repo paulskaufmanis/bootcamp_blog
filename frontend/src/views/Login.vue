@@ -5,6 +5,7 @@
       v-on:handle-data="handleData($event)"
       v-on:change-auth-type="changeAuthType($event)"
     />
+    
   </div>
 </template>
 
@@ -73,6 +74,8 @@ export default {
   align-items: center;
   margin: 60px 0 214px 0;
 }
+
+
 @media (min-width: 768px) {
   .login-page {
     margin: 139px;

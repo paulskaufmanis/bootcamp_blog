@@ -252,6 +252,8 @@ button {
   /* border: 1px solid rgba(209, 213, 219, 0.3); */
   top: 50px;
   left: 0;
+  z-index: 1;
+  transition: 2s ease all;
 }
 .dropdown-nav > li {
   margin-left: 0;
