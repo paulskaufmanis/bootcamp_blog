@@ -8,6 +8,7 @@ export default createStore({
     posts: [],
     myPosts: [],
     user: {},
+    token: "",
   },
   getters: {
     getLastThree(state) {

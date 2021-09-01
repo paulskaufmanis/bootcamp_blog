@@ -79,6 +79,10 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getPosts");
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.$store.state.token = token;
+    }
   },
 };
 </script>

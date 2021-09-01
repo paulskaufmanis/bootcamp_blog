@@ -34,8 +34,8 @@
                   <p class="initials">{{ currentUserInitials }}</p>
                 </div>
                 <div>
-                  <p class="post-author">{{ currentUserName }}</p>
-                  <p class="post-date">{{ post.dateCreated }}</p>
+                  <p class="post-author">{{ post.created_by }}</p>
+                  <p class="post-date">{{ post.created_at }}</p>
                 </div>
               </div>
             </div>
@@ -57,7 +57,8 @@ import Post from "../components/Post.vue";
 export default {
   data() {
     return {
-      currentUser: this.$store.getters.getUserUsername,
+      // currentUser: this.$store.getters.getUserUsername,
+      currentUser: localStorage.getItem("author"),
       currentUserName: this.$store.getters.getUserNameSurname,
       currentUserInitials: this.$store.getters.getUserInitials,
     };
@@ -77,6 +78,8 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getPosts");
+    console.log(this.$store.state);
+    console.log(localStorage);
   },
 };
 </script>

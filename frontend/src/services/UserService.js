@@ -43,9 +43,15 @@ class UserService {
         // },
       })
       .then((response) => {
-        // console.log(response.data);
+        console.log("response data", response.data);
         // this.$store.dispatch("setUser");
-        return response.data;
+        // return response.data;
+        localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem(
+          "author",
+          `${response.data.user.name} ${response.data.user.surname}`
+        );
+        // localStorage.setItem("userSurname", response.data.user.surname);
         // localStorage.setItem("token", response.data.accessToken);
       });
   }

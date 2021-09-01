@@ -1,11 +1,15 @@
 <template>
   <div class="login-page">
+    <div v-if="$store.state.user">
+      <!-- <div> -->
+      {{ user }}
+    </div>
+
     <Form
       :authType="authType"
       v-on:handle-data="handleData($event)"
       v-on:change-auth-type="changeAuthType($event)"
     />
-    
   </div>
 </template>
 
@@ -19,6 +23,8 @@ export default {
       users: [],
       authType: "",
       navUrl: "",
+      user: `Hi, ${this.$store.state.user.surname}!`,
+      // user: `Hi, ${localStorage.getItem("user")}!`,
     };
   },
   components: { Form },
@@ -33,12 +39,17 @@ export default {
       if (this.authType === "Register") {
         await UserService.addUser(user);
       } else {
-        // const ruser = await UserService.loginUser(user);
-        console.log("Login methods", user);
+        await UserService.loginUser(user);
+        await this.$store.dispatch("setUser", user);
+
+        // console.log("Login methods", user);
         // this.$store.commit("setUser", user);
         // console.log(this.$store.commit("setUser", user));
         // console.log("User from Login methods", ruser);
-        await this.$store.dispatch("setUser", user);
+        // localStorage.setItem("user", user);
+        // console.log(this.$store.state);
+
+        // this.$router.push();
         // console.log("State user: ", await UserService.loginUser(user));
       }
     },
@@ -80,7 +91,6 @@ export default {
   align-items: center;
   margin: 60px 0 214px 0;
 }
-
 
 @media (min-width: 768px) {
   .login-page {

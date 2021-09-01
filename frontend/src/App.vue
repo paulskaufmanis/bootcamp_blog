@@ -1,12 +1,7 @@
 <template>
   <div class="app-container">
     <Header1 />
-    <div v-if="$store.state.user.name">
-      {{ user }}
-    </div>
-
     <router-view />
-
     <Footer />
   </div>
 </template>
@@ -20,7 +15,6 @@ export default {
   data() {
     return {
       mobileView: true,
-      user: `Hi, ${this.$store.state.user.surname}!`,
     };
   },
 };
