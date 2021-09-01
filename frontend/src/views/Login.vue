@@ -21,17 +21,23 @@ export default {
     };
   },
   components: { Form },
+  // setup(props, context) {
+  //   console.log(context.root.$store);
+  //   // $store.commit("setuser", { name: "George" });
+  //   // const suser = $store.getters.getUserNameSurname;
+  //   // console.log(suser);
+  // },
   methods: {
     async handleData(user) {
       if (this.authType === "Register") {
         await UserService.addUser(user);
       } else {
-        const ruser = await UserService.loginUser(user);
-        console.log(user);
+        // const ruser = await UserService.loginUser(user);
+        console.log("Login methods", user);
         // this.$store.commit("setUser", user);
         // console.log(this.$store.commit("setUser", user));
-        console.log("User from Login methods", ruser);
-        this.$store.dispatch("setUser", user);
+        // console.log("User from Login methods", ruser);
+        await this.$store.dispatch("setUser", user);
         // console.log("State user: ", await UserService.loginUser(user));
       }
     },

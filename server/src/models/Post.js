@@ -4,7 +4,7 @@ class Post {
     this.#data = Object.assign({}, data, {
       // username: this._getUsername(data),
       // slug: this._getSlug(data),
-      dateCreated: this._dateCreated(),
+      created_at: this._dateCreated(),
     });
   }
 

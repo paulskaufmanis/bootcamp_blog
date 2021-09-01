@@ -1,17 +1,26 @@
 const Post = require("../models/Post");
-const receivedData = require("../data/POSTS.json");
+const fileData = require("../data/POSTS.json");
+const DbStorage = require("../data/db/index");
 
 class PostsRepository {
-  data = [];
+  // data = [];
 
   constructor() {
-    receivedData.forEach((item) => {
-      this.data.push(item);
-    });
+    this.data = fileData;
+    // this.data = new DbStorage("posts").getAll();
+    // console.log("constructor", this.data);
   }
 
-  getAllPosts() {
-    return this.data.map((data) => {
+  async getAllPosts() {
+    // // console.log(this.data);
+    // for (let i in this.data) {
+    //   console.log(this.data);
+    //   return this.data;
+    // }
+    // console.log("constructor", this.data);
+    const recievedData = await this.data;
+    return await recievedData.map((data) => {
+      // console.log(this.data);
       const postModel = new Post(data);
       return postModel.getData();
     });

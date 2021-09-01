@@ -1,5 +1,8 @@
 <template>
   <div class="all-posts">
+    <div>
+      {{ user }}
+    </div>
     <div v-if="!$route.params.id" class="posts-block">
       <div class="all-posts-heading">
         <h2>All posts</h2>
@@ -7,10 +10,8 @@
           <input class="search-box" type="text" name="" id="" />
 
           <div class="search-icon-wrapper">
-            <div class=" search-icon">
-            </div>
+            <div class="search-icon"></div>
           </div>
-
         </form>
       </div>
       <div
@@ -31,11 +32,11 @@
             </div>
             <div class="post-footer">
               <div class="initials-wrap">
-                <p class="initials">PA</p>
+                <p class="initials">{{ initials }}</p>
               </div>
               <div>
-                <p class="post-author">Post Author</p>
-                <p class="post-date">{{ post.dateCreated }}</p>
+                <p class="post-author">{{ post.created_by }}</p>
+                <p class="post-date">{{ post.created_at }}</p>
               </div>
             </div>
           </div>
@@ -54,6 +55,15 @@ import { mapState } from "vuex";
 import Post from "../components/Post.vue";
 
 export default {
+  data() {
+    return {
+      currentUser: this.$store.getters.getUserUsername,
+      currentUserName: this.$store.getters.getUserNameSurname,
+      currentUserInitials: this.$store.getters.getUserInitials,
+      initials: "",
+      user: this.$store.state.user,
+    };
+  },
   methods: {
     openPost(id) {
       this.$router.push(`/posts/${id}`);
@@ -62,6 +72,10 @@ export default {
   components: { Post },
   computed: {
     ...mapState(["posts"]),
+    setInitials(post) {
+      return `${post.created_by}`;
+      // return "pk";
+    },
   },
   findPostbyId() {
     const post = this.posts.find(({ id }) => this.$route.params.id == id);
@@ -84,7 +98,7 @@ export default {
   background: lightgray;
   opacity: 0.92;
 }
-.all-posts-heading{
+.all-posts-heading {
   width: 100%;
   padding: 16px 0;
   display: flex;
@@ -99,14 +113,15 @@ h2 {
 .post-wrapper {
   background: gray;
   margin-bottom: 20px;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.post-card {  
- height: 9.5rem;
- background-size: cover;
+.post-card {
+  height: 9.5rem;
+  background-size: cover;
+  background-position: center center;
 }
-.post-title{
-  text-align:start;
+.post-title {
+  text-align: start;
 }
 .post-content {
   padding: 16px;
@@ -114,7 +129,7 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
 }
-.post-text{
+.post-text {
   margin-top: 8px;
   max-height: 100px;
   overflow: hidden;
@@ -141,7 +156,7 @@ h2 {
 .initials {
   font-size: x-large;
   font-weight: 500;
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 .post-author {
@@ -156,79 +171,77 @@ h2 {
   /* flex-direction: row; */
   border-bottom: 1px solid black;
   align-items: flex-end;
-  margin-bottom: 8px;  
+  margin-bottom: 8px;
 }
-  .search-box {
-    width: 6rem;
-    height: 1.5rem;
-    background: inherit;
-    border: none;
-    padding-left: 0.5rem;
-    outline: none;
-  }
-  input{
-    margin:0;
-  }
-  .search-icon-wrapper{
-    width: 18px;
-    height: 18px;
-    margin-bottom: 5px;
-    cursor: pointer;
-  }
-  .search-icon { 
-    font-size: 10em;
-    width:50%;
-    box-sizing: content-box;
-    height:50%;
-    border: 2px solid black;
-    position: relative;
-    border-radius: 50px;
-  }
-  .search-icon:before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: -6px;
-    bottom: -3px;
-    border-width: 0;
-    background: black;
-    width: 8px;
-    height: 2px;
-    transform: rotate(45deg);
+.search-box {
+  width: 6rem;
+  height: 1.5rem;
+  background: inherit;
+  border: none;
+  padding-left: 0.5rem;
+  outline: none;
 }
- 
-@media
-(min-width: 768px) {
-   .all-posts {
-     margin: 45px 150px;
-     padding: 0 25px;
-   }
+input {
+  margin: 0;
+}
+.search-icon-wrapper {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.search-icon {
+  font-size: 10em;
+  width: 50%;
+  box-sizing: content-box;
+  height: 50%;
+  border: 2px solid black;
+  position: relative;
+  border-radius: 50px;
+}
+.search-icon:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: -6px;
+  bottom: -3px;
+  border-width: 0;
+  background: black;
+  width: 8px;
+  height: 2px;
+  transform: rotate(45deg);
+}
+
+@media (min-width: 768px) {
+  .all-posts {
+    margin: 45px 150px;
+    padding: 0 25px;
+  }
   .posts-block {
     /* padding: 0 ; */
-    width: 60rem;    
+    width: 60rem;
   }
   .post-wrapper {
     display: flex;
     margin-bottom: 45px;
- }
+  }
   .post-card {
     height: 300px;
     width: 50%;
- }
-  .post-content{
+  }
+  .post-content {
     width: 50%;
   }
-  .post-text{
+  .post-text {
     font-size: 14px;
   }
   .post-author {
     font-size: 12px;
   }
 }
-@media (min-width: 1240px){
-  .all-posts{
+@media (min-width: 1240px) {
+  .all-posts {
     margin: 35px 200px;
   }
 }
-
 </style>

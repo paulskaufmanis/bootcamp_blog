@@ -28,7 +28,6 @@ function authenticateToken(req, res, next) {
 router.get("/", async (req, res) => {
   const data = await PostsRepository.getAllPosts();
   res.status(200).json(data);
-  console.log("whiew, passed through authentication... All");
 });
 
 router.get("/my-posts", authenticateToken, async (req, res) => {

@@ -80,16 +80,12 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
-      user: "",
+      user: this.$store.state.user,
     };
   },
   created() {
     window.addEventListener("resize", this.checkScreen);
     this.checkScreen();
-  },
-  mounted() {
-    this.user = this.$store.getters.getUserNameSurname;
-    console.log(this.user);
   },
   methods: {
     // clicker() {
@@ -109,6 +105,10 @@ export default {
       this.mobile = false;
       this.mobileNav = false;
       return;
+    },
+    wecomeUser() {
+      this.user = this.$store.state.user;
+      console.log(this.user);
     },
   },
 };

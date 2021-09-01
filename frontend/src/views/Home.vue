@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-.home { 
+.home {
   display: flex;
   justify-content: center;
 }
@@ -52,58 +52,53 @@ export default {
   display: flex;
   flex-direction: column;
   width: fit-content;
-  padding: 15px  0;
+  padding: 15px 0;
   background: lightgray;
   opacity: 0.95;
-  
-  }
+}
 .post-card {
   width: 100%;
   width: 19rem;
-  height:19rem;
+  height: 19rem;
   padding: 15px 30px;
   background: lightgray;
   /* opacity: 0.9; */
+}
+.post-background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 25%;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .home {
+    align-items: center;
   }
-  .post-background {
-      width: 100%;
-      height:100%;
-      background-size: cover;
-   }
- @media
-(min-width: 768px) and
-(max-width: 1024px)
-{ 
-  
-.home {
-  align-items: center;
-}
-.posts {
-  margin: 0 7%;  
-  margin-bottom: 35px;
-}
-  
-.post-card {
-  display: block;
-  width: 40rem;
-  height:10rem;
-  padding: 30px;
-  margin-bottom: 35px;
-}
+  .posts {
+    margin: 0 7%;
+    margin-bottom: 35px;
+  }
+
+  .post-card {
+    display: block;
+    width: 40rem;
+    height: 10rem;
+    padding: 30px;
+    margin-bottom: 35px;
+  }
   .post-background {
     height: 10rem;
     background: cover;
   }
 }
-@media (min-width: 1024px){
-  
+@media (min-width: 1024px) {
   .posts {
     flex-direction: row;
-    margin: 5%;    
+    margin: 5%;
     padding: 15px;
   }
   .post-card {
-  padding: 15px;
+    padding: 15px;
   }
 }
 </style>
