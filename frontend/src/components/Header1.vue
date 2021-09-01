@@ -27,9 +27,10 @@
 
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li class="drd-link" v-for="option in options1" :key="option.title">
+          <li class="drd-link" v-for="option in options1" :key="option.title" >
             <a :href="option.url">{{ option.title }}</a>
           </li>
+          <li class="drd-link" @click="logoutClick">Log out</li>
         </ul>
       </transition>
     </div>
@@ -68,7 +69,6 @@ export default {
         { title: "Add post", url: "add-post" },
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
-        {title: "Log out", url: "/"}
       ],
 
       // dropdownState: false,
@@ -76,7 +76,6 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
-      logout: false,
     };
   },
   created() {
@@ -106,7 +105,11 @@ export default {
       this.user = this.$store.state.user;
       console.log(this.user);
     },
-    // logout()
+    logoutClick(){
+      console.log('logout click')
+      
+      
+    },
   },
 };
 </script>
