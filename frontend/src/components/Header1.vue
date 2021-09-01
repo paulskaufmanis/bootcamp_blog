@@ -68,6 +68,7 @@ export default {
         { title: "Add post", url: "add-post" },
         { title: "My posts", url: "my-posts" },
         { title: "Log in", url: "login" },
+        {title: "Log out", url: "/"}
       ],
 
       // dropdownState: false,
@@ -75,6 +76,7 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
+      logout: false,
     };
   },
   created() {
@@ -104,6 +106,7 @@ export default {
       this.user = this.$store.state.user;
       console.log(this.user);
     },
+    // logout()
   },
 };
 </script>
