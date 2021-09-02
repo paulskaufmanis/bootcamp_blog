@@ -16,6 +16,10 @@
             <div v-show="auth">Hi, {{ name }}</div>
           </li>
 
+          <li class="hidden">
+            <div class="hello-hero">Hello, <span>Iveta Staune!</span></div>
+          </li>
+
           <li v-show="auth" class="list-element">
             <router-link to="/add-post"
               ><div class="add-wrapper"><div class="add"></div></div
@@ -149,6 +153,15 @@ export default {
 </script>
 
 <style scoped>
+.hello-hero{
+display: flex;
+justify-content: center;
+}
+span {
+font-family: 'Architects Daughter', cursive;
+font-size: 30px;
+}
+
 .header-wrapper {
   display: flex;
   align-items: center;

@@ -25,6 +25,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 #app {
   font-family: "Poppins", sans-serif;
   /* font-family:'Open Sans', sans-serif;  */

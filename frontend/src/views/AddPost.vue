@@ -198,7 +198,7 @@ button {
   background-color: #b9f6fb;
   background-image: radial-gradient(circle, rgba(210,211,214,0.039653361344537785) 0%, rgba(126,213,221,1) 47%, rgba(6,216,232,1) 100%);
   background-position: center;
-  background-size: 150%;
+  background-size: 1500%;
 }
 .ripple:active {
   transition: background 0s;
