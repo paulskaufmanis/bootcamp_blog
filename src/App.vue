@@ -2,6 +2,7 @@
   <div class="app-container">
     <Header1 />
     <router-view />
+    
     <Footer />
   </div>
 </template>
