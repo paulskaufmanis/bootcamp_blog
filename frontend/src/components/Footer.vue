@@ -23,6 +23,7 @@
         width: 100%;
         background: rgba(14, 13, 14, .8);
         margin: auto 0;
+        
     }
     footer {
         display: flex;
