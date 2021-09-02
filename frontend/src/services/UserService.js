@@ -47,10 +47,12 @@ class UserService {
         // this.$store.dispatch("setUser");
         // return response.data;
         localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem("auth", "true");
         localStorage.setItem(
           "author",
           `${response.data.user.name} ${response.data.user.surname}`
         );
+        console.log(localStorage);
         // localStorage.setItem("userSurname", response.data.user.surname);
         // localStorage.setItem("token", response.data.accessToken);
       });

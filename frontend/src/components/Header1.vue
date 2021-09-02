@@ -13,11 +13,18 @@
             <router-link class="link" to="/posts">all posts</router-link>
           </li>
           <li class="hidden"><span></span></li>
-          <li class="list-element">
+
+          <li v-show="auth" class="list-element">
             <router-link to="/add-post"
               ><div class="add-wrapper"><div class="add"></div></div
             ></router-link>
           </li>
+          <li v-show="!auth" class="list-element">
+            <router-link to="/login"
+              ><div class="add-wrapper"><div class="add"></div></div
+            ></router-link>
+          </li>
+
           <li class="list-element" @mouseover="hover = true">
             <div class="avatar-wrapper"><div class="avatar"></div></div>
           </li>
@@ -27,14 +34,17 @@
 
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-        <!-- <Dropdown :options="options1" v-show="mobileNav" /> -->
-          <li class="drd-link" v-for="option in options1" :key="option.title" >
+          <!-- <Dropdown :options="options1" v-show="mobileNav" /> -->
+          <li class="drd-link" v-for="option in options1" :key="option.title">
             <a :href="option.url">{{ option.title }}</a>
-          </li> 
-          <li class="drd-link" @click="logoutClick">
-          <!-- <a href="/"> -->
-          Log out
-          <!-- </a> -->
+          </li>
+          <li v-show="!auth" class="drd-link">
+            <router-link to="/login"> Log in </router-link>
+          </li>
+          <li v-show="auth" class="drd-link" @click="logoutClick">
+            <!-- <a href="/"> -->
+            Log out
+            <!-- </a> -->
           </li>
         </ul>
       </transition>
@@ -65,7 +75,7 @@ export default {
       // pass data in Dropdown component
       options: [
         { title: "My posts", url: "/my-posts" },
-        { title: "Log in", url: "/login" },
+        // { title: "Log in", url: "/login" },
       ],
       //pass data in mobile menu
       options1: [
@@ -73,7 +83,7 @@ export default {
         { title: "All posts", url: "/posts" },
         { title: "Add post", url: "/add-post" },
         { title: "My posts", url: "/my-posts" },
-        { title: "Log in", url: "/login" },
+        // { title: "Log in", url: "/login" },
       ],
 
       // dropdownState: false,
@@ -81,11 +91,14 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
+      auth: false,
     };
   },
   created() {
     window.addEventListener("resize", this.checkScreen);
     this.checkScreen();
+    localStorage.getItem("auth") === "true" ? (this.auth = true) : false;
+    console.log(localStorage.getItem("auth"));
   },
   methods: {
     // clicker() {
@@ -110,13 +123,14 @@ export default {
       this.user = this.$store.state.user;
       console.log(this.user);
     },
-    logoutClick(){
-      console.log('logout click');
+    logoutClick() {
+      console.log("logout click");
       localStorage.removeItem("token");
       localStorage.removeItem("author");
+      localStorage.setItem("auth", "false");
+      this.$router.go();
       this.$router.push("/");
-      }
-   
+    },
   },
 };
 </script>

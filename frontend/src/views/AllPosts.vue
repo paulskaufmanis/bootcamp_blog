@@ -4,15 +4,16 @@
       <div class="all-posts-heading">
         <h2>All posts</h2>
         <form class="search-wrap">
-          <input class="search-box" type="text" name="" id="" />
+          <!-- <input class="search-box" type="text" name="" id="" /> -->
 
-          <div class="search-icon-wrapper">
+          <!-- <div class="search-icon-wrapper">
             <div class="search-icon"></div>
-          </div>
+          </div> -->
+          <button @click="changeOrder">Change order</button>
         </form>
       </div>
       <div
-        v-for="post in posts"
+        v-for="post in getAll"
         :key="post.title"
         class="post-wrapper"
         @click="openPost(post.id)"
@@ -54,7 +55,7 @@
 </template>
 
 <script >
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import Post from "../components/Post.vue";
 
 export default {
@@ -64,16 +65,20 @@ export default {
       currentUserName: this.$store.getters.getUserNameSurname,
       currentUserInitials: this.$store.getters.getUserInitials,
       initials: "",
+      order: "getAll",
     };
   },
   methods: {
     openPost(id) {
       this.$router.push(`/posts/${id}`);
     },
+    changeOrder() {
+      this.order = "getAll";
+    },
   },
   components: { Post },
   computed: {
-    ...mapState(["posts"]),
+    ...mapGetters(["getAll"]),
     setInitials(post) {
       return `${post.created_by}`;
       // return "pk";
@@ -127,7 +132,6 @@ h2 {
   transition: 0.3s ease all;
   box-shadow: 0 2rem 5rem 0 rgba(0, 0, 0, 0.5);
   cursor: pointer;
-
 }
 .post-card {
   height: 9.5rem;
@@ -223,9 +227,7 @@ input {
   width: 8px;
   height: 2px;
   transform: rotate(45deg);
-} 
-
-
+}
 
 @media (min-width: 768px) {
   .all-posts {
