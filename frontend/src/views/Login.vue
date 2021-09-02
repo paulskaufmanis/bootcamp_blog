@@ -48,8 +48,11 @@ export default {
         // console.log("User from Login methods", ruser);
         // localStorage.setItem("user", user);
         // console.log(this.$store.state);
-
         this.$router.push("/");
+
+        setTimeout(() => {
+          this.$router.go();
+        }, 1000);
         // console.log("State user: ", await UserService.loginUser(user));
       }
     },

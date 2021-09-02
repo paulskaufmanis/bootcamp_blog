@@ -14,6 +14,9 @@ export default createStore({
     getLastThree(state) {
       return state.posts.slice(-3).reverse();
     },
+    getAll(state) {
+      return state.posts.reverse();
+    },
     getUsersPosts(state) {
       const user = this.user;
       return state.posts.filter((post) => post.author === user.username);
