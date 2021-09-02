@@ -203,6 +203,10 @@ span {
 input::placeholder {
   color: transparent;
 }
+.input{
+      margin-bottom: 25px;
+
+}
 input {
     display: block;
 
@@ -211,8 +215,6 @@ input {
 label {
   display: block;
   position: absolute;
-  /* top :145px; */
-  /* left: 20px; */
   pointer-events: none;
   color: #999;
   transition: .5s;
@@ -225,9 +227,6 @@ input:focus{
     border-bottom: 1px solid red;
 
 }
-/* input + label {
-  transform:translateY(-2.5em);
-} */
 
 input:focus-within {
   transform:scale(1.1,1.1);
@@ -239,7 +238,7 @@ input:not(:placeholder-shown) ~ label
 {
 /* input:valid ~ label{ */
 
-  transform:translateY(-,5em);
+  transform:translateY(-6em);
   color: red;
   transition: .5s;
   background: transparent;
