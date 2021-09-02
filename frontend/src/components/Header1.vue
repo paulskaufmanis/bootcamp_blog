@@ -128,8 +128,10 @@ export default {
       localStorage.removeItem("token");
       localStorage.removeItem("author");
       localStorage.setItem("auth", "false");
-      this.$router.go();
       this.$router.push("/");
+      setTimeout(() => {
+        this.$router.go();
+      }, 1000);
     },
   },
 };

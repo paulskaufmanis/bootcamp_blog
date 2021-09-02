@@ -11,13 +11,8 @@
           </div>
         </form>
       </div>
-      <div
-        v-for="post in posts"
-        :key="post.title"
-        class="post-wrapper"
-        @click="openPost(post.id)"
-      >
-        <div v-if="post.created_by === currentUser">
+      <div v-for="post in posts" :key="post.title" @click="openPost(post.id)">
+        <div v-if="post.created_by === currentUser" class="post-wrapper">
           <router-view :to="'/posts/' + post.id">
             <div
               class="post-card"
