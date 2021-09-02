@@ -9,6 +9,7 @@ export default createStore({
     myPosts: [],
     user: {},
     token: "",
+    descending: true,
   },
   getters: {
     getLastThree(state) {
@@ -16,6 +17,9 @@ export default createStore({
     },
     getAll(state) {
       return state.posts.reverse();
+    },
+    getAllAscending(state) {
+      return state.posts;
     },
     getUsersPosts(state) {
       const user = this.user;
@@ -40,6 +44,9 @@ export default createStore({
   mutations: {
     fillPosts(state, { posts }) {
       state.posts = posts;
+    },
+    changeOrder(state, foo) {
+      state.descending = foo;
     },
     fillMyPosts(state, { myPosts }) {
       state.myPosts = myPosts;

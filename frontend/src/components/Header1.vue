@@ -38,14 +38,18 @@
           <li class="drd-link" v-for="option in options1" :key="option.title">
             <a :href="option.url">{{ option.title }}</a>
           </li>
+
+          <li v-show="!auth" class="drd-link">
+            <router-link to="/login"> My posts </router-link>
+          </li>
+          <li v-show="auth" class="drd-link">
+            <router-link to="/my-posts"> My posts </router-link>
+          </li>
+
           <li v-show="!auth" class="drd-link">
             <router-link to="/login"> Log in </router-link>
           </li>
-          <li v-show="auth" class="drd-link" @click="logoutClick">
-            <!-- <a href="/"> -->
-            Log out
-            <!-- </a> -->
-          </li>
+          <li v-show="auth" class="drd-link" @click="logoutClick">Log out</li>
         </ul>
       </transition>
     </div>
@@ -74,7 +78,7 @@ export default {
     return {
       // pass data in Dropdown component
       options: [
-        { title: "My posts", url: "/my-posts" },
+        // { title: "My posts", url: "/my-posts" },
         // { title: "Log in", url: "/login" },
       ],
       //pass data in mobile menu
@@ -82,7 +86,7 @@ export default {
         { title: "Home", url: "/" },
         { title: "All posts", url: "/posts" },
         { title: "Add post", url: "/add-post" },
-        { title: "My posts", url: "/my-posts" },
+        // { title: "My posts", url: "/my-posts" },
         // { title: "Log in", url: "/login" },
       ],
 
