@@ -1,7 +1,7 @@
 <template>
   <div class="form-container">
     <form v-on:submit.prevent autocomplete="off">
-      <h3>{{ authType }}</h3>
+      <h3>{{ authType }} to add and manage Your posts</h3>
 
       <div v-if="this.authType === 'Register'" class="reg-fields">
         <!-- NAME -->
@@ -11,6 +11,7 @@
             type="text"
             placeholder="Name"
             v-model="newUser.name"
+            required
           />
           <label for="name">Name</label>
         </div>
@@ -21,6 +22,7 @@
             type="text"
             placeholder="Surname"
             v-model="newUser.surname"
+            required
           />
           <label for="surname">Surname</label>
         </div>
@@ -32,6 +34,7 @@
           type="email"
           placeholder="Email"
           v-model="newUser.username"
+          required
         />
         <label for="email">Email</label>
       </div>
@@ -42,6 +45,7 @@
           type="password"
           placeholder="Password"
           v-model="newUser.password"
+          required
         />
         <label for="password">Password</label>
       </div>
@@ -50,20 +54,16 @@
         {{ authType }}
       </button>
 
-      
-
       <div v-if="this.authType === 'Register'">
         <div v-for="(error, index) in errors" :key="index">
           {{ error }}
         </div>
       </div>
-      
+
       <!-- LOADING ANIMATION -->
       <!-- <span>Loading...</span>
       <div class="loader"></div> -->
-
     </form>
-
 
     <div class="register-link-container" v-if="this.authType === 'Log in'">
       <router-link
@@ -130,8 +130,8 @@ export default {
 </script>
 
 <style scoped>
-*{
-  font-family: 'Poppins';
+* {
+  font-family: "Poppins";
 }
 .form-container {
   width: 20rem;
@@ -198,17 +198,15 @@ span {
   animation: animate 3s forwards;
 } */
 
-
 /* Label animation css */
 input::placeholder {
   color: transparent;
 }
-.input{
-      margin-bottom: 25px;
-
+.input {
+  margin-bottom: 25px;
 }
 input {
-    display: block;
+  display: block;
 
   /* position: relative;   */
 }
@@ -217,33 +215,30 @@ label {
   position: absolute;
   pointer-events: none;
   color: #999;
-  transition: .5s;
+  transition: 0.5s;
   transform: translateY(-2.7em);
   transform-origin: 0 0;
-  transition: all .3s;
-  margin-left: 22px; 
+  transition: all 0.3s;
+  margin-left: 22px;
 }
-input:focus{
-    border-bottom: 1px solid red;
-
+input:focus {
+  border-bottom: 1px solid red;
 }
 
 input:focus-within {
-  transform:scale(1.1,1.1);
+  transform: scale(1.1, 1.1);
   transition: 0.3s;
 }
 
 input:focus ~ label,
-input:not(:placeholder-shown) ~ label
-{
-/* input:valid ~ label{ */
+input:not(:placeholder-shown) ~ label {
+  /* input:valid ~ label{ */
 
-  transform:translateY(-6em);
+  transform: translateY(-6em);
   color: red;
-  transition: .5s;
+  transition: 0.5s;
   background: transparent;
   font-size: 10px;
-
 }
 /* input:focus, 
 input:valid{
@@ -252,8 +247,6 @@ input:valid{
   border-bottom: 1px solid;
 
 } */
-
-
 
 @keyframes animate {
   from {
@@ -264,7 +257,9 @@ input:valid{
   }
 }
 
-button{padding: 8px 30px;}
+button {
+  padding: 8px 30px;
+}
 
 /* form,
 .reg-fields {

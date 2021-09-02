@@ -36,6 +36,7 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -52,7 +53,11 @@ body {
   background-repeat: no-repeat;
   background-position: center 25%;
   background-attachment: fixed;
+
   background-size: cover;
+  position: relative;
+  min-height: 100vh;
+
   
   
 }
