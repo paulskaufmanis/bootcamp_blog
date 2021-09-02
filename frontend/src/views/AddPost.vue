@@ -33,7 +33,7 @@
 
         </div>
         <div class="btn">
-          <button @click="addPost">Publish your post</button>
+          <button class="ripple" @click="addPost">Publish your post</button>
         </div>
       
       </form>
@@ -68,6 +68,14 @@ export default {
 </script>
 
 <style scoped>
+*{
+  fonst-style: 'Poppins';
+}
+.add-post-wrapper{
+  display: flex;
+  justify-content: center;
+
+}
 textarea {
   width: 300px;
   height: 150px;
@@ -79,7 +87,7 @@ form {
   width: 100%;
   margin: 35px 0;
   background: lightgray;
-  opacity: 0.92;
+  opacity: 0.9;
   padding: 15px 5px;
   max-width: 768px;
 }
@@ -127,6 +135,8 @@ label {
   transform-origin: 0 0;
   transition: all 0.3s;
   margin-left: 16px;
+  color: black;
+  opacity: 1;
 }
 
 .textarea-label{
@@ -134,6 +144,9 @@ label {
 }
 input:focus, textarea:focus {
   border-bottom: 1px solid red;
+  outline-offset: 0px !important;
+  outline: none !important;
+  
 }
 input:focus ~ label, 
 input:not(:placeholder-shown) ~ label
@@ -164,17 +177,35 @@ textarea:not(:placeholder-shown) ~ label
   justify-content: center;
   width: 100%;
 }
+
 button {  
   width: 50%;
   margin: 12px 0;
   padding: 6px 24px;
   outline: none;
-  border: 1px solid #dbe2ef;
-  background: #39c2f5;
   border: none;
+  background-color: #39c2f5;
+  border: none;
+  box-shadow: 0 0 4px #999;
   cursor: pointer;
   font-family: 'Poppins';
 }
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background-color: #b9f6fb;
+  background-image: radial-gradient(circle, rgba(210,211,214,0.039653361344537785) 0%, rgba(126,213,221,1) 47%, rgba(6,216,232,1) 100%);
+  background-position: center;
+  background-size: 150%;
+}
+.ripple:active {
+  transition: background 0s;
+  background-color: #0f909a;
+  background-size: 100%;
+}
+
 
 @media (max-width: 375px)
 and (min-width: 768px)
