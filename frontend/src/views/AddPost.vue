@@ -1,42 +1,39 @@
 <template>
   <div class="add-post-wrapper">
     <!-- <div> -->
-      <form autocomplete="off" v-on:submit.prevent>
-        <div class="input">
-          <input
-            type="text"
-            name="title"
-            placeholder="Write title"
-            v-model="newPost.title"
-          />
-          <label for="title">Write title</label>
-        </div>
+    <form autocomplete="off" v-on:submit.prevent>
+      <div class="input">
+        <input
+          type="text"
+          name="title"
+          placeholder="Write title"
+          v-model="newPost.title"
+        />
+        <label for="title">Write title</label>
+      </div>
 
-        <div class="input">
-          <textarea
-            name="text"
-            placeholder="Say your thoughts...."
-            v-model="newPost.text"
-          />
-          <label class="textarea-label" for="text">Say your thoughts</label>
+      <div class="input">
+        <textarea
+          name="text"
+          placeholder="Say your thoughts...."
+          v-model="newPost.text"
+        />
+        <label class="textarea-label" for="text">Say your thoughts</label>
+      </div>
 
-        </div>
-
-        <div class="input">
-          <input
-            type="text"
-            name="image"
-            placeholder="Add image URL:"
-            v-model="newPost.image"
-          />
-          <label for="image">Add image URL:</label>
-
-        </div>
-        <div class="btn">
-          <button class="ripple" @click="addPost">Publish your post</button>
-        </div>
-      
-      </form>
+      <div class="input">
+        <input
+          type="text"
+          name="image"
+          placeholder="Add image URL:"
+          v-model="newPost.image"
+        />
+        <label for="image">Add image URL:</label>
+      </div>
+      <div class="btn">
+        <button class="ripple" @click="addPost">Publish your post</button>
+      </div>
+    </form>
     <!-- </div> -->
   </div>
 </template>
@@ -68,13 +65,12 @@ export default {
 </script>
 
 <style scoped>
-*{
-  fonst-style: 'Poppins';
+* {
+  font-style: "Poppins";
 }
-.add-post-wrapper{
+.add-post-wrapper {
   display: flex;
   justify-content: center;
-
 }
 textarea {
   width: 300px;
@@ -102,7 +98,7 @@ input:active {
   border: none;
 }
 ::placeholder {
-    color: transparent;
+  color: transparent;
 }
 .input {
   padding: 4px;
@@ -139,38 +135,34 @@ label {
   opacity: 1;
 }
 
-.textarea-label{
+.textarea-label {
   transform: translateY(-9.5em);
 }
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border-bottom: 1px solid red;
   outline-offset: 0px !important;
   outline: none !important;
-  
 }
-input:focus ~ label, 
-input:not(:placeholder-shown) ~ label
- {
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
   transform: translateY(-4.1em);
   color: red;
   transition: 0.5s;
   background: transparent;
   font-size: 12px;
   margin-left: 14px;
-  
 }
 
 textarea:focus ~ label,
-textarea:not(:placeholder-shown) ~ label 
-{
-   transform: translateY(-14.5em);
+textarea:not(:placeholder-shown) ~ label {
+  transform: translateY(-14.5em);
   color: red;
   transition: 0.5s;
   background: transparent;
   font-size: 12px;
   margin-left: 14px;
   outline: none !important;
-
 }
 .btn {
   display: flex;
@@ -178,7 +170,7 @@ textarea:not(:placeholder-shown) ~ label
   width: 100%;
 }
 
-button {  
+button {
   width: 50%;
   margin: 12px 0;
   padding: 6px 24px;
@@ -188,7 +180,7 @@ button {
   border: none;
   box-shadow: 0 0 4px #999;
   cursor: pointer;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 .ripple {
   background-position: center;
@@ -196,7 +188,12 @@ button {
 }
 .ripple:hover {
   background-color: #b9f6fb;
-  background-image: radial-gradient(circle, rgba(210,211,214,0.039653361344537785) 0%, rgba(126,213,221,1) 47%, rgba(6,216,232,1) 100%);
+  background-image: radial-gradient(
+    circle,
+    rgba(210, 211, 214, 0.039653361344537785) 0%,
+    rgba(126, 213, 221, 1) 47%,
+    rgba(6, 216, 232, 1) 100%
+  );
   background-position: center;
   background-size: 1500%;
 }
@@ -206,14 +203,10 @@ button {
   background-size: 100%;
 }
 
-
-@media (max-width: 375px)
-and (min-width: 768px)
-{
-  
+@media (max-width: 375px) and (min-width: 768px) {
   .add-post-wrapper {
     margin: 7%;
-     display: flex;
+    display: flex;
     justify-content: center;
   }
 }
