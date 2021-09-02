@@ -29,13 +29,13 @@
             </div>
             <div class="post-footer">
               <div class="initials-wrap">
-                <p class="initials">
+                <!-- <p class="initials">
                   {{
                     `${post.created_by.split(" ")[0][0]}${
                       post.created_by.split(" ")[1][0]
                     }`
                   }}
-                </p>
+                </p> -->
               </div>
               <div>
                 <p class="post-author">{{ post.created_by }}</p>
