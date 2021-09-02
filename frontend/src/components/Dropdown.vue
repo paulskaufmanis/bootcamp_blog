@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      auth: true,
+      auth: false,
     };
   },
   name: "Dropdown",
