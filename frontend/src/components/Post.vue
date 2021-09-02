@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 
-  .single-post, {
+  .single-post{
     margin:0;
     display: flex;
     flex-direction: column;
