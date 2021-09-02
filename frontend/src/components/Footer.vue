@@ -19,13 +19,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #DFB6AE;
-        padding: 15px;
-        width: 100vw;
-        bottom: 0;
-        right: 0.5rem;
+        padding: 15px;       
         width: 100%;
         background: rgba(14, 13, 14, .8);
+        margin: auto 0;
     }
     footer {
         display: flex;
