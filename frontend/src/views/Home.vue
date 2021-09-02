@@ -62,13 +62,20 @@ export default {
   height: 19rem;
   padding: 15px 30px;
   background: lightgray;
-  /* opacity: 0.9; */
+}
+h2 {
+  text-shadow: 0px 0px 16px rgb(255 255 255);
+  background: linear-gradient(180deg, rgba(53,55,65,0.75) 0%, rgba(0,0,0,0) 100%);
+  height: 50%;
+  font-weight: normal;
+  color: white;
 }
 .post-background {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center 25%;
+  
   
 }
 .post-background:hover {
