@@ -12,7 +12,9 @@
           <li class="list-element">
             <router-link class="link" to="/posts">all posts</router-link>
           </li>
-          <li class="hidden"><span></span></li>
+          <li class="hidden">
+            <div v-show="auth">Hi, {{ name }}</div>
+          </li>
 
           <li v-show="auth" class="list-element">
             <router-link to="/add-post"
@@ -95,9 +97,14 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
+      name: localStorage.getItem("author"),
       auth: false,
     };
   },
+  mounted() {
+    localStorage.getItem("auth") === "true" ? (this.auth = true) : false;
+  },
+
   created() {
     window.addEventListener("resize", this.checkScreen);
     this.checkScreen();

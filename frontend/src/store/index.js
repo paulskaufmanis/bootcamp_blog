@@ -42,6 +42,10 @@ export default createStore({
     },
   },
   mutations: {
+    deletePost(state, id) {
+      // delete state.posts[id];
+      state.posts = state.posts.filter((post) => post.id !== id);
+    },
     fillPosts(state, { posts }) {
       state.posts = posts;
     },
