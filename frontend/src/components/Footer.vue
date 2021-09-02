@@ -1,22 +1,27 @@
 <template>
-<div class="footer">
+  <div class="footer">
     <footer>
-        <p>This project is created by Team4 within Accenture bootcamp Javascript(Kurzeme)</p>
-        <small> &copy; Copyright 2021</small>
+      <p>
+        This project is created by Team4 within Accenture bootcamp
+        Javascript(Kurzeme)
+      </p>
+      <small> &copy; Copyright 2021</small>
     </footer>
-</div>
-
+  </div>
 </template>
 
 <script>
- export default{
-     name: 'Footer'
- }
+export default {
+  name: "Footer",
+};
 </script>
 
 <style scoped>
+
     .footer{
         display: flex;
+        position: absolute;
+        bottom: 0;
         align-items: center;
         justify-content: center;
         padding: 15px;       
