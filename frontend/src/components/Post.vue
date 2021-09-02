@@ -10,7 +10,6 @@
         </div>
         <p>{{ thisPost().text }}</p>
         <p class="back" @click="goBack">Back</p>
-
       </div>
     </div>
   </div>
@@ -36,70 +35,78 @@ export default {
 </script>
 
 <style scoped>
+.single-post {
+  margin-bottom: 5rem;
+}
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
+img {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  /* margin: 55px 25px 25px 25px; */
+}
+h1 {
+  font-size: 24px;
+}
 
-  .single-post{
-    margin:0;
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    margin-top: 25px;
-  }
-  .post-wrapper{
-    width: 100%;
-  }
+/* @media (min-width: 768px) and (max-width: 1024px) {
   img {
-    width: 80%;
-      margin: 55px 25px 25px 25px
+    margin: 0;
   }
-  h1{
-    font-size: 24px;
-  }
+} */
 
-  /* .post-wrapper {
+/* .post-wrapper {
     display: flex;
     flex-direction: column;
   } */
-  /* h1 {
+/* h1 {
     text-align: center;
   }
   .post-content > p{
     font-size: 14px;
   } */
-   /* .post-wrapper{
+/* .post-wrapper{
     width:100%;
     background-color: lightgray;
   }  */
 
-  
- .post-content{
-    padding:0 20px;
+.post-content {
+  padding: 0 20px;
+}
+
+.post-auth-date {
+  margin: 15px 0;
+}
+.post-content > p {
+  font-size: 14px;
+}
+
+.post-auth-date > p {
+  font-size: 12px;
+}
+
+.back {
+  padding: 6px 18px;
+  background: gray;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+@media (min-width: 1240px) {
+  img {
+    width: 80%;
+    margin: 1.5rem auto;
   }
 
-  .post-auth-date{
-    margin: 15px 0;
+  .post-content {
+    width: 80%;
+    margin: auto;
   }
-  .post-content > p{
-    font-size: 14px;
-  }
-  
-    .post-auth-date > p{
-    font-size: 12px;
-  }
-  
-   .back {
-    padding: 6px 18px;
-    background: gray;
-    margin: 20px;
-    border-radius: 8px;
-  }
- 
-  @media (min-width: 1240px){
-    img{
-      width: 65%;
-    }
-  }
-
- 
-
-
+}
 </style>

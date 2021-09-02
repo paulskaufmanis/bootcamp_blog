@@ -77,10 +77,10 @@ export default {
   data() {
     return {
       // pass data in Dropdown component
-      options: [
-        // { title: "My posts", url: "/my-posts" },
-        // { title: "Log in", url: "/login" },
-      ],
+      // options: [
+      // { title: "My posts", url: "/my-posts" },
+      // { title: "Log in", url: "/login" },
+      // ],
       //pass data in mobile menu
       options1: [
         { title: "Home", url: "/" },
@@ -95,7 +95,7 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
-      auth: true,
+      auth: false,
     };
   },
   created() {
@@ -280,7 +280,7 @@ button {
   top: 50px;
   left: 0;
   z-index: 1;
-  transition: .5s ease all;
+  transition: 0.5s ease all;
 }
 .dropdown-nav > li {
   margin-left: 0;

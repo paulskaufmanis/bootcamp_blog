@@ -4,12 +4,12 @@
       <div class="all-posts-heading">
         <h2>All posts</h2>
         <form class="search-wrap">
-          <!-- <input class="search-box" type="text" name="" id="" /> -->
+          <input class="search-box" type="text" name="" id="" />
 
-          <!-- <div class="search-icon-wrapper">
+          <div class="search-icon-wrapper">
             <div class="search-icon"></div>
-          </div> -->
-          <button @click="changeOrder">Change order</button>
+          </div>
+          <!-- <button @click="changeOrder">Change order</button> -->
         </form>
       </div>
 
