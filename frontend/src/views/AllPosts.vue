@@ -3,14 +3,14 @@
     <div v-if="!$route.params.id" class="posts-block">
       <div class="all-posts-heading">
         <h2>All posts</h2>
-        <form class="search-wrap">
+        <!-- <form class="search-wrap">
           <input class="search-box" type="text" name="" id="" />
 
           <div class="search-icon-wrapper">
             <div class="search-icon"></div>
           </div>
-          <!-- <button @click="changeOrder">Change order</button> -->
-        </form>
+        </form> -->
+        <div class="change-order" @click="changeOrder">Change order</div>
       </div>
 
       <div v-if="descending">
@@ -113,7 +113,9 @@ export default {
       this.$router.push(`/posts/${id}`);
     },
     changeOrder() {
-      this.context.commit("changeOrder", false);
+      // this.context.commit("changeOrder", false);
+      // const id = this.$router.currentRoute._value.params.id;
+      this.$store.commit("deletePost");
 
       // this.descending === true ? (this.descending = false) : true;
       // localStorage.getItem("descending") === "true"
@@ -277,6 +279,11 @@ input {
   width: 8px;
   height: 2px;
   transform: rotate(45deg);
+}
+
+.change-order {
+  cursor: pointer;
+  border-bottom: 2px solid black;
 }
 
 @media (min-width: 768px) {

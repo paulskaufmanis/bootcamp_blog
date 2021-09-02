@@ -11,6 +11,8 @@
         <p>{{ thisPost().text }}</p>
         <p class="back" @click="goBack">Back</p>
       </div>
+      <div @click="editPost">Edit</div>
+      <div @click="deletePost">Delete</div>
     </div>
   </div>
 </template>
@@ -27,9 +29,16 @@ export default {
     goBack() {
       this.$router.go(-1);
     },
+    deletePost() {
+      const id = this.$router.currentRoute._value.params.id;
+      this.$store.commit("deletePost", id);
+    },
   },
   computed: {
     ...mapState(["posts"]),
+  },
+  mounted() {
+    window.scrollTo(0, 0);
   },
 };
 </script>
@@ -55,27 +64,6 @@ h1 {
   font-size: 24px;
 }
 
-/* @media (min-width: 768px) and (max-width: 1024px) {
-  img {
-    margin: 0;
-  }
-} */
-
-/* .post-wrapper {
-    display: flex;
-    flex-direction: column;
-  } */
-/* h1 {
-    text-align: center;
-  }
-  .post-content > p{
-    font-size: 14px;
-  } */
-/* .post-wrapper{
-    width:100%;
-    background-color: lightgray;
-  }  */
-
 .post-content {
   padding: 0 20px;
 }
@@ -94,8 +82,9 @@ h1 {
 .back {
   padding: 6px 18px;
   background: gray;
-  margin: 20px;
+  margin: 20px auto;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 @media (min-width: 1240px) {
