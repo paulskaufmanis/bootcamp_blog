@@ -91,7 +91,7 @@ export default {
       mobileNav: null,
       windowWidth: null,
       hover: false,
-      auth: false,
+      auth: true,
     };
   },
   created() {
@@ -276,7 +276,7 @@ button {
   top: 50px;
   left: 0;
   z-index: 1;
-  transition: 2s ease all;
+  transition: .5s ease all;
 }
 .dropdown-nav > li {
   margin-left: 0;

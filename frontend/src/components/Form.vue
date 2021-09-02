@@ -180,25 +180,11 @@ button {
   text-decoration: none;
 }
 span {
-  /* left: 50px; */
   font-size: 12px;
   text-align: center;
 }
-/* .loader {
-  height: 15px;  
-  border-radius: 10px;
-  margin: 5px 0 20px 0;
-    
-}
-.loader {
-  position: relative;
-  width: 40%;
-  background: rgb(7,246,250);
-  box-shadow: 0 0 20px blue;
-  animation: animate 3s forwards;
-} */
 
-/* Label animation css */
+/* LABEL ANIMATION */
 input::placeholder {
   color: transparent;
 }
@@ -207,9 +193,8 @@ input::placeholder {
 }
 input {
   display: block;
-
-  /* position: relative;   */
 }
+
 label {
   display: block;
   position: absolute;
@@ -232,64 +217,15 @@ input:focus-within {
 
 input:focus ~ label,
 input:not(:placeholder-shown) ~ label {
-  /* input:valid ~ label{ */
-
   transform: translateY(-6em);
   color: red;
   transition: 0.5s;
   background: transparent;
   font-size: 10px;
 }
-/* input:focus, 
-input:valid{
-
-  border: none;
-  border-bottom: 1px solid;
-
-} */
-
-@keyframes animate {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
-}
 
 button {
   padding: 8px 30px;
 }
 
-/* form,
-.reg-fields {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  right: 2rem;
-}
-
-.form-input {
-  justify-content: right;
-}
-
-.submit_btn {
-  margin: 1rem;
-  height: 2rem;
-  text-transform: uppercase;
-  font-size: smaller;
-  font-weight: 600;
-}
-
-.register-link-container {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 2rem 0;
-  font-size: smaller;
-}
-
-.register-link {
-  text-decoration: none;
-} */
 </style>
