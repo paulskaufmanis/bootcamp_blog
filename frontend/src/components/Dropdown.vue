@@ -1,17 +1,20 @@
 <template>
   <div class="dropdown">
     <ul>
-      <li v-for="option in options" :key="option.title">
+      <!-- <li v-for="option in options" :key="option.title">
         <a :href="option.url">{{ option.title }}</a>
+      </li> -->
+      <li v-show="!auth" class="drd-link">
+        <router-link to="/login"> My posts </router-link>
       </li>
+      <li v-show="auth" class="drd-link">
+        <router-link to="/my-posts"> My posts </router-link>
+      </li>
+
       <li v-show="!auth" class="drd-link">
         <router-link to="/login"> Log in </router-link>
       </li>
-      <li v-show="auth" class="drd-link" @click="logoutClick">
-        <!-- <a href="/"> -->
-        Log out
-        <!-- </a> -->
-      </li>
+      <li v-show="auth" class="drd-link" @click="logoutClick">Log out</li>
     </ul>
   </div>
 </template>

@@ -12,40 +12,80 @@
           <button @click="changeOrder">Change order</button>
         </form>
       </div>
-      <div
-        v-for="post in getAll"
-        :key="post.title"
-        class="post-wrapper"
-        @click="openPost(post.id)"
-      >
-        <router-view :to="'/posts/' + post.id">
-          <div
-            class="post-card"
-            :style="{ backgroundImage: `url(${post.image})` }"
-          ></div>
-          <div class="post-content">
-            <div>
-              <h3 class="post-title">{{ post.title }}</h3>
-              <p class="post-text">{{ post.text }}</p>
-            </div>
-            <div class="post-footer">
-              <div class="initials-wrap">
-                <p class="initials">
-                  {{
-                    `${post.created_by.split(" ")[0][0]}${
-                      post.created_by.split(" ")[1][0]
-                    }`
-                  }}
-                </p>
-              </div>
+
+      <div v-if="descending">
+        <div
+          v-for="post in getAll"
+          :key="post.title"
+          class="post-wrapper"
+          @click="openPost(post.id)"
+        >
+          <router-view :to="'/posts/' + post.id">
+            <div
+              class="post-card"
+              :style="{ backgroundImage: `url(${post.image})` }"
+            ></div>
+            <div class="post-content">
               <div>
-                <p class="post-author">{{ post.created_by }}</p>
-                <p class="post-date">{{ post.created_at }}</p>
+                <h3 class="post-title">{{ post.title }}</h3>
+                <p class="post-text">{{ post.text }}</p>
+              </div>
+              <div class="post-footer">
+                <div class="initials-wrap">
+                  <p class="initials">
+                    {{
+                      `${post.created_by.split(" ")[0][0]}${
+                        post.created_by.split(" ")[1][0]
+                      }`
+                    }}
+                  </p>
+                </div>
+                <div>
+                  <p class="post-author">{{ post.created_by }}</p>
+                  <p class="post-date">{{ post.created_at }}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </router-view>
+          </router-view>
+        </div>
       </div>
+
+      <!-- <div v-if="!descending">
+        <div
+          v-for="post in getAllAscending"
+          :key="post.title"
+          class="post-wrapper"
+          @click="openPost(post.id)"
+        >
+          <router-view :to="'/posts/' + post.id">
+            <div
+              class="post-card"
+              :style="{ backgroundImage: `url(${post.image})` }"
+            ></div>
+            <div class="post-content">
+              <div>
+                <h3 class="post-title">{{ post.title }}</h3>
+                <p class="post-text">{{ post.text }}</p>
+              </div>
+              <div class="post-footer">
+                <div class="initials-wrap">
+                  <p class="initials">
+                    {{
+                      `${post.created_by.split(" ")[0][0]}${
+                        post.created_by.split(" ")[1][0]
+                      }`
+                    }}
+                  </p>
+                </div>
+                <div>
+                  <p class="post-author">{{ post.created_by }}</p>
+                  <p class="post-date">{{ post.created_at }}</p>
+                </div>
+              </div>
+            </div>
+          </router-view>
+        </div>
+      </div> -->
     </div>
 
     <div v-if="$route.params.id">
@@ -65,8 +105,7 @@ export default {
       currentUserName: this.$store.getters.getUserNameSurname,
       currentUserInitials: this.$store.getters.getUserInitials,
       initials: "",
-      order: "getAll",
-      posts: this.getAll,
+      descending: this.$store.state.descending,
     };
   },
   methods: {
@@ -74,12 +113,21 @@ export default {
       this.$router.push(`/posts/${id}`);
     },
     changeOrder() {
-      this.order = "getAll";
+      this.context.commit("changeOrder", false);
+
+      // this.descending === true ? (this.descending = false) : true;
+      // localStorage.getItem("descending") === "true"
+      //   ? localStorage.seItem("descending", "false")
+      //   : localStorage.seItem("descending", "true");
+      // window.localStorage.seItem("descending", "false");
+
+      // this.$router.go();
     },
   },
   components: { Post },
   computed: {
     ...mapGetters(["getAll"]),
+    ...mapGetters(["getAllAscending"]),
     setInitials(post) {
       return `${post.created_by}`;
       // return "pk";
@@ -137,6 +185,7 @@ h2 {
 .post-card {
   height: 9.5rem;
   background-size: cover;
+  background-position: top center;
 }
 .post-title {
   text-align: start;
