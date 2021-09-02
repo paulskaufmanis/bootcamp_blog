@@ -26,12 +26,24 @@ class DbStorage {
     // console.log(rows);
     return rows;
   }
+
+  async addPost(data) {
+    await pool
+      .promise()
+      .execute(
+        `INSERT INTO ${this._table}  (title, text, image, created_by, created_at) VALUES (?, ?, ?, ?, ?)`,
+        [data.title, data.text, data.image, data.created_by, data.created_at]
+      );
+    return Object.assign({}, data);
+  }
+
   async getById(id) {
     const [rows] = await pool
       .promise()
       .execute(`SELECT * FROM ${this._table} WHERE id = ?`, [id]);
     return rows[0];
   }
+
   async createUser(data) {
     const [meta] = await pool
       .promise()

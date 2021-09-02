@@ -31,20 +31,28 @@ class PostsRepository {
     return this.data.filter((post) => post.created_by === username);
   }
 
-  getSinglePost(id) {
+  async getSinglePost(id) {
+    return DbStorage.getSinglePost(id);
+  }
+
+  async getSinglePost(id) {
+    const recievedData = await this.data;
     let found;
-    this.data.map((item) => (item.id == id ? (found = item) : "not found"));
+    recievedData.map((item) => (item.id == id ? (found = item) : "not found"));
     return found;
   }
 
-  addPost(data) {
+  async addPost(data) {
     // model used to validate and parse data
 
     const postModel = new Post(data);
     const dataToStore = postModel.getData();
     const id = Date.now();
     const storedData = Object.assign({}, dataToStore, { id });
-    this.data.push(storedData);
+    // this.data.push(storedData);
+    const recievedData = new DbStorage("posts");
+    recievedData.addPost(storedData);
+    this.getAllPosts();
     return postModel.getData();
   }
 

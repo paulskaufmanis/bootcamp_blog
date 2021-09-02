@@ -14,25 +14,28 @@ export default createStore({
     getLastThree(state) {
       return state.posts.slice(-3).reverse();
     },
+    getAllPosts(state) {
+      return state.posts.reverse();
+    },
     getUsersPosts(state) {
       const user = this.user;
       return state.posts.filter((post) => post.author === user.username);
     },
-    getUserNameSurname(state) {
-      console.log("from getters", state.user.name, state.user.surname);
+    // getUserNameSurname(state) {
+    //   console.log("from getters", state.user.name, state.user.surname);
 
-      return `${state.user.name} ${state.user.surname}`;
-    },
-    getUserUsername(state) {
-      console.log("from getters Username", state.user.username);
+    //   return `${state.user.name} ${state.user.surname}`;
+    // },
+    // getUserUsername(state) {
+    //   console.log("from getters Username", state.user.username);
 
-      return state.user.username;
-    },
-    getUserInitials(state) {
-      console.log("from getters Initials", state.user.initials);
+    //   return state.user.username;
+    // },
+    // getUserInitials(state) {
+    //   console.log("from getters Initials", state.user.initials);
 
-      return state.user.initials;
-    },
+    //   return state.user.initials;
+    // },
   },
   mutations: {
     fillPosts(state, { posts }) {

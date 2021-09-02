@@ -10,6 +10,8 @@ server.use(cors({ origin: "http://localhost:8080" }));
 server.use("/api", apiRouter);
 
 server.get("/posts", apiRouter);
+server.get("/users", apiRouter);
+server.post("/users", apiRouter);
 
 server.post("/login", apiRouter);
 

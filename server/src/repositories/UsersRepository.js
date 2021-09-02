@@ -8,7 +8,7 @@ class UsersRepository {
 
   constructor() {
     this.data = fileData;
-    // this.data = new DbStorage("users");
+    // this.data = new DbStorage("users").getAll();
   }
 
   getAllUsers() {
@@ -19,7 +19,8 @@ class UsersRepository {
   }
 
   async findUser(data) {
-    const user = this.data.find((user) => user.username === data);
+    const recievedData = await this.data;
+    const user = await recievedData.find((user) => user.username === data);
     return user;
   }
 
