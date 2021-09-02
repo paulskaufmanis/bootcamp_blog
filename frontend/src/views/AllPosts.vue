@@ -124,10 +124,10 @@ h2 {
 
 .post-wrapper:hover {
   transform: scale(1.05);
-  transition: 0.5s ease all;
+  transition: 0.3s ease all;
   box-shadow: 0 2rem 5rem 0 rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  border: 1px solid rgba(250, 250, 250, 0.5);
+
 }
 .post-card {
   height: 9.5rem;
