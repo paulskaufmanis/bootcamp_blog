@@ -276,7 +276,10 @@ button {
 
 .dropdown-nav > li a {
   color: black;
+  display: block;
+  width: 100%;
 }
+
 .add-wrapper {
   height: 32px;
   width: 32px;

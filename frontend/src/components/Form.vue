@@ -59,8 +59,8 @@
       </div>
       
       <!-- LOADING ANIMATION -->
-      <span>Loading...</span>
-      <div class="loader"></div>
+      <!-- <span>Loading...</span>
+      <div class="loader"></div> -->
 
     </form>
 
@@ -201,7 +201,7 @@ span {
 
 /* Label animation css */
 input::placeholder {
-  color: white;
+  color: transparent;
 }
 input {
     display: block;
@@ -216,27 +216,43 @@ label {
   pointer-events: none;
   color: #999;
   transition: .5s;
-  margin-top: -43px;
-  margin-left: 20px;
+  transform: translateY(-2.7em);
+  transform-origin: 0 0;
+  transition: all .3s;
+  margin-left: 22px; 
 }
-input:focus ~ label, 
-input:valid ~ label{
+input:focus{
+    border-bottom: 1px solid red;
 
-  margin-top: -55px;
-  margin-left: 22px;
+}
+/* input + label {
+  transform:translateY(-2.5em);
+} */
+
+input:focus-within {
+  transform:scale(1.1,1.1);
+  transition: 0.3s;
+}
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label
+{
+/* input:valid ~ label{ */
+
+  transform:translateY(-,5em);
   color: red;
   transition: .5s;
   background: transparent;
   font-size: 10px;
 
 }
-input:focus, 
+/* input:focus, 
 input:valid{
 
   border: none;
   border-bottom: 1px solid;
 
-}
+} */
 
 
 
