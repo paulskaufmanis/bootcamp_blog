@@ -36,39 +36,70 @@ export default {
 </script>
 
 <style scoped>
-  .single-post{
+
+  .single-post, {
+    margin:0;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
+    margin-top: 25px;
   }
   .post-wrapper{
-    width:100%;
-    background-color: lightgray;
+    width: 100%;
+  }
+  img {
+    width: 80%;
+      margin: 55px 25px 25px 25px
+  }
+  h1{
+    font-size: 24px;
   }
 
-  img {
-    height:50vh;
+  /* .post-wrapper {
+    display: flex;
+    flex-direction: column;
+  } */
+  /* h1 {
+    text-align: center;
   }
-  .post-content{
-    padding:20px;
+  .post-content > p{
+    font-size: 14px;
+  } */
+   /* .post-wrapper{
+    width:100%;
+    background-color: lightgray;
+  }  */
+
+  
+ .post-content{
+    padding:0 20px;
   }
+
   .post-auth-date{
     margin: 15px 0;
   }
-  .post-auth-date > p{
+  .post-content > p{
+    font-size: 14px;
+  }
+  
+    .post-auth-date > p{
     font-size: 12px;
   }
-  .back {
+  
+   .back {
     padding: 6px 18px;
     background: gray;
     margin: 20px;
     border-radius: 8px;
   }
-
-  @media (max-width: 375px)
-  and (min-width: 1024px){
-    .post-wrapper{
-      width: 86%;
+ 
+  @media (min-width: 1240px){
+    img{
+      width: 65%;
     }
   }
+
+ 
 
 
 </style>
