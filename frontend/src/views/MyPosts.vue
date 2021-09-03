@@ -45,7 +45,9 @@
       </div>
       <div
         v-show="
-          !getAll.includes(getAll.find((post) => post.created_by === currentUser))
+          !getAll.includes(
+            getAll.find((post) => post.created_by === currentUser)
+          )
         "
         class="no-posts"
       >
@@ -221,7 +223,7 @@ input {
 }
 
 .no-posts {
-  margin: 3rem;
+  margin: 3rem 0;
 }
 
 .change-order {

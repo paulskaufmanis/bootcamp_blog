@@ -16,7 +16,7 @@
             <!-- <div class=
             'hero-welcome' v-show="auth"><p>Hello,<span>Iveta Staune!</span></p></div> -->
             <div class=
-            'hero-welcome' v-show="auth"><p>Hello,<span>{{ name }}!</span></p></div>
+            'hero-welcome' v-show="auth"><p>Hello, <span>{{ name }}!</span></p></div>
           </li>
 
           <li v-show="auth" class="list-element">
