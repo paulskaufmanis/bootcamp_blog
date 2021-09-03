@@ -1,7 +1,11 @@
 <template>
-  <Header1 />
+  <div>
+    <Header1 />
+  </div>
   <div class="content-container">
     <router-view />
+  </div>
+  <div>
     <Footer />
   </div>
 </template>
@@ -24,7 +28,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 #app {
   font-family: "Poppins", sans-serif;
   /* font-family:'Open Sans', sans-serif;  */
@@ -42,6 +46,7 @@ export default {
 }
 .content-container {
   flex-grow: 1;
+  margin-bottom: 5rem;
   /* min-height: 100vh; */
 }
 
@@ -52,7 +57,10 @@ body {
   background-attachment: fixed;
 
   background-size: cover;
-  position: relative;
   min-height: 100vh;
+}
+
+html {
+  position: relative;
 }
 </style>

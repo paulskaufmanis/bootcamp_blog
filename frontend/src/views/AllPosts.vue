@@ -156,7 +156,7 @@ export default {
 .all-posts {
   display: flex;
   justify-content: center;
-  margin: 10px;
+  margin: 10px 10px 3rem 10px;
   background: lightgray;
   opacity: 0.92;
 }

@@ -360,9 +360,6 @@ button {
 
 .hidden {
   flex: 1;
-}
-
-.hidden > p {
   padding: 0 0 15px 0;
 }
 

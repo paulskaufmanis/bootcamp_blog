@@ -11,8 +11,8 @@
         <p>{{ thisPost().text }}</p>
         <p class="back" @click="goBack">Back</p>
       </div>
-      <div @click="editPost">Edit</div>
-      <div @click="deletePost">Delete</div>
+      <!-- <div @click="editPost">Edit</div>
+      <div @click="deletePost">Delete</div> -->
     </div>
   </div>
 </template>
@@ -44,9 +44,9 @@ export default {
 </script>
 
 <style scoped>
-.single-post {
+/* .single-post {
   margin-bottom: 5rem;
-}
+} */
 .post-wrapper {
   display: flex;
   flex-direction: column;

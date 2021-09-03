@@ -59,7 +59,7 @@ export default {
       this.newPost.text = "";
       this.newPost.image = "";
       this.newPost.created_by = "";
-      this.$router.push("all-posts");
+      this.$router.push("/posts");
     },
   },
 };
