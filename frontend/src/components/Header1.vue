@@ -12,22 +12,21 @@
           <li class="list-element">
             <router-link class="link" to="/posts">all posts</router-link>
           </li>
-          <li class="hello-hero hidden">
-            <div v-show="auth">
-              <p>
-                Hello,<span>{{ name }}!</span>
-              </p>
-            </div>
+          <li class="hidden">
+            <div class=
+            'hero-welcome' v-show="auth"><p>Hello,<span>Iveta Staune!</span></p></div>
+            <!-- <div v-show="auth"><p>Hello,<span>{{ name }}!</span></p></div> -->
           </li>
 
           <li v-show="auth" class="list-element">
             <router-link to="/add-post">
               <div class="add-wrapper">
-                <div class="add"></div>
+              <div class="add">
+              </div>
               </div>
             </router-link>
           </li>
-
+          
           <li v-show="!auth" class="list-element">
             <router-link to="/login"
               ><div class="add-wrapper"><div class="add"></div></div
@@ -51,6 +50,7 @@
           <li v-show="!auth" class="drd-link">
             <router-link to="/login"> My posts </router-link>
           </li>
+          
           <li v-show="auth" class="drd-link">
             <router-link to="/my-posts"> My posts </router-link>
           </li>
@@ -58,7 +58,10 @@
           <li v-show="!auth" class="drd-link">
             <router-link to="/login"> Log in </router-link>
           </li>
-          <li v-show="auth" class="drd-link" @click="logoutClick">Log out</li>
+
+          <li v-show="auth" class="drd-link" @click="logoutClick">
+          <router-link to="/">Log out</router-link></li>
+          
         </ul>
       </transition>
     </div>
@@ -105,7 +108,7 @@ export default {
       windowWidth: null,
       hover: false,
       name: localStorage.getItem("author"),
-      auth: false,
+      auth: true,
     };
   },
   mounted() {
@@ -156,17 +159,18 @@ export default {
 </script>
 
 <style scoped>
-.hello-hero {
+.hero-welcome{
   display: flex;
   justify-content: center;
-  align-items: start-end;
+  padding-bottom: 10px;
 }
+.hidden > p {
+  padding: 0 0 15px 0;
+  font-size: 20px;
+}
+
 span {
-  font-family: "Architects Daughter", cursive;
-  font-size: 30px;
-  padding: 0 15px 0 15px;
-  color: rgba(134, 229, 244, 1);
-  font-weight: 500;
+  font-size: 20px;
 }
 
 .header-wrapper {
@@ -197,7 +201,7 @@ span {
 
 .navigation-wrapper {
   display: flex;
-  padding: 25px 0;
+  padding: 20px 0;
   align-items: center;
   width: 100%;
   margin: 0 auto;
@@ -360,7 +364,6 @@ button {
 
 .hidden {
   flex: 1;
-  padding: 0 0 15px 0;
 }
 
 a {
