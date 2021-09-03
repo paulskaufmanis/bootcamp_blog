@@ -13,9 +13,10 @@
             <router-link class="link" to="/posts">all posts</router-link>
           </li>
           <li class="hidden">
+            <!-- <div class=
+            'hero-welcome' v-show="auth"><p>Hello,<span>Iveta Staune!</span></p></div> -->
             <div class=
-            'hero-welcome' v-show="auth"><p>Hello,<span>Iveta Staune!</span></p></div>
-            <!-- <div v-show="auth"><p>Hello,<span>{{ name }}!</span></p></div> -->
+            'hero-welcome' v-show="auth"><p>Hello,<span>{{ name }}!</span></p></div>
           </li>
 
           <li v-show="auth" class="list-element">
@@ -108,7 +109,7 @@ export default {
       windowWidth: null,
       hover: false,
       name: localStorage.getItem("author"),
-      auth: true,
+      auth: false,
     };
   },
   mounted() {
