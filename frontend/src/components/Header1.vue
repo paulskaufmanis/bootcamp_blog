@@ -24,7 +24,7 @@
               </div>
             </router-link>
           </li>
-          
+
           <li v-show="!auth" class="list-element">
             <router-link to="/login"
               ><div class="add-wrapper"><div class="add"></div></div
@@ -102,7 +102,7 @@ export default {
       windowWidth: null,
       hover: false,
       name: localStorage.getItem("author"),
-      auth: false,
+      auth: true,
     };
   },
   mounted() {
