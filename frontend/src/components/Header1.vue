@@ -13,18 +13,18 @@
             <router-link class="link" to="/posts">all posts</router-link>
           </li>
           <li class="hidden">
-            <div v-show="auth">Hi, {{ name }}</div>
-          </li>
-
-          <li class="hidden">
-            <div class="hello-hero">Hello, <span>Iveta Staune!</span></div>
+            <div v-show="auth"><p>Hello,<span>{{ name }}!</span></p></div>
           </li>
 
           <li v-show="auth" class="list-element">
-            <router-link to="/add-post"
-              ><div class="add-wrapper"><div class="add"></div></div
-            ></router-link>
+            <router-link to="/add-post">
+              <div class="add-wrapper">
+              <div class="add">
+              </div>
+              </div>
+            </router-link>
           </li>
+          
           <li v-show="!auth" class="list-element">
             <router-link to="/login"
               ><div class="add-wrapper"><div class="add"></div></div
@@ -154,12 +154,16 @@ export default {
 
 <style scoped>
 .hello-hero{
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: start-end;
 }
 span {
-font-family: 'Architects Daughter', cursive;
-font-size: 30px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 30px;
+  padding: 0 15px 0 15px;
+  color: rgba(134, 229, 244, 1);
+  font-weight: 500;
 }
 
 .header-wrapper {
@@ -192,7 +196,6 @@ font-size: 30px;
   display: flex;
   padding: 25px 0;
   align-items: center;
-  transition: 0.5s ease all;
   width: 100%;
   margin: 0 auto;
 }
@@ -213,7 +216,7 @@ font-size: 30px;
 }
 .link {
   font-size: 0.8rem;
-  transition: 0.5s ease all;
+  transition: 0.2s ease all;
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
 }
@@ -270,11 +273,11 @@ font-size: 30px;
   height: 2px;
   background: white;
   margin: 6px 0;
-  transition: 0.4s;
+  transition: 0.2s;
 }
 .icon:hover {
   cursor: pointer;
-  transition: 0.8s ease all;
+  transition: 0.2s ease all;
 }
 .icon-active {
   transform: rotate(180deg);
@@ -300,7 +303,7 @@ button {
   top: 50px;
   left: 0;
   z-index: 1;
-  transition: 0.5s ease all;
+  transition: 0.2s ease all;
 }
 .dropdown-nav > li {
   margin-left: 0;
