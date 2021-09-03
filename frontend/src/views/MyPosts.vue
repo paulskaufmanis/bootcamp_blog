@@ -3,15 +3,16 @@
     <div v-if="!$route.params.id" class="posts-block">
       <div class="all-posts-heading">
         <h2>My posts</h2>
-        <form class="search-wrap">
+        <!-- <form class="search-wrap">
           <input class="search-box" type="text" name="" id="" />
 
           <div class="search-icon-wrapper">
             <div class="search-icon"></div>
           </div>
-        </form>
+        </form> -->
+        <div class="change-order" @click="changeOrder">Change order</div>
       </div>
-      <div v-for="post in posts" :key="post.title" @click="openPost(post.id)">
+      <div v-for="post in getAll" :key="post.title" @click="openPost(post.id)">
         <div v-if="post.created_by === currentUser" class="post-wrapper">
           <router-view :to="'/posts/' + post.id">
             <div
@@ -42,6 +43,14 @@
           </router-view>
         </div>
       </div>
+      <div
+        v-show="
+          !getAll.includes(getAll.find((post) => post.created_by === currentUser))
+        "
+        class="no-posts"
+      >
+        Add some posts to display them here!
+      </div>
     </div>
 
     <div v-if="$route.params.id">
@@ -51,7 +60,7 @@
 </template>
 
 <script >
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import Post from "../components/Post.vue";
 
 export default {
@@ -67,10 +76,13 @@ export default {
     openPost(id) {
       this.$router.push(`/posts/${id}`);
     },
+    changeOrder() {
+      this.$store.commit("deletePost");
+    },
   },
   components: { Post },
   computed: {
-    ...mapState(["posts"]),
+    ...mapGetters(["getAll"]),
   },
   findPostbyId() {
     const post = this.posts.find(({ id }) => this.$route.params.id == id);
@@ -206,6 +218,15 @@ input {
   width: 8px;
   height: 2px;
   transform: rotate(45deg);
+}
+
+.no-posts {
+  margin: 3rem;
+}
+
+.change-order {
+  cursor: pointer;
+  border-bottom: 2px solid black;
 }
 
 @media (min-width: 768px) {
