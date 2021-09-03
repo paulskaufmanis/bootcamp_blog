@@ -146,7 +146,7 @@ export default {
       this.$router.push("/");
       setTimeout(() => {
         this.$router.go();
-      }, 1000);
+      }, 300);
     },
   },
 };

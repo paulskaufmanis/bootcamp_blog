@@ -1,10 +1,9 @@
 <template>
-    <Header1 />
-    <div class="content-container">
+  <Header1 />
+  <div class="content-container">
     <router-view />
     <Footer />
-    </div>
-  
+  </div>
 </template>
 
 <script>
@@ -41,10 +40,9 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
-.content-container{
-  flex-grow:1;
+.content-container {
+  flex-grow: 1;
   /* min-height: 100vh; */
-
 }
 
 body {
@@ -56,8 +54,5 @@ body {
   background-size: cover;
   position: relative;
   min-height: 100vh;
-
-  
-  
 }
 </style>
