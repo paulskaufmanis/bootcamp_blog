@@ -12,19 +12,22 @@
           <li class="list-element">
             <router-link class="link" to="/posts">all posts</router-link>
           </li>
-          <li class="hidden">
-            <div v-show="auth"><p>Hello,<span>{{ name }}!</span></p></div>
+          <li class="hello-hero hidden">
+            <div v-show="auth">
+              <p>
+                Hello,<span>{{ name }}!</span>
+              </p>
+            </div>
           </li>
 
           <li v-show="auth" class="list-element">
             <router-link to="/add-post">
               <div class="add-wrapper">
-              <div class="add">
-              </div>
+                <div class="add"></div>
               </div>
             </router-link>
           </li>
-          
+
           <li v-show="!auth" class="list-element">
             <router-link to="/login"
               ><div class="add-wrapper"><div class="add"></div></div
@@ -153,13 +156,13 @@ export default {
 </script>
 
 <style scoped>
-.hello-hero{
+.hello-hero {
   display: flex;
   justify-content: center;
   align-items: start-end;
 }
 span {
-  font-family: 'Architects Daughter', cursive;
+  font-family: "Architects Daughter", cursive;
   font-size: 30px;
   padding: 0 15px 0 15px;
   color: rgba(134, 229, 244, 1);
@@ -357,6 +360,10 @@ button {
 
 .hidden {
   flex: 1;
+}
+
+.hidden > p {
+  padding: 0 0 15px 0;
 }
 
 a {
