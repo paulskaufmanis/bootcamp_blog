@@ -92,12 +92,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 60px 0 214px 0;
+  margin: 5% auto auto auto;
 }
 
 @media (min-width: 768px) {
   .login-page {
-    margin: 139px;
     transition: 0.3s ease all;
   }
 }
